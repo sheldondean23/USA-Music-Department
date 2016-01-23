@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BandStudentDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="InterestAreas">
+          <Key>
+            <PropertyRef Name="InterestAreaID" />
+          </Key>
+          <Property Name="InterestAreaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InterestAreaName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'C:\USERS\SHELDON\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\USA-MUSIC-DEPARTMENT\USA MUSIC DEPARTMENT\APP_DATA\BANDSTUDENTDB.MDF.dbo.InterestAreatoStudents' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="InterestAreatoStudents">
+          <Property Name="InterestAreaID" Type="int" />
+          <Property Name="StudentID" Type="int" />
+          <Property Name="InterestNotes" Type="varchar" MaxLength="1000" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\SHELDON\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\USA-MUSIC-DEPARTMENT\USA MUSIC DEPARTMENT\APP_DATA\BANDSTUDENTDB.MDF.dbo.StudentContacts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="StudentContacts">
+          <Key>
+            <PropertyRef Name="StudentContactId" />
+          </Key>
+          <Property Name="StudentContactId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentId" Type="int" />
+          <Property Name="ContactedBy" Type="int" />
+          <Property Name="ContactedDate" Type="date" />
+          <Property Name="ContactedMedium" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="StudentID" />
+          </Key>
+          <Property Name="StudentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentFirstName" Type="varchar" MaxLength="50" />
+          <Property Name="StudentLastName" Type="varchar" MaxLength="50" />
+          <Property Name="StudentAddress" Type="varchar" MaxLength="200" />
+          <Property Name="StudentCity" Type="varchar" MaxLength="100" />
+          <Property Name="StudentState" Type="varchar" MaxLength="50" />
+          <Property Name="StudentZipCode" Type="int" />
+          <Property Name="StudentPhone" Type="varchar" MaxLength="20" />
+          <Property Name="PerformanceMedium" Type="varchar" MaxLength="100" />
+          <Property Name="GraduationYear" Type="int" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="PasswordHash" Type="varchar" MaxLength="50" />
+          <Property Name="UserFirstName" Type="varchar" MaxLength="50" />
+          <Property Name="UserMiddleName" Type="varchar" MaxLength="50" />
+          <Property Name="UserLastName" Type="varchar" MaxLength="100" />
+          <Property Name="IsAdmin" Type="bit" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+error 6004: The table 'C:\USERS\SHELDON\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\USA-MUSIC-DEPARTMENT\USA MUSIC DEPARTMENT\APP_DATA\BANDSTUDENTDB.MDF.dbo.InterestAreatoStudents' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_InterestAreatoStudentstoInterestArea" />-->
+        <!--Errors Found During Generation:
+error 6004: The table 'C:\USERS\SHELDON\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\USA-MUSIC-DEPARTMENT\USA MUSIC DEPARTMENT\APP_DATA\BANDSTUDENTDB.MDF.dbo.InterestAreatoStudents' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_InterestAreatoStudentstoStudents" />-->
+        <Association Name="FK_StudentContactstoStudents">
+          <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+          <End Role="StudentContacts" Type="Self.StudentContacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="StudentContacts">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentContactstoUsers">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="StudentContacts" Type="Self.StudentContacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="StudentContacts">
+              <PropertyRef Name="ContactedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BandStudentDBModelStoreContainer">
+          <EntitySet Name="InterestAreas" EntityType="Self.InterestAreas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentContacts" EntityType="Self.StudentContacts" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [StudentContacts].[StudentContactId] AS [StudentContactId], 
+    [StudentContacts].[StudentId] AS [StudentId], 
+    [StudentContacts].[ContactedBy] AS [ContactedBy], 
+    [StudentContacts].[ContactedDate] AS [ContactedDate], 
+    [StudentContacts].[ContactedMedium] AS [ContactedMedium]
+    FROM [dbo].[StudentContacts] AS [StudentContacts]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_StudentContactstoStudents" Association="Self.FK_StudentContactstoStudents">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="StudentContacts" EntitySet="StudentContacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentContactstoUsers" Association="Self.FK_StudentContactstoUsers">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="StudentContacts" EntitySet="StudentContacts" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BandStudentDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="InterestArea">
+          <Key>
+            <PropertyRef Name="InterestAreaID" />
+          </Key>
+          <Property Name="InterestAreaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InterestAreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudentID" />
+          </Key>
+          <Property Name="StudentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StudentLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StudentAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="StudentCity" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="StudentState" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StudentZipCode" Type="Int32" />
+          <Property Name="StudentPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PerformanceMedium" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="GraduationYear" Type="Int32" />
+          <NavigationProperty Name="StudentContacts" Relationship="Self.FK_StudentContactstoStudents" FromRole="Students" ToRole="StudentContacts" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserMiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserLastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsAdmin" Type="Boolean" />
+          <Property Name="Active" Type="Boolean" />
+          <NavigationProperty Name="StudentContacts" Relationship="Self.FK_StudentContactstoUsers" FromRole="Users" ToRole="StudentContacts" />
+        </EntityType>
+        <EntityType Name="StudentContact">
+          <Key>
+            <PropertyRef Name="StudentContactId" />
+          </Key>
+          <Property Name="StudentContactId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentId" Type="Int32" />
+          <Property Name="ContactedBy" Type="Int32" />
+          <Property Name="ContactedDate" Type="DateTime" Precision="0" />
+          <Property Name="ContactedMedium" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_StudentContactstoStudents" FromRole="StudentContacts" ToRole="Students" />
+          <NavigationProperty Name="User" Relationship="Self.FK_StudentContactstoUsers" FromRole="StudentContacts" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK_StudentContactstoStudents">
+          <End Role="Students" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="StudentContacts" Type="Self.StudentContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="StudentContacts">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentContactstoUsers">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="StudentContacts" Type="Self.StudentContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="StudentContacts">
+              <PropertyRef Name="ContactedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BandStudentDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="InterestAreas" EntityType="Self.InterestArea" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="StudentContacts" EntityType="Self.StudentContact" />
+          <AssociationSet Name="FK_StudentContactstoStudents" Association="Self.FK_StudentContactstoStudents">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="StudentContacts" EntitySet="StudentContacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentContactstoUsers" Association="Self.FK_StudentContactstoUsers">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="StudentContacts" EntitySet="StudentContacts" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BandStudentDBModelStoreContainer" CdmEntityContainer="BandStudentDBEntities">
+          <EntitySetMapping Name="InterestAreas">
+            <EntityTypeMapping TypeName="BandStudentDBModel.InterestArea">
+              <MappingFragment StoreEntitySet="InterestAreas">
+                <ScalarProperty Name="InterestAreaID" ColumnName="InterestAreaID" />
+                <ScalarProperty Name="InterestAreaName" ColumnName="InterestAreaName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="BandStudentDBModel.Student">
+              <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="StudentFirstName" ColumnName="StudentFirstName" />
+                <ScalarProperty Name="StudentLastName" ColumnName="StudentLastName" />
+                <ScalarProperty Name="StudentAddress" ColumnName="StudentAddress" />
+                <ScalarProperty Name="StudentCity" ColumnName="StudentCity" />
+                <ScalarProperty Name="StudentState" ColumnName="StudentState" />
+                <ScalarProperty Name="StudentZipCode" ColumnName="StudentZipCode" />
+                <ScalarProperty Name="StudentPhone" ColumnName="StudentPhone" />
+                <ScalarProperty Name="PerformanceMedium" ColumnName="PerformanceMedium" />
+                <ScalarProperty Name="GraduationYear" ColumnName="GraduationYear" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="BandStudentDBModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="UserFirstName" ColumnName="UserFirstName" />
+                <ScalarProperty Name="UserMiddleName" ColumnName="UserMiddleName" />
+                <ScalarProperty Name="UserLastName" ColumnName="UserLastName" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentContacts">
+            <EntityTypeMapping TypeName="BandStudentDBModel.StudentContact">
+              <MappingFragment StoreEntitySet="StudentContacts">
+                <ScalarProperty Name="StudentContactId" ColumnName="StudentContactId" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="ContactedBy" ColumnName="ContactedBy" />
+                <ScalarProperty Name="ContactedDate" ColumnName="ContactedDate" />
+                <ScalarProperty Name="ContactedMedium" ColumnName="ContactedMedium" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
