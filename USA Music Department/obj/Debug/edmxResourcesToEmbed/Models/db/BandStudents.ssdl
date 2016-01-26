@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BandStudentDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="InterestAreas">
+    <Key>
+      <PropertyRef Name="InterestAreaID" />
+    </Key>
+    <Property Name="InterestAreaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InterestAreaName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'C:\USERS\SHELDON\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\USA-MUSIC-DEPARTMENT\USA MUSIC DEPARTMENT\APP_DATA\BANDSTUDENTDB.MDF.dbo.InterestAreatoStudents' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="InterestAreatoStudents">
+          <Property Name="InterestAreaID" Type="int" />
+          <Property Name="StudentID" Type="int" />
+          <Property Name="InterestNotes" Type="varchar" MaxLength="1000" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\SHELDON\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\USA-MUSIC-DEPARTMENT\USA MUSIC DEPARTMENT\APP_DATA\BANDSTUDENTDB.MDF.dbo.StudentContacts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="StudentContacts">
+    <Key>
+      <PropertyRef Name="StudentContactId" />
+    </Key>
+    <Property Name="StudentContactId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentId" Type="int" />
+    <Property Name="ContactedBy" Type="int" />
+    <Property Name="ContactedDate" Type="date" />
+    <Property Name="ContactedMedium" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentFirstName" Type="varchar" MaxLength="50" />
+    <Property Name="StudentLastName" Type="varchar" MaxLength="50" />
+    <Property Name="StudentAddress" Type="varchar" MaxLength="200" />
+    <Property Name="StudentCity" Type="varchar" MaxLength="100" />
+    <Property Name="StudentState" Type="varchar" MaxLength="50" />
+    <Property Name="StudentZipCode" Type="int" />
+    <Property Name="StudentPhone" Type="varchar" MaxLength="20" />
+    <Property Name="PerformanceMedium" Type="varchar" MaxLength="100" />
+    <Property Name="GraduationYear" Type="int" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="PasswordHash" Type="varchar" MaxLength="50" />
+    <Property Name="UserFirstName" Type="varchar" MaxLength="50" />
+    <Property Name="UserMiddleName" Type="varchar" MaxLength="50" />
+    <Property Name="UserLastName" Type="varchar" MaxLength="100" />
+    <Property Name="IsAdmin" Type="bit" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+error 6004: The table 'C:\USERS\SHELDON\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\USA-MUSIC-DEPARTMENT\USA MUSIC DEPARTMENT\APP_DATA\BANDSTUDENTDB.MDF.dbo.InterestAreatoStudents' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_InterestAreatoStudentstoInterestArea" />-->
+  <!--Errors Found During Generation:
+error 6004: The table 'C:\USERS\SHELDON\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\USA-MUSIC-DEPARTMENT\USA MUSIC DEPARTMENT\APP_DATA\BANDSTUDENTDB.MDF.dbo.InterestAreatoStudents' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_InterestAreatoStudentstoStudents" />-->
+  <Association Name="FK_StudentContactstoStudents">
+    <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+    <End Role="StudentContacts" Type="Self.StudentContacts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="StudentContacts">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentContactstoUsers">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="StudentContacts" Type="Self.StudentContacts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="StudentContacts">
+        <PropertyRef Name="ContactedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BandStudentDBModelStoreContainer">
+    <EntitySet Name="InterestAreas" EntityType="Self.InterestAreas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentContacts" EntityType="Self.StudentContacts" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [StudentContacts].[StudentContactId] AS [StudentContactId], 
+    [StudentContacts].[StudentId] AS [StudentId], 
+    [StudentContacts].[ContactedBy] AS [ContactedBy], 
+    [StudentContacts].[ContactedDate] AS [ContactedDate], 
+    [StudentContacts].[ContactedMedium] AS [ContactedMedium]
+    FROM [dbo].[StudentContacts] AS [StudentContacts]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_StudentContactstoStudents" Association="Self.FK_StudentContactstoStudents">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="StudentContacts" EntitySet="StudentContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentContactstoUsers" Association="Self.FK_StudentContactstoUsers">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="StudentContacts" EntitySet="StudentContacts" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

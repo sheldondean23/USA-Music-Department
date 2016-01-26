@@ -52,6 +52,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -170,10 +172,41 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\StudendFormController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\db\BandStudents.Context.cs" />
+    <Compile Include="Models\db\BandStudents.Context1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BandStudents.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\db\BandStudents.cs" />
+    <Compile Include="Models\db\BandStudents.Designer.cs" />
+    <Compile Include="Models\db\BandStudents1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BandStudents.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\db\BandStudents1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BandStudents.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\db\InterestArea.cs">
+      <DependentUpon>BandStudents.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\db\Student.cs">
+      <DependentUpon>BandStudents.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\db\StudentContact.cs">
+      <DependentUpon>BandStudents.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\db\User.cs">
+      <DependentUpon>BandStudents.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -188,8 +221,21 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\db\BandStudents.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>BandStudents.Context1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\db\BandStudents.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>BandStudents1.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\db\BandStudents.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BandStudents1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\db\BandStudents.edmx.diagram" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -236,8 +282,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\StudendForm\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -246,6 +295,7 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

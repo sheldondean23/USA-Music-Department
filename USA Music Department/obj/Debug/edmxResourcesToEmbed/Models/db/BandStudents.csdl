@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BandStudentDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="InterestArea">
+    <Key>
+      <PropertyRef Name="InterestAreaID" />
+    </Key>
+    <Property Name="InterestAreaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InterestAreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StudentLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StudentAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="StudentCity" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="StudentState" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StudentZipCode" Type="Int32" />
+    <Property Name="StudentPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PerformanceMedium" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="GraduationYear" Type="Int32" />
+    <NavigationProperty Name="StudentContacts" Relationship="Self.FK_StudentContactstoStudents" FromRole="Students" ToRole="StudentContacts" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserMiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserLastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsAdmin" Type="Boolean" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="StudentContacts" Relationship="Self.FK_StudentContactstoUsers" FromRole="Users" ToRole="StudentContacts" />
+  </EntityType>
+  <EntityType Name="StudentContact">
+    <Key>
+      <PropertyRef Name="StudentContactId" />
+    </Key>
+    <Property Name="StudentContactId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentId" Type="Int32" />
+    <Property Name="ContactedBy" Type="Int32" />
+    <Property Name="ContactedDate" Type="DateTime" Precision="0" />
+    <Property Name="ContactedMedium" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_StudentContactstoStudents" FromRole="StudentContacts" ToRole="Students" />
+    <NavigationProperty Name="User" Relationship="Self.FK_StudentContactstoUsers" FromRole="StudentContacts" ToRole="Users" />
+  </EntityType>
+  <Association Name="FK_StudentContactstoStudents">
+    <End Role="Students" Type="Self.Student" Multiplicity="0..1" />
+    <End Role="StudentContacts" Type="Self.StudentContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="StudentContacts">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentContactstoUsers">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="StudentContacts" Type="Self.StudentContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="StudentContacts">
+        <PropertyRef Name="ContactedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BandStudentDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="InterestAreas" EntityType="Self.InterestArea" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="StudentContacts" EntityType="Self.StudentContact" />
+    <AssociationSet Name="FK_StudentContactstoStudents" Association="Self.FK_StudentContactstoStudents">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="StudentContacts" EntitySet="StudentContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentContactstoUsers" Association="Self.FK_StudentContactstoUsers">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="StudentContacts" EntitySet="StudentContacts" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

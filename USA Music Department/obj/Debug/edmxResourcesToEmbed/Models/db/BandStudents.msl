@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BandStudentDBModelStoreContainer" CdmEntityContainer="BandStudentDBEntities">
+    <EntitySetMapping Name="InterestAreas">
+      <EntityTypeMapping TypeName="BandStudentDBModel.InterestArea">
+        <MappingFragment StoreEntitySet="InterestAreas">
+          <ScalarProperty Name="InterestAreaID" ColumnName="InterestAreaID" />
+          <ScalarProperty Name="InterestAreaName" ColumnName="InterestAreaName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="BandStudentDBModel.Student">
+        <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="StudentFirstName" ColumnName="StudentFirstName" />
+          <ScalarProperty Name="StudentLastName" ColumnName="StudentLastName" />
+          <ScalarProperty Name="StudentAddress" ColumnName="StudentAddress" />
+          <ScalarProperty Name="StudentCity" ColumnName="StudentCity" />
+          <ScalarProperty Name="StudentState" ColumnName="StudentState" />
+          <ScalarProperty Name="StudentZipCode" ColumnName="StudentZipCode" />
+          <ScalarProperty Name="StudentPhone" ColumnName="StudentPhone" />
+          <ScalarProperty Name="PerformanceMedium" ColumnName="PerformanceMedium" />
+          <ScalarProperty Name="GraduationYear" ColumnName="GraduationYear" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="BandStudentDBModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="UserFirstName" ColumnName="UserFirstName" />
+          <ScalarProperty Name="UserMiddleName" ColumnName="UserMiddleName" />
+          <ScalarProperty Name="UserLastName" ColumnName="UserLastName" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentContacts">
+      <EntityTypeMapping TypeName="BandStudentDBModel.StudentContact">
+        <MappingFragment StoreEntitySet="StudentContacts">
+          <ScalarProperty Name="StudentContactId" ColumnName="StudentContactId" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="ContactedBy" ColumnName="ContactedBy" />
+          <ScalarProperty Name="ContactedDate" ColumnName="ContactedDate" />
+          <ScalarProperty Name="ContactedMedium" ColumnName="ContactedMedium" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
