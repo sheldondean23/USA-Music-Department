@@ -198,6 +198,9 @@
     <Compile Include="Models\db\InterestArea.cs">
       <DependentUpon>BandStudents.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\db\InterestAreatoStudent.cs">
+      <DependentUpon>BandStudents.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\db\Student.cs">
       <DependentUpon>BandStudents.tt</DependentUpon>
     </Compile>

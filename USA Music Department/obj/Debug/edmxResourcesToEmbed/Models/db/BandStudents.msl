@@ -50,5 +50,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="InterestAreatoStudents">
+      <EntityTypeMapping TypeName="BandStudentDBModel.InterestAreatoStudent">
+        <MappingFragment StoreEntitySet="InterestAreatoStudents">
+          <ScalarProperty Name="InterestNotes" ColumnName="InterestNotes" />
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="InterestAreaID" ColumnName="InterestAreaID" />
+          <ScalarProperty Name="InterestAreatoStudentsId" ColumnName="InterestAreatoStudentsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

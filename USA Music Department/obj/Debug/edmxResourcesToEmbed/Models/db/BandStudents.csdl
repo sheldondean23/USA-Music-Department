@@ -6,6 +6,7 @@
     </Key>
     <Property Name="InterestAreaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="InterestAreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="InterestAreatoStudents" Relationship="BandStudentDBModel.FK_InterestAreatoStudentstoInterestArea" FromRole="InterestArea" ToRole="InterestAreatoStudent" />
   </EntityType>
   <EntityType Name="Student">
     <Key>
@@ -22,6 +23,7 @@
     <Property Name="PerformanceMedium" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="GraduationYear" Type="Int32" />
     <NavigationProperty Name="StudentContacts" Relationship="Self.FK_StudentContactstoStudents" FromRole="Students" ToRole="StudentContacts" />
+    <NavigationProperty Name="InterestAreatoStudents" Relationship="BandStudentDBModel.FK_InterestAreatoStudentstoStudents" FromRole="Student" ToRole="InterestAreatoStudent" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -86,5 +88,49 @@
       <End Role="Users" EntitySet="Users" />
       <End Role="StudentContacts" EntitySet="StudentContacts" />
     </AssociationSet>
+    <EntitySet Name="InterestAreatoStudents" EntityType="BandStudentDBModel.InterestAreatoStudent" />
+    <AssociationSet Name="FK_InterestAreatoStudentstoInterestArea" Association="BandStudentDBModel.FK_InterestAreatoStudentstoInterestArea">
+      <End Role="InterestArea" EntitySet="InterestAreas" />
+      <End Role="InterestAreatoStudent" EntitySet="InterestAreatoStudents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InterestAreatoStudentstoStudents" Association="BandStudentDBModel.FK_InterestAreatoStudentstoStudents">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="InterestAreatoStudent" EntitySet="InterestAreatoStudents" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="InterestAreatoStudent">
+    <Key>
+      <PropertyRef Name="InterestAreatoStudentsId" />
+    </Key>
+    <Property Name="InterestAreatoStudentsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InterestAreaID" Type="Int32" />
+    <Property Name="StudentID" Type="Int32" />
+    <Property Name="InterestNotes" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="InterestArea" Relationship="BandStudentDBModel.FK_InterestAreatoStudentstoInterestArea" FromRole="InterestAreatoStudent" ToRole="InterestArea" />
+    <NavigationProperty Name="Student" Relationship="BandStudentDBModel.FK_InterestAreatoStudentstoStudents" FromRole="InterestAreatoStudent" ToRole="Student" />
+  </EntityType>
+  <Association Name="FK_InterestAreatoStudentstoInterestArea">
+    <End Type="BandStudentDBModel.InterestArea" Role="InterestArea" Multiplicity="0..1" />
+    <End Type="BandStudentDBModel.InterestAreatoStudent" Role="InterestAreatoStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InterestArea">
+        <PropertyRef Name="InterestAreaID" />
+      </Principal>
+      <Dependent Role="InterestAreatoStudent">
+        <PropertyRef Name="InterestAreaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InterestAreatoStudentstoStudents">
+    <End Type="BandStudentDBModel.Student" Role="Student" Multiplicity="0..1" />
+    <End Type="BandStudentDBModel.InterestAreatoStudent" Role="InterestAreatoStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="InterestAreatoStudent">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

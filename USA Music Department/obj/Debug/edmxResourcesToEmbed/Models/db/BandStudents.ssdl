@@ -7,15 +7,15 @@
     <Property Name="InterestAreaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="InterestAreaName" Type="varchar" MaxLength="50" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'C:\USERS\SHELDON\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\USA-MUSIC-DEPARTMENT\USA MUSIC DEPARTMENT\APP_DATA\BANDSTUDENTDB.MDF.dbo.InterestAreatoStudents' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="InterestAreatoStudents">
-          <Property Name="InterestAreaID" Type="int" />
-          <Property Name="StudentID" Type="int" />
-          <Property Name="InterestNotes" Type="varchar" MaxLength="1000" />
-        </EntityType>-->
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\SHELDON\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\USA-MUSIC-DEPARTMENT\USA MUSIC DEPARTMENT\APP_DATA\BANDSTUDENTDB.MDF.dbo.StudentContacts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="InterestAreatoStudents">
+    <Key>
+      <PropertyRef Name="InterestAreatoStudentsId" />
+    </Key>
+    <Property Name="InterestAreatoStudentsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InterestAreaID" Type="int" />
+    <Property Name="StudentID" Type="int" />
+    <Property Name="InterestNotes" Type="varchar" MaxLength="1000" />
+  </EntityType>
   <EntityType Name="StudentContacts">
     <Key>
       <PropertyRef Name="StudentContactId" />
@@ -54,12 +54,30 @@ warning 6002: The table/view 'C:\USERS\SHELDON\DOCUMENTS\VISUAL STUDIO 2015\PROJ
     <Property Name="IsAdmin" Type="bit" />
     <Property Name="Active" Type="bit" />
   </EntityType>
-  <!--Errors Found During Generation:
-error 6004: The table 'C:\USERS\SHELDON\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\USA-MUSIC-DEPARTMENT\USA MUSIC DEPARTMENT\APP_DATA\BANDSTUDENTDB.MDF.dbo.InterestAreatoStudents' is referenced by a relationship, but cannot be found.
-        <Association Name="FK_InterestAreatoStudentstoInterestArea" />-->
-  <!--Errors Found During Generation:
-error 6004: The table 'C:\USERS\SHELDON\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\USA-MUSIC-DEPARTMENT\USA MUSIC DEPARTMENT\APP_DATA\BANDSTUDENTDB.MDF.dbo.InterestAreatoStudents' is referenced by a relationship, but cannot be found.
-        <Association Name="FK_InterestAreatoStudentstoStudents" />-->
+  <Association Name="FK_InterestAreatoStudentstoInterestArea">
+    <End Role="InterestAreas" Type="Self.InterestAreas" Multiplicity="0..1" />
+    <End Role="InterestAreatoStudents" Type="Self.InterestAreatoStudents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InterestAreas">
+        <PropertyRef Name="InterestAreaID" />
+      </Principal>
+      <Dependent Role="InterestAreatoStudents">
+        <PropertyRef Name="InterestAreaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InterestAreatoStudentstoStudents">
+    <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+    <End Role="InterestAreatoStudents" Type="Self.InterestAreatoStudents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="InterestAreatoStudents">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_StudentContactstoStudents">
     <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
     <End Role="StudentContacts" Type="Self.StudentContacts" Multiplicity="*" />
@@ -86,17 +104,18 @@ error 6004: The table 'C:\USERS\SHELDON\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\US
   </Association>
   <EntityContainer Name="BandStudentDBModelStoreContainer">
     <EntitySet Name="InterestAreas" EntityType="Self.InterestAreas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InterestAreatoStudents" EntityType="Self.InterestAreatoStudents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentContacts" EntityType="Self.StudentContacts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="StudentContacts" EntityType="Self.StudentContacts" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [StudentContacts].[StudentContactId] AS [StudentContactId], 
-    [StudentContacts].[StudentId] AS [StudentId], 
-    [StudentContacts].[ContactedBy] AS [ContactedBy], 
-    [StudentContacts].[ContactedDate] AS [ContactedDate], 
-    [StudentContacts].[ContactedMedium] AS [ContactedMedium]
-    FROM [dbo].[StudentContacts] AS [StudentContacts]</DefiningQuery>
-    </EntitySet>
+    <AssociationSet Name="FK_InterestAreatoStudentstoInterestArea" Association="Self.FK_InterestAreatoStudentstoInterestArea">
+      <End Role="InterestAreas" EntitySet="InterestAreas" />
+      <End Role="InterestAreatoStudents" EntitySet="InterestAreatoStudents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InterestAreatoStudentstoStudents" Association="Self.FK_InterestAreatoStudentstoStudents">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="InterestAreatoStudents" EntitySet="InterestAreatoStudents" />
+    </AssociationSet>
     <AssociationSet Name="FK_StudentContactstoStudents" Association="Self.FK_StudentContactstoStudents">
       <End Role="Students" EntitySet="Students" />
       <End Role="StudentContacts" EntitySet="StudentContacts" />
