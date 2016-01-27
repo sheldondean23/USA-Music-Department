@@ -18,6 +18,7 @@ namespace USA_Music_Department.Models.db
         public Student()
         {
             this.StudentContacts = new HashSet<StudentContact>();
+            this.InterestAreatoStudents = new HashSet<InterestAreatoStudent>();
         }
     
         public int StudentID { get; set; }
@@ -33,5 +34,7 @@ namespace USA_Music_Department.Models.db
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StudentContact> StudentContacts { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<InterestAreatoStudent> InterestAreatoStudents { get; set; }
     }
 }
