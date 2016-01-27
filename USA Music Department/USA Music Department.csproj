@@ -177,20 +177,17 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\db\BandStudents.Context.cs" />
-    <Compile Include="Models\db\BandStudents.Context1.cs">
+    <Compile Include="Models\db\BandStudents.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BandStudents.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\db\BandStudents.cs" />
-    <Compile Include="Models\db\BandStudents.Designer.cs" />
-    <Compile Include="Models\db\BandStudents1.cs">
+    <Compile Include="Models\db\BandStudents.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BandStudents.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\db\BandStudents1.Designer.cs">
+    <Compile Include="Models\db\BandStudents.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BandStudents.edmx</DependentUpon>
@@ -226,19 +223,23 @@
     <Content Include="Content\Site.css" />
     <Content Include="Models\db\BandStudents.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>BandStudents.Context1.cs</LastGenOutput>
+      <DependentUpon>BandStudents.edmx</DependentUpon>
+      <LastGenOutput>BandStudents.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\db\BandStudents.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>BandStudents1.cs</LastGenOutput>
+      <DependentUpon>BandStudents.edmx</DependentUpon>
+      <LastGenOutput>BandStudents.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\db\BandStudents.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BandStudents1.Designer.cs</LastGenOutput>
+      <LastGenOutput>BandStudents.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\db\BandStudents.edmx.diagram" />
+    <Content Include="Models\db\BandStudents.edmx.diagram">
+      <DependentUpon>BandStudents.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

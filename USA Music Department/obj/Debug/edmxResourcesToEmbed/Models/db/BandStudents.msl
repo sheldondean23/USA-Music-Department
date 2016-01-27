@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="BandStudentDBModelStoreContainer" CdmEntityContainer="BandStudentDBEntities">
+  <EntityContainerMapping StorageEntityContainer="BandStudentDBModelStoreContainer" CdmEntityContainer="Entities">
     <EntitySetMapping Name="InterestAreas">
       <EntityTypeMapping TypeName="BandStudentDBModel.InterestArea">
         <MappingFragment StoreEntitySet="InterestAreas">
@@ -56,7 +56,6 @@
           <ScalarProperty Name="InterestNotes" ColumnName="InterestNotes" />
           <ScalarProperty Name="StudentID" ColumnName="StudentID" />
           <ScalarProperty Name="InterestAreaID" ColumnName="InterestAreaID" />
-          <ScalarProperty Name="InterestAreatoStudentsId" ColumnName="InterestAreatoStudentsId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

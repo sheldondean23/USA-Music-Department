@@ -6,17 +6,17 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-using USA_Music_Department.Models.db;
-namespace USA_Music_Department
+
+namespace USA_Music_Department.Models.db
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BandStudentDBEntities : DbContext
+    public partial class Entities : DbContext
     {
-        public BandStudentDBEntities()
-            : base("name=BandStudentDBEntities")
+        public Entities()
+            : base("name=Entities")
         {
         }
     
@@ -29,5 +29,6 @@ namespace USA_Music_Department
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<StudentContact> StudentContacts { get; set; }
+        public virtual DbSet<InterestAreatoStudent> InterestAreatoStudents { get; set; }
     }
 }

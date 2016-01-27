@@ -14,13 +14,14 @@
         </EntityType>
         <EntityType Name="InterestAreatoStudents">
           <Key>
-            <PropertyRef Name="InterestAreatoStudentsId" />
+            <PropertyRef Name="InterestAreaID" />
           </Key>
-          <Property Name="InterestAreatoStudentsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="InterestAreaID" Type="int" />
+          <Property Name="InterestAreaID" Type="int" Nullable="false" />
           <Property Name="StudentID" Type="int" />
           <Property Name="InterestNotes" Type="varchar" MaxLength="1000" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\SHELDON\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\USA-MUSIC-DEPARTMENT\USA MUSIC DEPARTMENT\APP_DATA\BANDSTUDENTDB.MDF.dbo.StudentContacts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="StudentContacts">
           <Key>
             <PropertyRef Name="StudentContactId" />
@@ -60,8 +61,8 @@
           <Property Name="Active" Type="bit" />
         </EntityType>
         <Association Name="FK_InterestAreatoStudentstoInterestArea">
-          <End Role="InterestAreas" Type="Self.InterestAreas" Multiplicity="0..1" />
-          <End Role="InterestAreatoStudents" Type="Self.InterestAreatoStudents" Multiplicity="*" />
+          <End Role="InterestAreas" Type="Self.InterestAreas" Multiplicity="1" />
+          <End Role="InterestAreatoStudents" Type="Self.InterestAreatoStudents" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="InterestAreas">
               <PropertyRef Name="InterestAreaID" />
@@ -110,9 +111,17 @@
         <EntityContainer Name="BandStudentDBModelStoreContainer">
           <EntitySet Name="InterestAreas" EntityType="Self.InterestAreas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InterestAreatoStudents" EntityType="Self.InterestAreatoStudents" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="StudentContacts" EntityType="Self.StudentContacts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentContacts" EntityType="Self.StudentContacts" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [StudentContacts].[StudentContactId] AS [StudentContactId], 
+    [StudentContacts].[StudentId] AS [StudentId], 
+    [StudentContacts].[ContactedBy] AS [ContactedBy], 
+    [StudentContacts].[ContactedDate] AS [ContactedDate], 
+    [StudentContacts].[ContactedMedium] AS [ContactedMedium]
+    FROM [dbo].[StudentContacts] AS [StudentContacts]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_InterestAreatoStudentstoInterestArea" Association="Self.FK_InterestAreatoStudentstoInterestArea">
             <End Role="InterestAreas" EntitySet="InterestAreas" />
             <End Role="InterestAreatoStudents" EntitySet="InterestAreatoStudents" />
@@ -140,7 +149,7 @@
           </Key>
           <Property Name="InterestAreaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="InterestAreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="InterestAreatoStudents" Relationship="BandStudentDBModel.FK_InterestAreatoStudentstoInterestArea" FromRole="InterestArea" ToRole="InterestAreatoStudent" />
+          <NavigationProperty Name="InterestAreatoStudent" Relationship="BandStudentDBModel.FK_InterestAreatoStudentstoInterestArea" FromRole="InterestArea" ToRole="InterestAreatoStudent" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -209,7 +218,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BandStudentDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="InterestAreas" EntityType="Self.InterestArea" />
           <EntitySet Name="Students" EntityType="Self.Student" />
           <EntitySet Name="Users" EntityType="Self.User" />
@@ -234,18 +243,17 @@
         </EntityContainer>
         <EntityType Name="InterestAreatoStudent">
           <Key>
-            <PropertyRef Name="InterestAreatoStudentsId" />
+            <PropertyRef Name="InterestAreaID" />
           </Key>
-          <Property Name="InterestAreatoStudentsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="InterestAreaID" Type="Int32" />
+          <Property Name="InterestAreaID" Type="Int32" Nullable="false" />
           <Property Name="StudentID" Type="Int32" />
           <Property Name="InterestNotes" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="InterestArea" Relationship="BandStudentDBModel.FK_InterestAreatoStudentstoInterestArea" FromRole="InterestAreatoStudent" ToRole="InterestArea" />
           <NavigationProperty Name="Student" Relationship="BandStudentDBModel.FK_InterestAreatoStudentstoStudents" FromRole="InterestAreatoStudent" ToRole="Student" />
         </EntityType>
         <Association Name="FK_InterestAreatoStudentstoInterestArea">
-          <End Type="BandStudentDBModel.InterestArea" Role="InterestArea" Multiplicity="0..1" />
-          <End Type="BandStudentDBModel.InterestAreatoStudent" Role="InterestAreatoStudent" Multiplicity="*" />
+          <End Type="BandStudentDBModel.InterestArea" Role="InterestArea" Multiplicity="1" />
+          <End Type="BandStudentDBModel.InterestAreatoStudent" Role="InterestAreatoStudent" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="InterestArea">
               <PropertyRef Name="InterestAreaID" />
@@ -272,7 +280,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BandStudentDBModelStoreContainer" CdmEntityContainer="BandStudentDBEntities">
+        <EntityContainerMapping StorageEntityContainer="BandStudentDBModelStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="InterestAreas">
             <EntityTypeMapping TypeName="BandStudentDBModel.InterestArea">
               <MappingFragment StoreEntitySet="InterestAreas">
@@ -328,7 +336,6 @@
                 <ScalarProperty Name="InterestNotes" ColumnName="InterestNotes" />
                 <ScalarProperty Name="StudentID" ColumnName="StudentID" />
                 <ScalarProperty Name="InterestAreaID" ColumnName="InterestAreaID" />
-                <ScalarProperty Name="InterestAreatoStudentsId" ColumnName="InterestAreatoStudentsId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

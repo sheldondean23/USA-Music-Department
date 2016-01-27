@@ -14,16 +14,9 @@ namespace USA_Music_Department.Models.db
     
     public partial class InterestArea
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public InterestArea()
-        {
-            this.InterestAreatoStudents = new HashSet<InterestAreatoStudent>();
-        }
-    
         public int InterestAreaID { get; set; }
         public string InterestAreaName { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InterestAreatoStudent> InterestAreatoStudents { get; set; }
+        public virtual InterestAreatoStudent InterestAreatoStudent { get; set; }
     }
 }

@@ -64,7 +64,6 @@ C:\Users\Sheldon\Documents\Visual Studio 2015\Projects\USA-Music-Department\USA 
 C:\Users\Sheldon\Documents\Visual Studio 2015\Projects\USA-Music-Department\USA Music Department\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Sheldon\Documents\Visual Studio 2015\Projects\USA-Music-Department\USA Music Department\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Sheldon\Documents\Visual Studio 2015\Projects\USA-Music-Department\USA Music Department\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Sheldon\Documents\Visual Studio 2015\Projects\USA-Music-Department\USA Music Department\obj\Debug\USA Music Department.csprojResolveAssemblyReference.cache
 C:\Users\Sheldon\Documents\Visual Studio 2015\Projects\USA-Music-Department\USA Music Department\obj\Debug\USA Music Department.dll
 C:\Users\Sheldon\Documents\Visual Studio 2015\Projects\USA-Music-Department\USA Music Department\obj\Debug\USA Music Department.pdb
 C:\CIS497\USA-Music-Department\USA Music Department\bin\roslyn\csc.exe

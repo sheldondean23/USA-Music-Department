@@ -9,13 +9,14 @@
   </EntityType>
   <EntityType Name="InterestAreatoStudents">
     <Key>
-      <PropertyRef Name="InterestAreatoStudentsId" />
+      <PropertyRef Name="InterestAreaID" />
     </Key>
-    <Property Name="InterestAreatoStudentsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="InterestAreaID" Type="int" />
+    <Property Name="InterestAreaID" Type="int" Nullable="false" />
     <Property Name="StudentID" Type="int" />
     <Property Name="InterestNotes" Type="varchar" MaxLength="1000" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\SHELDON\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\USA-MUSIC-DEPARTMENT\USA MUSIC DEPARTMENT\APP_DATA\BANDSTUDENTDB.MDF.dbo.StudentContacts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="StudentContacts">
     <Key>
       <PropertyRef Name="StudentContactId" />
@@ -55,8 +56,8 @@
     <Property Name="Active" Type="bit" />
   </EntityType>
   <Association Name="FK_InterestAreatoStudentstoInterestArea">
-    <End Role="InterestAreas" Type="Self.InterestAreas" Multiplicity="0..1" />
-    <End Role="InterestAreatoStudents" Type="Self.InterestAreatoStudents" Multiplicity="*" />
+    <End Role="InterestAreas" Type="Self.InterestAreas" Multiplicity="1" />
+    <End Role="InterestAreatoStudents" Type="Self.InterestAreatoStudents" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="InterestAreas">
         <PropertyRef Name="InterestAreaID" />
@@ -105,9 +106,17 @@
   <EntityContainer Name="BandStudentDBModelStoreContainer">
     <EntitySet Name="InterestAreas" EntityType="Self.InterestAreas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InterestAreatoStudents" EntityType="Self.InterestAreatoStudents" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="StudentContacts" EntityType="Self.StudentContacts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentContacts" EntityType="Self.StudentContacts" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [StudentContacts].[StudentContactId] AS [StudentContactId], 
+    [StudentContacts].[StudentId] AS [StudentId], 
+    [StudentContacts].[ContactedBy] AS [ContactedBy], 
+    [StudentContacts].[ContactedDate] AS [ContactedDate], 
+    [StudentContacts].[ContactedMedium] AS [ContactedMedium]
+    FROM [dbo].[StudentContacts] AS [StudentContacts]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_InterestAreatoStudentstoInterestArea" Association="Self.FK_InterestAreatoStudentstoInterestArea">
       <End Role="InterestAreas" EntitySet="InterestAreas" />
       <End Role="InterestAreatoStudents" EntitySet="InterestAreatoStudents" />

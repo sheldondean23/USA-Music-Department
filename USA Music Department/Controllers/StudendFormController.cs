@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using USA_Music_Department.Models.db;
 
 namespace USA_Music_Department.Controllers
 {
     public class StudendFormController : Controller
     {
-        private BandStudentDBEntities db = new BandStudentDBEntities();
+        //private band db = new BandStudentDBEntities();
         // GET: StudendForm
         public ActionResult Index()
-        {            
-            return View(db);
+        {
+            return View(/*db*/);
         }
 
         // GET: StudendForm/Details/5
