@@ -13,10 +13,10 @@ namespace USA_Music_Department.Models.db
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class BandStudentDBEntities : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public BandStudentDBEntities()
+            : base("name=BandStudentDBEntities")
         {
         }
     
@@ -26,9 +26,9 @@ namespace USA_Music_Department.Models.db
         }
     
         public virtual DbSet<InterestArea> InterestAreas { get; set; }
+        public virtual DbSet<InterestAreatoStudent> InterestAreatoStudents { get; set; }
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<StudentContact> StudentContacts { get; set; }
-        public virtual DbSet<InterestAreatoStudent> InterestAreatoStudents { get; set; }
     }
 }

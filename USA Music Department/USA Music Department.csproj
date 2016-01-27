@@ -177,35 +177,35 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\db\BandStudents.Context.cs">
+    <Compile Include="Models\db\BandStudentDBEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BandStudents.Context.tt</DependentUpon>
+      <DependentUpon>BandStudentDBEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\db\BandStudents.cs">
+    <Compile Include="Models\db\BandStudentDBEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BandStudents.tt</DependentUpon>
+      <DependentUpon>BandStudentDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\db\BandStudents.Designer.cs">
+    <Compile Include="Models\db\BandStudentDBEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BandStudents.edmx</DependentUpon>
+      <DependentUpon>BandStudentDBEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\db\InterestArea.cs">
-      <DependentUpon>BandStudents.tt</DependentUpon>
+      <DependentUpon>BandStudentDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\db\InterestAreatoStudent.cs">
-      <DependentUpon>BandStudents.tt</DependentUpon>
+      <DependentUpon>BandStudentDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\db\Student.cs">
-      <DependentUpon>BandStudents.tt</DependentUpon>
+      <DependentUpon>BandStudentDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\db\StudentContact.cs">
-      <DependentUpon>BandStudents.tt</DependentUpon>
+      <DependentUpon>BandStudentDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\db\User.cs">
-      <DependentUpon>BandStudents.tt</DependentUpon>
+      <DependentUpon>BandStudentDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -221,24 +221,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\db\BandStudents.Context.tt">
+    <Content Include="Models\db\BandStudentDBEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BandStudents.edmx</DependentUpon>
-      <LastGenOutput>BandStudents.Context.cs</LastGenOutput>
+      <DependentUpon>BandStudentDBEntities.edmx</DependentUpon>
+      <LastGenOutput>BandStudentDBEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\db\BandStudents.tt">
+    <Content Include="Models\db\BandStudentDBEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BandStudents.edmx</DependentUpon>
-      <LastGenOutput>BandStudents.cs</LastGenOutput>
+      <DependentUpon>BandStudentDBEntities.edmx</DependentUpon>
+      <LastGenOutput>BandStudentDBEntities.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\db\BandStudents.edmx">
+    <EntityDeploy Include="Models\db\BandStudentDBEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BandStudents.Designer.cs</LastGenOutput>
+      <LastGenOutput>BandStudentDBEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\db\BandStudents.edmx.diagram">
-      <DependentUpon>BandStudents.edmx</DependentUpon>
+    <Content Include="Models\db\BandStudentDBEntities.edmx.diagram">
+      <DependentUpon>BandStudentDBEntities.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

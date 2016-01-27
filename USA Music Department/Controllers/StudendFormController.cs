@@ -9,11 +9,11 @@ namespace USA_Music_Department.Controllers
 {
     public class StudendFormController : Controller
     {
-        //private band db = new BandStudentDBEntities();
+        private BandStudentDBEntities db = new BandStudentDBEntities();
         // GET: StudendForm
         public ActionResult Index()
         {
-            return View(/*db*/);
+            return View(db);
         }
 
         // GET: StudendForm/Details/5
