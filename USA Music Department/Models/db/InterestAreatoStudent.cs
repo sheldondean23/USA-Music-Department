@@ -14,7 +14,8 @@ namespace USA_Music_Department.Models.db
     
     public partial class InterestAreatoStudent
     {
-        public int InterestAreaID { get; set; }
+        public int InterestAreatoStudentsId { get; set; }
+        public Nullable<int> InterestAreaID { get; set; }
         public Nullable<int> StudentID { get; set; }
         public string InterestNotes { get; set; }
     

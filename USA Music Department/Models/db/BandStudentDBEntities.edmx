@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BandStudentDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BandStudentDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="InterestAreas">
           <Key>
             <PropertyRef Name="InterestAreaID" />
@@ -14,14 +14,13 @@
         </EntityType>
         <EntityType Name="InterestAreatoStudents">
           <Key>
-            <PropertyRef Name="InterestAreaID" />
+            <PropertyRef Name="InterestAreatoStudentsId" />
           </Key>
-          <Property Name="InterestAreaID" Type="int" Nullable="false" />
+          <Property Name="InterestAreatoStudentsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InterestAreaID" Type="int" />
           <Property Name="StudentID" Type="int" />
           <Property Name="InterestNotes" Type="varchar" MaxLength="1000" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\SHELDON\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\USA-MUSIC-DEPARTMENT\USA MUSIC DEPARTMENT\APP_DATA\BANDSTUDENTDB.MDF.dbo.StudentContacts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="StudentContacts">
           <Key>
             <PropertyRef Name="StudentContactId" />
@@ -61,8 +60,8 @@ warning 6002: The table/view 'C:\USERS\SHELDON\DOCUMENTS\VISUAL STUDIO 2015\PROJ
           <Property Name="Active" Type="bit" />
         </EntityType>
         <Association Name="FK_InterestAreatoStudentstoInterestArea">
-          <End Role="InterestAreas" Type="Self.InterestAreas" Multiplicity="1" />
-          <End Role="InterestAreatoStudents" Type="Self.InterestAreatoStudents" Multiplicity="0..1" />
+          <End Role="InterestAreas" Type="Self.InterestAreas" Multiplicity="0..1" />
+          <End Role="InterestAreatoStudents" Type="Self.InterestAreatoStudents" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="InterestAreas">
               <PropertyRef Name="InterestAreaID" />
@@ -111,17 +110,9 @@ warning 6002: The table/view 'C:\USERS\SHELDON\DOCUMENTS\VISUAL STUDIO 2015\PROJ
         <EntityContainer Name="BandStudentDBModelStoreContainer">
           <EntitySet Name="InterestAreas" EntityType="Self.InterestAreas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InterestAreatoStudents" EntityType="Self.InterestAreatoStudents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentContacts" EntityType="Self.StudentContacts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="StudentContacts" EntityType="Self.StudentContacts" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [StudentContacts].[StudentContactId] AS [StudentContactId], 
-    [StudentContacts].[StudentId] AS [StudentId], 
-    [StudentContacts].[ContactedBy] AS [ContactedBy], 
-    [StudentContacts].[ContactedDate] AS [ContactedDate], 
-    [StudentContacts].[ContactedMedium] AS [ContactedMedium]
-    FROM [dbo].[StudentContacts] AS [StudentContacts]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_InterestAreatoStudentstoInterestArea" Association="Self.FK_InterestAreatoStudentstoInterestArea">
             <End Role="InterestAreas" EntitySet="InterestAreas" />
             <End Role="InterestAreatoStudents" EntitySet="InterestAreatoStudents" />
@@ -139,8 +130,7 @@ warning 6002: The table/view 'C:\USERS\SHELDON\DOCUMENTS\VISUAL STUDIO 2015\PROJ
             <End Role="StudentContacts" EntitySet="StudentContacts" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BandStudentDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -150,17 +140,7 @@ warning 6002: The table/view 'C:\USERS\SHELDON\DOCUMENTS\VISUAL STUDIO 2015\PROJ
           </Key>
           <Property Name="InterestAreaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="InterestAreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="InterestAreatoStudent" Relationship="Self.FK_InterestAreatoStudentstoInterestArea" FromRole="InterestAreas" ToRole="InterestAreatoStudents" />
-        </EntityType>
-        <EntityType Name="InterestAreatoStudent">
-          <Key>
-            <PropertyRef Name="InterestAreaID" />
-          </Key>
-          <Property Name="InterestAreaID" Type="Int32" Nullable="false" />
-          <Property Name="StudentID" Type="Int32" />
-          <Property Name="InterestNotes" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="InterestArea" Relationship="Self.FK_InterestAreatoStudentstoInterestArea" FromRole="InterestAreatoStudents" ToRole="InterestAreas" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_InterestAreatoStudentstoStudents" FromRole="InterestAreatoStudents" ToRole="Students" />
+          <NavigationProperty Name="InterestAreatoStudents" Relationship="BandStudentDBModel.FK_InterestAreatoStudentstoInterestArea" FromRole="InterestArea" ToRole="InterestAreatoStudent" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -176,8 +156,8 @@ warning 6002: The table/view 'C:\USERS\SHELDON\DOCUMENTS\VISUAL STUDIO 2015\PROJ
           <Property Name="StudentPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="PerformanceMedium" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="GraduationYear" Type="Int32" />
-          <NavigationProperty Name="InterestAreatoStudents" Relationship="Self.FK_InterestAreatoStudentstoStudents" FromRole="Students" ToRole="InterestAreatoStudents" />
           <NavigationProperty Name="StudentContacts" Relationship="Self.FK_StudentContactstoStudents" FromRole="Students" ToRole="StudentContacts" />
+          <NavigationProperty Name="InterestAreatoStudents" Relationship="BandStudentDBModel.FK_InterestAreatoStudentstoStudents" FromRole="Student" ToRole="InterestAreatoStudent" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -205,30 +185,6 @@ warning 6002: The table/view 'C:\USERS\SHELDON\DOCUMENTS\VISUAL STUDIO 2015\PROJ
           <NavigationProperty Name="Student" Relationship="Self.FK_StudentContactstoStudents" FromRole="StudentContacts" ToRole="Students" />
           <NavigationProperty Name="User" Relationship="Self.FK_StudentContactstoUsers" FromRole="StudentContacts" ToRole="Users" />
         </EntityType>
-        <Association Name="FK_InterestAreatoStudentstoInterestArea">
-          <End Role="InterestAreas" Type="Self.InterestArea" Multiplicity="1" />
-          <End Role="InterestAreatoStudents" Type="Self.InterestAreatoStudent" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="InterestAreas">
-              <PropertyRef Name="InterestAreaID" />
-            </Principal>
-            <Dependent Role="InterestAreatoStudents">
-              <PropertyRef Name="InterestAreaID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_InterestAreatoStudentstoStudents">
-          <End Role="Students" Type="Self.Student" Multiplicity="0..1" />
-          <End Role="InterestAreatoStudents" Type="Self.InterestAreatoStudent" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Students">
-              <PropertyRef Name="StudentID" />
-            </Principal>
-            <Dependent Role="InterestAreatoStudents">
-              <PropertyRef Name="StudentID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_StudentContactstoStudents">
           <End Role="Students" Type="Self.Student" Multiplicity="0..1" />
           <End Role="StudentContacts" Type="Self.StudentContact" Multiplicity="*" />
@@ -255,18 +211,9 @@ warning 6002: The table/view 'C:\USERS\SHELDON\DOCUMENTS\VISUAL STUDIO 2015\PROJ
         </Association>
         <EntityContainer Name="BandStudentDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="InterestAreas" EntityType="Self.InterestArea" />
-          <EntitySet Name="InterestAreatoStudents" EntityType="Self.InterestAreatoStudent" />
           <EntitySet Name="Students" EntityType="Self.Student" />
           <EntitySet Name="Users" EntityType="Self.User" />
           <EntitySet Name="StudentContacts" EntityType="Self.StudentContact" />
-          <AssociationSet Name="FK_InterestAreatoStudentstoInterestArea" Association="Self.FK_InterestAreatoStudentstoInterestArea">
-            <End Role="InterestAreas" EntitySet="InterestAreas" />
-            <End Role="InterestAreatoStudents" EntitySet="InterestAreatoStudents" />
-          </AssociationSet>
-          <AssociationSet Name="FK_InterestAreatoStudentstoStudents" Association="Self.FK_InterestAreatoStudentstoStudents">
-            <End Role="Students" EntitySet="Students" />
-            <End Role="InterestAreatoStudents" EntitySet="InterestAreatoStudents" />
-          </AssociationSet>
           <AssociationSet Name="FK_StudentContactstoStudents" Association="Self.FK_StudentContactstoStudents">
             <End Role="Students" EntitySet="Students" />
             <End Role="StudentContacts" EntitySet="StudentContacts" />
@@ -275,7 +222,51 @@ warning 6002: The table/view 'C:\USERS\SHELDON\DOCUMENTS\VISUAL STUDIO 2015\PROJ
             <End Role="Users" EntitySet="Users" />
             <End Role="StudentContacts" EntitySet="StudentContacts" />
           </AssociationSet>
+          <EntitySet Name="InterestAreatoStudents" EntityType="BandStudentDBModel.InterestAreatoStudent" />
+          <AssociationSet Name="FK_InterestAreatoStudentstoInterestArea" Association="BandStudentDBModel.FK_InterestAreatoStudentstoInterestArea">
+            <End Role="InterestArea" EntitySet="InterestAreas" />
+            <End Role="InterestAreatoStudent" EntitySet="InterestAreatoStudents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InterestAreatoStudentstoStudents" Association="BandStudentDBModel.FK_InterestAreatoStudentstoStudents">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="InterestAreatoStudent" EntitySet="InterestAreatoStudents" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="InterestAreatoStudent">
+          <Key>
+            <PropertyRef Name="InterestAreatoStudentsId" />
+          </Key>
+          <Property Name="InterestAreatoStudentsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InterestAreaID" Type="Int32" />
+          <Property Name="StudentID" Type="Int32" />
+          <Property Name="InterestNotes" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="InterestArea" Relationship="BandStudentDBModel.FK_InterestAreatoStudentstoInterestArea" FromRole="InterestAreatoStudent" ToRole="InterestArea" />
+          <NavigationProperty Name="Student" Relationship="BandStudentDBModel.FK_InterestAreatoStudentstoStudents" FromRole="InterestAreatoStudent" ToRole="Student" />
+        </EntityType>
+        <Association Name="FK_InterestAreatoStudentstoInterestArea">
+          <End Type="BandStudentDBModel.InterestArea" Role="InterestArea" Multiplicity="0..1" />
+          <End Type="BandStudentDBModel.InterestAreatoStudent" Role="InterestAreatoStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InterestArea">
+              <PropertyRef Name="InterestAreaID" />
+            </Principal>
+            <Dependent Role="InterestAreatoStudent">
+              <PropertyRef Name="InterestAreaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InterestAreatoStudentstoStudents">
+          <End Type="BandStudentDBModel.Student" Role="Student" Multiplicity="0..1" />
+          <End Type="BandStudentDBModel.InterestAreatoStudent" Role="InterestAreatoStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="InterestAreatoStudent">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -287,15 +278,6 @@ warning 6002: The table/view 'C:\USERS\SHELDON\DOCUMENTS\VISUAL STUDIO 2015\PROJ
               <MappingFragment StoreEntitySet="InterestAreas">
                 <ScalarProperty Name="InterestAreaID" ColumnName="InterestAreaID" />
                 <ScalarProperty Name="InterestAreaName" ColumnName="InterestAreaName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="InterestAreatoStudents">
-            <EntityTypeMapping TypeName="BandStudentDBModel.InterestAreatoStudent">
-              <MappingFragment StoreEntitySet="InterestAreatoStudents">
-                <ScalarProperty Name="InterestAreaID" ColumnName="InterestAreaID" />
-                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
-                <ScalarProperty Name="InterestNotes" ColumnName="InterestNotes" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -337,6 +319,16 @@ warning 6002: The table/view 'C:\USERS\SHELDON\DOCUMENTS\VISUAL STUDIO 2015\PROJ
                 <ScalarProperty Name="ContactedBy" ColumnName="ContactedBy" />
                 <ScalarProperty Name="ContactedDate" ColumnName="ContactedDate" />
                 <ScalarProperty Name="ContactedMedium" ColumnName="ContactedMedium" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InterestAreatoStudents">
+            <EntityTypeMapping TypeName="BandStudentDBModel.InterestAreatoStudent">
+              <MappingFragment StoreEntitySet="InterestAreatoStudents">
+                <ScalarProperty Name="InterestNotes" ColumnName="InterestNotes" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="InterestAreaID" ColumnName="InterestAreaID" />
+                <ScalarProperty Name="InterestAreatoStudentsId" ColumnName="InterestAreatoStudentsId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
