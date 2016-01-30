@@ -1,0 +1,97 @@
+﻿@model USA_Music_Department.Models.db.Student
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentState)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentState)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentZipCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentZipCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PerformanceMedium)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PerformanceMedium)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GraduationYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GraduationYear)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
