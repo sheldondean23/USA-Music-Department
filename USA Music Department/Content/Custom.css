@@ -1,0 +1,35 @@
+﻿body 
+{
+     background-image: url("/Pictures/newjaglarge.jpg");
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     background-position: top; 
+     background-size:cover;
+}
+.red 
+{
+    background-color: rgb(192, 0, 0);
+    border-color: rgb(192, 0, 0);
+}
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-nav > li > a  
+{
+    color: white;
+}
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus,
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus 
+{
+  color: black;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+div.container.body-content
+{
+    background-color:rgba(3, 2, 104, 0.5);
+    border-radius: 25px;
+}
+.align-right
+{
+    float: right;
+}
