@@ -133,5 +133,7 @@ C:\CIS497\USA-Music-Department\USA Music Department\bin\Microsoft.Owin.Security.
 C:\CIS497\USA-Music-Department\USA Music Department\bin\Microsoft.Owin.Security.Twitter.xml
 C:\CIS497\USA-Music-Department\USA Music Department\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\CIS497\USA-Music-Department\USA Music Department\obj\Debug\USA Music Department.csprojResolveAssemblyReference.cache
+C:\CIS497\USA-Music-Department\USA Music Department\obj\Debug\USA_Music_Department.Migrations.Initial.resources
+C:\CIS497\USA-Music-Department\USA Music Department\obj\Debug\USA Music Department.csproj.GenerateResource.Cache
 C:\CIS497\USA-Music-Department\USA Music Department\obj\Debug\USA Music Department.dll
 C:\CIS497\USA-Music-Department\USA Music Department\obj\Debug\USA Music Department.pdb

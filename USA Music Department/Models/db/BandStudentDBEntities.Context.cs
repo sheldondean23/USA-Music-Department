@@ -6,7 +6,7 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-using USA_Music_Department.Models.db;
+
 namespace USA_Music_Department.Models.db
 {
     using System;

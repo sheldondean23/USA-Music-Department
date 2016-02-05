@@ -40,6 +40,7 @@
     <Property Name="StudentPhone" Type="varchar" MaxLength="20" />
     <Property Name="PerformanceMedium" Type="varchar" MaxLength="100" />
     <Property Name="GraduationYear" Type="int" />
+    <Property Name="EmailAddress" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="Users">
     <Key>

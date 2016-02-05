@@ -12,6 +12,7 @@
     <EntitySetMapping Name="Students">
       <EntityTypeMapping TypeName="BandStudentDBModel.Student">
         <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
           <ScalarProperty Name="StudentID" ColumnName="StudentID" />
           <ScalarProperty Name="StudentFirstName" ColumnName="StudentFirstName" />
           <ScalarProperty Name="StudentLastName" ColumnName="StudentLastName" />

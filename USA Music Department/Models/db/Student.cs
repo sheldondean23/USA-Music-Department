@@ -12,6 +12,7 @@ namespace USA_Music_Department.Models.db
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+
     public partial class Student
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,7 +21,7 @@ namespace USA_Music_Department.Models.db
             this.StudentContacts = new HashSet<StudentContact>();
             this.InterestAreatoStudents = new HashSet<InterestAreatoStudent>();
         }
-    
+
         public int StudentID { get; set; }
 
         [Required()]
@@ -58,6 +59,8 @@ namespace USA_Music_Department.Models.db
         [Required()]
         [Display(Name = "High School Graduation Year")]
         public Nullable<int> GraduationYear { get; set; }
+
+        public string EmailAddress { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StudentContact> StudentContacts { get; set; }
