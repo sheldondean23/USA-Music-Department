@@ -26,10 +26,27 @@
 }
 div.container.body-content
 {
-    background-color:rgba(3, 2, 104, 0.5);
+    background-color:rgba(3, 2, 104, 0.75);
     border-radius: 25px;
+    color: white;
+}
+.black-text
+{
+    color: black;
 }
 .align-right
 {
     float: right;
+}
+.align-left
+{
+    float: left;
+}
+.half-wrapper
+{
+    width: 50%;
+}
+.flex
+{
+    display: flex;
 }
