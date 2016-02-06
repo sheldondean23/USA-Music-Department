@@ -7,10 +7,11 @@
     <div class="flex">
         <div class="half-wrapper align-left">
             <p>To go to student interest forms click on the button below</p>
-            <p><a href="~/Views/Form/Index.cshtml" class="btn btn-primary btn-lg">Student Interest Forms &raquo;</a></p>
+            <p>@Html.ActionLink("Student Interest Forms »", "Index", "Form", null, new { @class = "btn btn-primary btn-lg" })</p>
+            @*<p><a href="/Form/Index.html" class="btn btn-primary btn-lg">Student Interest Forms »</a></p>*@
         </div>
         <div class="half-wrapper align-right">
-            Login Stuff
+            Login Stuff...
         </div>
      </div>
 </div>

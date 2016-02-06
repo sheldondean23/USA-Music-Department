@@ -8,9 +8,14 @@ namespace USA_Music_Department.Controllers
 {
     public class FormController : Controller
     {
-        //private 
         // GET: Form
         public ActionResult Index()
+        {
+            return View(); 
+        }
+
+        // GET: Form/Intrest
+        public ActionResult Intrest()
         {
             return View();
         }
@@ -27,9 +32,9 @@ namespace USA_Music_Department.Controllers
             return View();
         }
 
-        // POST: Form/Create
+        // POST: Form/AddPerson
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult AddPerson(FormCollection collection)
         {
             try
             {
