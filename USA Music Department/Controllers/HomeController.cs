@@ -8,6 +8,7 @@ namespace USA_Music_Department.Controllers
 {
     public class HomeController : Controller
     {
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View();

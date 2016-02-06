@@ -24,6 +24,7 @@
     <Property Name="GraduationYear" Type="Int32" />
     <NavigationProperty Name="StudentContacts" Relationship="Self.FK_StudentContactstoStudents" FromRole="Students" ToRole="StudentContacts" />
     <NavigationProperty Name="InterestAreatoStudents" Relationship="BandStudentDBModel.FK_InterestAreatoStudentstoStudents" FromRole="Student" ToRole="InterestAreatoStudent" />
+    <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="User">
     <Key>

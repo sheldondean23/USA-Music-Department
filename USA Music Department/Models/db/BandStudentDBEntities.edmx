@@ -45,6 +45,7 @@
           <Property Name="StudentPhone" Type="varchar" MaxLength="20" />
           <Property Name="PerformanceMedium" Type="varchar" MaxLength="100" />
           <Property Name="GraduationYear" Type="int" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -158,6 +159,7 @@
           <Property Name="GraduationYear" Type="Int32" />
           <NavigationProperty Name="StudentContacts" Relationship="Self.FK_StudentContactstoStudents" FromRole="Students" ToRole="StudentContacts" />
           <NavigationProperty Name="InterestAreatoStudents" Relationship="BandStudentDBModel.FK_InterestAreatoStudentstoStudents" FromRole="Student" ToRole="InterestAreatoStudent" />
+          <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -284,6 +286,7 @@
           <EntitySetMapping Name="Students">
             <EntityTypeMapping TypeName="BandStudentDBModel.Student">
               <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
                 <ScalarProperty Name="StudentID" ColumnName="StudentID" />
                 <ScalarProperty Name="StudentFirstName" ColumnName="StudentFirstName" />
                 <ScalarProperty Name="StudentLastName" ColumnName="StudentLastName" />
