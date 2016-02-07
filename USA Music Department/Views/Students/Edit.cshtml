@@ -1,4 +1,4 @@
-﻿@model USA_Music_Department.Models.db.Student
+﻿@model USA_Music_Department.Models.Forms.Interest_Form.StudentToAdd
 
 @{
     ViewBag.Title = "Edit";
@@ -6,6 +6,7 @@
 }
 
 <h2>Edit</h2>
+
 
 @using (Html.BeginForm())
 {
@@ -15,7 +16,7 @@
         <h4>Student</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.StudentID)
+        @*@Html.HiddenFor(model => model.StudentID)*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.StudentFirstName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -74,10 +75,69 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.PerformanceMedium, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PerformanceMedium, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PerformanceMedium, "", new { @class = "text-danger" })
+            @Html.LabelFor(model => model.PerformanceMediums, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            <div class="checkbox-inline padding ">
+                <div class="flex">
+                    @Html.CheckBoxFor(model => model.PerformanceMediums.BM_Music_Education_Vocal, new { htmlAttributes = new { @class = "padding" } })
+                    @Html.LabelFor(model => model.PerformanceMediums.BM_Music_Education_Vocal)
+                </div>
+                <div class="flex">
+                    @Html.CheckBoxFor(model => model.PerformanceMediums.BM_Music_Education_Instrumental, new { htmlAttributes = new { @class = "padding" } })
+                    @Html.LabelFor(model => model.PerformanceMediums.BM_Music_Education_Instrumental)
+                </div>
+                <div class="flex">
+                    @Html.CheckBoxFor(model => model.PerformanceMediums.BM_Music_Performance_Vocal, new { htmlAttributes = new { @class = "padding" } })
+                    @Html.LabelFor(model => model.PerformanceMediums.BM_Music_Performance_Vocal)
+                </div>
+                <div class="flex">
+                    @Html.CheckBoxFor(model => model.PerformanceMediums.BM_Music_Performance_Instrumental, new { htmlAttributes = new { @class = "padding" } })
+                    @Html.LabelFor(model => model.PerformanceMediums.BM_Music_Performance_Instrumental)
+                </div>
+                <div class="flex">
+                    @Html.CheckBoxFor(model => model.PerformanceMediums.BM_Music_Elective_Studies_Business, new { htmlAttributes = new { @class = "padding" } })
+                    @Html.LabelFor(model => model.PerformanceMediums.BM_Music_Elective_Studies_Business)
+                </div>
+                <div class="flex">
+                    @Html.CheckBoxFor(model => model.PerformanceMediums.BM_Music_Elective_Studies_Outside_Fields, new { htmlAttributes = new { @class = "padding" } })
+                    @Html.LabelFor(model => model.PerformanceMediums.BM_Music_Elective_Studies_Outside_Fields)
+                </div>
+                <div class="flex">
+                    @Html.CheckBoxFor(model => model.PerformanceMediums.MM_Collaborative_Piano, new { htmlAttributes = new { @class = "padding" } })
+                    @Html.LabelFor(model => model.PerformanceMediums.MM_Collaborative_Piano)
+                </div>
+                <div class="flex">
+                    @Html.CheckBoxFor(model => model.PerformanceMediums.MM_Performance_Vocal, new { htmlAttributes = new { @class = "padding" } })
+                    @Html.LabelFor(model => model.PerformanceMediums.MM_Performance_Vocal)
+                </div>
+                <div class="flex">
+                    @Html.CheckBoxFor(model => model.PerformanceMediums.MM_Performance_Piano, new { htmlAttributes = new { @class = "padding" } })
+                    @Html.LabelFor(model => model.PerformanceMediums.MM_Performance_Piano)
+                </div>
+                <div class="flex">
+                    @Html.CheckBoxFor(model => model.PerformanceMediums.Music_Minor, new { htmlAttributes = new { @class = "padding" } })
+                    @Html.LabelFor(model => model.PerformanceMediums.Music_Minor)
+                </div>
+                <div class="flex">
+                    @Html.CheckBoxFor(model => model.PerformanceMediums.Instrumental_Ensembles, new { htmlAttributes = new { @class = "padding" } })
+                    @Html.LabelFor(model => model.PerformanceMediums.Instrumental_Ensembles)
+                </div>
+                <div class="flex">
+                    @Html.CheckBoxFor(model => model.PerformanceMediums.Choral_Ensembles, new { htmlAttributes = new { @class = "padding" } })
+                    @Html.LabelFor(model => model.PerformanceMediums.Choral_Ensembles)
+                </div>
+                <div class="flex">
+                    @Html.CheckBoxFor(model => model.PerformanceMediums.Opera_Theatre, new { htmlAttributes = new { @class = "padding" } })
+                    @Html.LabelFor(model => model.PerformanceMediums.Opera_Theatre)
+                </div>
+                <div class="flex">
+                    @Html.CheckBoxFor(model => model.PerformanceMediums.Jaguar_Marching_Band, new { htmlAttributes = new { @class = "padding" } })
+                    @Html.LabelFor(model => model.PerformanceMediums.Jaguar_Marching_Band)
+                </div>
+                <div class="flex">
+                    @Html.LabelFor(model => model.PerformanceMediums.Other, htmlAttributes: new { @class = "no-padding" })
+                    @Html.EditorFor(model => model.PerformanceMediums.Other, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
             </div>
         </div>
 
@@ -86,6 +146,14 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.GraduationYear, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.GraduationYear, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmailAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -100,3 +168,7 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -6,10 +6,15 @@
      background-position: top; 
      background-size:cover;
 }
-.red 
+.red-fill
 {
     background-color: rgb(192, 0, 0);
     border-color: rgb(192, 0, 0);
+}
+.red-text,
+a
+{
+    color: red;
 }
 .navbar-inverse .navbar-brand,
 .navbar-inverse .navbar-nav > li > a  
@@ -59,4 +64,12 @@ div.container.body-content
 {
     padding-left: 0px;
     padding-right: 0px;
+}
+.verticalLine-right 
+{
+    border-right: thick solid;
+}
+.margin
+{
+    margin-left: 20px
 }

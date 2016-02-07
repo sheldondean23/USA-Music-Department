@@ -5,9 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Intrest</h2>
+<h2 class="text-center">Interest Form</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("AddPerson","Form", new { person = Model }, FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     
@@ -165,3 +165,7 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

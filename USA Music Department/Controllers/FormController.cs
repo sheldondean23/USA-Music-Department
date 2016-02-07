@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using USA_Music_Department.Models.Forms.Interest_Form;
 
 namespace USA_Music_Department.Controllers
 {
@@ -34,7 +35,7 @@ namespace USA_Music_Department.Controllers
 
         // POST: Form/AddPerson
         [HttpPost]
-        public ActionResult AddPerson(FormCollection collection)
+        public ActionResult AddPerson(StudentToAdd person)
         {
             try
             {

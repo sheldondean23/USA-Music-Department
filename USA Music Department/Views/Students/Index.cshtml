@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2 class="text-center">Students List</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -38,6 +38,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.GraduationYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailAddress)
         </th>
         <th></th>
     </tr>
@@ -72,6 +75,9 @@
             @Html.DisplayFor(modelItem => item.GraduationYear)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.EmailAddress)
+        </td>
+        <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.StudentID }) |
             @Html.ActionLink("Details", "Details", new { id=item.StudentID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.StudentID })
@@ -80,3 +86,7 @@
 }
 
 </table>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
