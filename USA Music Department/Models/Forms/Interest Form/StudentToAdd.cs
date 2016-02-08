@@ -48,7 +48,7 @@ namespace USA_Music_Department.Models.Forms.Interest_Form
         [Required()]
         [Display(Name = "Email Address")]
         public string EmailAddress { get; set; }
-
+        [Display(Name = "Interest Areas")]
         public InterestAreas InterestAreas { get; set; }
     }
 }
