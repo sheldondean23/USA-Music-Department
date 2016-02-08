@@ -60,7 +60,7 @@ namespace USA_Music_Department.Models.Forms.Interest_Form
         public string EmailAddress { get; set; }
 
         [Display(Name = "Interest Areas*")]
-        [Required(ErrorMessage = "Please select at least one interest")]
+        //[Required(ErrorMessage = "Please select at least one interest")]
         public InterestAreas InterestAreas { get; set; }
     }
 }

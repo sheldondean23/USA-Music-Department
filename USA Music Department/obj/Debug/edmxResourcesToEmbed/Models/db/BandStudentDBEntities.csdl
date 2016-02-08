@@ -98,6 +98,21 @@
       <End Role="Student" EntitySet="Students" />
       <End Role="InterestAreatoStudent" EntitySet="InterestAreatoStudents" />
     </AssociationSet>
+    <FunctionImport Name="DeleteStudentData">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertStudentData">
+      <Parameter Name="StudentFirstName" Mode="In" Type="String" />
+      <Parameter Name="StudentLastName" Mode="In" Type="String" />
+      <Parameter Name="StudentAddress" Mode="In" Type="String" />
+      <Parameter Name="StudentCity" Mode="In" Type="String" />
+      <Parameter Name="StudentState" Mode="In" Type="String" />
+      <Parameter Name="StudentZipCode" Mode="In" Type="Int32" />
+      <Parameter Name="StudentPhone" Mode="In" Type="String" />
+      <Parameter Name="PerformanceMedium" Mode="In" Type="String" />
+      <Parameter Name="GraduationYear" Mode="In" Type="Int32" />
+      <Parameter Name="EmailAddress" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="InterestAreatoStudent">
     <Key>

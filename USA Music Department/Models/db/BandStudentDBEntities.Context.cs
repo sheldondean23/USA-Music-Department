@@ -12,6 +12,8 @@ namespace USA_Music_Department.Models.db
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class BandStudentDBEntities : DbContext
     {
@@ -30,5 +32,59 @@ namespace USA_Music_Department.Models.db
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<StudentContact> StudentContacts { get; set; }
         public virtual DbSet<InterestAreatoStudent> InterestAreatoStudents { get; set; }
+    
+        public virtual int DeleteStudentData(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteStudentData", idParameter);
+        }
+    
+        public virtual int InsertStudentData(string studentFirstName, string studentLastName, string studentAddress, string studentCity, string studentState, Nullable<int> studentZipCode, string studentPhone, string performanceMedium, Nullable<int> graduationYear, string emailAddress)
+        {
+            var studentFirstNameParameter = studentFirstName != null ?
+                new ObjectParameter("StudentFirstName", studentFirstName) :
+                new ObjectParameter("StudentFirstName", typeof(string));
+    
+            var studentLastNameParameter = studentLastName != null ?
+                new ObjectParameter("StudentLastName", studentLastName) :
+                new ObjectParameter("StudentLastName", typeof(string));
+    
+            var studentAddressParameter = studentAddress != null ?
+                new ObjectParameter("StudentAddress", studentAddress) :
+                new ObjectParameter("StudentAddress", typeof(string));
+    
+            var studentCityParameter = studentCity != null ?
+                new ObjectParameter("StudentCity", studentCity) :
+                new ObjectParameter("StudentCity", typeof(string));
+    
+            var studentStateParameter = studentState != null ?
+                new ObjectParameter("StudentState", studentState) :
+                new ObjectParameter("StudentState", typeof(string));
+    
+            var studentZipCodeParameter = studentZipCode.HasValue ?
+                new ObjectParameter("StudentZipCode", studentZipCode) :
+                new ObjectParameter("StudentZipCode", typeof(int));
+    
+            var studentPhoneParameter = studentPhone != null ?
+                new ObjectParameter("StudentPhone", studentPhone) :
+                new ObjectParameter("StudentPhone", typeof(string));
+    
+            var performanceMediumParameter = performanceMedium != null ?
+                new ObjectParameter("PerformanceMedium", performanceMedium) :
+                new ObjectParameter("PerformanceMedium", typeof(string));
+    
+            var graduationYearParameter = graduationYear.HasValue ?
+                new ObjectParameter("GraduationYear", graduationYear) :
+                new ObjectParameter("GraduationYear", typeof(int));
+    
+            var emailAddressParameter = emailAddress != null ?
+                new ObjectParameter("EmailAddress", emailAddress) :
+                new ObjectParameter("EmailAddress", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertStudentData", studentFirstNameParameter, studentLastNameParameter, studentAddressParameter, studentCityParameter, studentStateParameter, studentZipCodeParameter, studentPhoneParameter, performanceMediumParameter, graduationYearParameter, emailAddressParameter);
+        }
     }
 }

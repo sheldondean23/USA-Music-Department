@@ -19,7 +19,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <div class="custom-dropdown">
-                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("USA Music Department", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
 
                     @Html.ActionLink("Home", "Index", "Home", null, new { @class = "navbar-brand" })
                     @Html.ActionLink("About", "About", "Home", null, new { @class = "navbar-brand" })
@@ -27,8 +27,7 @@
                 </div>
             </div>
             <div class="align-right">
-                @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "navbar-brand" })
-                @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "navbar-brand" })
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
@@ -36,7 +35,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - University of South Alabama Music Department</p>
         </footer>
     </div>
 

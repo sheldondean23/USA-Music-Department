@@ -4,11 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using USA_Music_Department.Models.Forms.Interest_Form;
+using USA_Music_Department.Models.db;
 
 namespace USA_Music_Department.Controllers
 {
     public class FormController : Controller
     {
+        BandStudentDBEntities db = new BandStudentDBEntities();
         // GET: Form
         public ActionResult Index()
         {
@@ -35,12 +37,12 @@ namespace USA_Music_Department.Controllers
 
         // POST: Form/AddPerson
         [HttpPost]
-        public ActionResult AddPerson(StudentToAdd person)
+        public ActionResult AddPerson([Bind(Include = "StudentID,StudentFirstName,StudentLastName,StudentAddress,StudentCity,StudentState,StudentZipCode,StudentPhone,PerformanceMedium,GraduationYear,EmailAddress")] StudentToAdd student)
         {
             try
             {
-                // TODO: Add insert logic here
-
+                db.InsertStudentData(student.StudentFirstName, student.StudentLastName, student.StudentAddress, student.StudentCity, student.StudentState, student.StudentZipCode, student.StudentPhone, student.PerformanceMedium, student.GraduationYear, student.EmailAddress);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch

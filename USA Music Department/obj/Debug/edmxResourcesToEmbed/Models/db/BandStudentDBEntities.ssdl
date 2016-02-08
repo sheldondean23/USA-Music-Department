@@ -103,6 +103,21 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="DeleteStudentData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="InsertStudentData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StudentFirstName" Type="varchar" Mode="In" />
+    <Parameter Name="StudentLastName" Type="varchar" Mode="In" />
+    <Parameter Name="StudentAddress" Type="varchar" Mode="In" />
+    <Parameter Name="StudentCity" Type="varchar" Mode="In" />
+    <Parameter Name="StudentState" Type="varchar" Mode="In" />
+    <Parameter Name="StudentZipCode" Type="int" Mode="In" />
+    <Parameter Name="StudentPhone" Type="varchar" Mode="In" />
+    <Parameter Name="PerformanceMedium" Type="varchar" Mode="In" />
+    <Parameter Name="GraduationYear" Type="int" Mode="In" />
+    <Parameter Name="EmailAddress" Type="varchar" Mode="In" />
+  </Function>
   <EntityContainer Name="BandStudentDBModelStoreContainer">
     <EntitySet Name="InterestAreas" EntityType="Self.InterestAreas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InterestAreatoStudents" EntityType="Self.InterestAreatoStudents" Schema="dbo" store:Type="Tables" />
