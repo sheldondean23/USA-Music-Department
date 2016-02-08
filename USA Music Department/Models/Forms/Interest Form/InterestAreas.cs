@@ -6,7 +6,7 @@ using System.Web;
 
 namespace USA_Music_Department.Models.Forms.Interest_Form
 {
-    public class performanceMedium
+    public class InterestAreas
     {
         //public bool BM_Music_Education_Vocal;
         //public bool Music_Education_Instrumental;
