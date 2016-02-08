@@ -38,12 +38,17 @@ namespace USA_Music_Department.Models.Forms.Interest_Form
         public string StudentPhone { get; set; }
 
         [Required()]
+        [Display(Name = "Performance Medium")]
+        public string PerformanceMedium { get; set; }
+
+        [Required()]
         [Display(Name = "High School Graduation Year")]
         public Nullable<int> GraduationYear { get; set; }
+
         [Required()]
         [Display(Name = "Email Address")]
         public string EmailAddress { get; set; }
 
-        public performanceMedium PerformanceMediums { get; set; }
+        public InterestAreas InterestAreas { get; set; }
     }
 }

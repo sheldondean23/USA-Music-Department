@@ -15,8 +15,8 @@ namespace USA_Music_Department.Controllers
             return View(); 
         }
 
-        // GET: Form/Intrest
-        public ActionResult Intrest()
+        // GET: Form/interest
+        public ActionResult interest()
         {
             return View();
         }
