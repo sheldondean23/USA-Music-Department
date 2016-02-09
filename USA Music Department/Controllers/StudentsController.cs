@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using USA_Music_Department.Models.db;
+using USA_Music_Department.Models.Forms.Interest_Form;
 
 namespace USA_Music_Department.Controllers
 {
@@ -46,11 +47,12 @@ namespace USA_Music_Department.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "StudentID,StudentFirstName,StudentLastName,StudentAddress,StudentCity,StudentState,StudentZipCode,StudentPhone,PerformanceMedium,GraduationYear")] Student student)
+        public ActionResult Create([Bind(Include = "StudentID,StudentFirstName,StudentLastName,StudentAddress,StudentCity,StudentState,StudentZipCode,StudentPhone,PerformanceMedium,GraduationYear,EmailAddress")] StudentToAdd student)
         {
+
             if (ModelState.IsValid)
             {
-                db.Students.Add(student);
+                db.InsertStudentData(student.StudentFirstName, student.StudentLastName, student.StudentAddress, student.StudentCity, student.StudentState, student.StudentZipCode, student.StudentPhone, student.PerformanceMedium, student.GraduationYear, student.EmailAddress);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -101,19 +103,23 @@ namespace USA_Music_Department.Controllers
             {
                 return HttpNotFound();
             }
-            return View(student);
+            else
+            {
+                db.DeleteStudentData(id);
+            }
+            return RedirectToAction("Index");
         }
 
         // POST: Students/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Student student = db.Students.Find(id);
-            db.Students.Remove(student);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(int id)
+        //{
+        //    Student student = db.Students.Find(id);
+        //    db.Students.Remove(student);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
         protected override void Dispose(bool disposing)
         {

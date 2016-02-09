@@ -108,6 +108,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="DeleteStudentData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsertStudentData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StudentFirstName" Type="varchar" Mode="In" />
+          <Parameter Name="StudentLastName" Type="varchar" Mode="In" />
+          <Parameter Name="StudentAddress" Type="varchar" Mode="In" />
+          <Parameter Name="StudentCity" Type="varchar" Mode="In" />
+          <Parameter Name="StudentState" Type="varchar" Mode="In" />
+          <Parameter Name="StudentZipCode" Type="int" Mode="In" />
+          <Parameter Name="StudentPhone" Type="varchar" Mode="In" />
+          <Parameter Name="PerformanceMedium" Type="varchar" Mode="In" />
+          <Parameter Name="GraduationYear" Type="int" Mode="In" />
+          <Parameter Name="EmailAddress" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="BandStudentDBModelStoreContainer">
           <EntitySet Name="InterestAreas" EntityType="Self.InterestAreas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InterestAreatoStudents" EntityType="Self.InterestAreatoStudents" Schema="dbo" store:Type="Tables" />
@@ -233,6 +248,21 @@
             <End Role="Student" EntitySet="Students" />
             <End Role="InterestAreatoStudent" EntitySet="InterestAreatoStudents" />
           </AssociationSet>
+          <FunctionImport Name="DeleteStudentData">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertStudentData">
+            <Parameter Name="StudentFirstName" Mode="In" Type="String" />
+            <Parameter Name="StudentLastName" Mode="In" Type="String" />
+            <Parameter Name="StudentAddress" Mode="In" Type="String" />
+            <Parameter Name="StudentCity" Mode="In" Type="String" />
+            <Parameter Name="StudentState" Mode="In" Type="String" />
+            <Parameter Name="StudentZipCode" Mode="In" Type="Int32" />
+            <Parameter Name="StudentPhone" Mode="In" Type="String" />
+            <Parameter Name="PerformanceMedium" Mode="In" Type="String" />
+            <Parameter Name="GraduationYear" Mode="In" Type="Int32" />
+            <Parameter Name="EmailAddress" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="InterestAreatoStudent">
           <Key>
@@ -335,6 +365,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DeleteStudentData" FunctionName="BandStudentDBModel.Store.DeleteStudentData" />
+          <FunctionImportMapping FunctionImportName="InsertStudentData" FunctionName="BandStudentDBModel.Store.InsertStudentData" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
