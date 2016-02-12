@@ -37,12 +37,11 @@ namespace USA_Music_Department.Controllers
 
         // POST: Form/AddPerson
         [HttpPost]
-        public ActionResult AddPerson([Bind(Include = "StudentID,StudentFirstName,StudentLastName,StudentAddress,StudentCity,StudentState,StudentZipCode,StudentPhone,PerformanceMedium,GraduationYear,EmailAddress")] StudentToAdd student)
+        public ActionResult AddPerson(StudentToAdd student)
         {
             try
             {
-                db.InsertStudentData(student.StudentFirstName, student.StudentLastName, student.StudentAddress, student.StudentCity, student.StudentState, student.StudentZipCode, student.StudentPhone, student.PerformanceMedium, student.GraduationYear, student.EmailAddress);
-                db.SaveChanges();
+                StudentManipulation.Insert(student);
                 return RedirectToAction("Index");
             }
             catch

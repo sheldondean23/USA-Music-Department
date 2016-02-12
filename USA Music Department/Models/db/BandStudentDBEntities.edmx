@@ -108,6 +108,24 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="CreateUpdate_InterestAreas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StudentID" Type="int" Mode="In" />
+          <Parameter Name="BMMusicEdVocal" Type="bit" Mode="In" />
+          <Parameter Name="BMMusicEdInst" Type="bit" Mode="In" />
+          <Parameter Name="BMMusicPerfVocal" Type="bit" Mode="In" />
+          <Parameter Name="BMMusicPerfInst" Type="bit" Mode="In" />
+          <Parameter Name="BMMusicElecStudiesBusiness" Type="bit" Mode="In" />
+          <Parameter Name="BMMusicElecStudiesOutsideFields" Type="bit" Mode="In" />
+          <Parameter Name="MMPerfPiano" Type="bit" Mode="In" />
+          <Parameter Name="MMPerfVocal" Type="bit" Mode="In" />
+          <Parameter Name="MMCollabPiano" Type="bit" Mode="In" />
+          <Parameter Name="MusicMinor" Type="bit" Mode="In" />
+          <Parameter Name="InstEnsembles" Type="bit" Mode="In" />
+          <Parameter Name="ChoralEnsembles" Type="bit" Mode="In" />
+          <Parameter Name="OperaTheater" Type="bit" Mode="In" />
+          <Parameter Name="JMB" Type="bit" Mode="In" />
+          <Parameter Name="Other" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="DeleteStudentData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id" Type="int" Mode="In" />
         </Function>
@@ -122,6 +140,7 @@
           <Parameter Name="PerformanceMedium" Type="varchar" Mode="In" />
           <Parameter Name="GraduationYear" Type="int" Mode="In" />
           <Parameter Name="EmailAddress" Type="varchar" Mode="In" />
+          <Parameter Name="OutputID" Type="int" Mode="InOut" />
         </Function>
         <EntityContainer Name="BandStudentDBModelStoreContainer">
           <EntitySet Name="InterestAreas" EntityType="Self.InterestAreas" Schema="dbo" store:Type="Tables" />
@@ -249,7 +268,7 @@
             <End Role="InterestAreatoStudent" EntitySet="InterestAreatoStudents" />
           </AssociationSet>
           <FunctionImport Name="DeleteStudentData">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="InsertStudentData">
             <Parameter Name="StudentFirstName" Mode="In" Type="String" />
@@ -262,6 +281,25 @@
             <Parameter Name="PerformanceMedium" Mode="In" Type="String" />
             <Parameter Name="GraduationYear" Mode="In" Type="Int32" />
             <Parameter Name="EmailAddress" Mode="In" Type="String" />
+            <Parameter Name="OutputID" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="CreateUpdate_InterestAreas">
+            <Parameter Name="StudentID" Mode="In" Type="Int32" />
+            <Parameter Name="BMMusicEdVocal" Mode="In" Type="Boolean" />
+            <Parameter Name="BMMusicEdInst" Mode="In" Type="Boolean" />
+            <Parameter Name="BMMusicPerfVocal" Mode="In" Type="Boolean" />
+            <Parameter Name="BMMusicPerfInst" Mode="In" Type="Boolean" />
+            <Parameter Name="BMMusicElecStudiesBusiness" Mode="In" Type="Boolean" />
+            <Parameter Name="BMMusicElecStudiesOutsideFields" Mode="In" Type="Boolean" />
+            <Parameter Name="MMPerfPiano" Mode="In" Type="Boolean" />
+            <Parameter Name="MMPerfVocal" Mode="In" Type="Boolean" />
+            <Parameter Name="MMCollabPiano" Mode="In" Type="Boolean" />
+            <Parameter Name="MusicMinor" Mode="In" Type="Boolean" />
+            <Parameter Name="InstEnsembles" Mode="In" Type="Boolean" />
+            <Parameter Name="ChoralEnsembles" Mode="In" Type="Boolean" />
+            <Parameter Name="OperaTheater" Mode="In" Type="Boolean" />
+            <Parameter Name="JMB" Mode="In" Type="Boolean" />
+            <Parameter Name="Other" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="InterestAreatoStudent">
@@ -367,6 +405,7 @@
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="DeleteStudentData" FunctionName="BandStudentDBModel.Store.DeleteStudentData" />
           <FunctionImportMapping FunctionImportName="InsertStudentData" FunctionName="BandStudentDBModel.Store.InsertStudentData" />
+          <FunctionImportMapping FunctionImportName="CreateUpdate_InterestAreas" FunctionName="BandStudentDBModel.Store.CreateUpdate_InterestAreas" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -42,7 +42,7 @@ namespace USA_Music_Department.Models.db
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteStudentData", idParameter);
         }
     
-        public virtual int InsertStudentData(string studentFirstName, string studentLastName, string studentAddress, string studentCity, string studentState, Nullable<int> studentZipCode, string studentPhone, string performanceMedium, Nullable<int> graduationYear, string emailAddress)
+        public virtual int InsertStudentData(string studentFirstName, string studentLastName, string studentAddress, string studentCity, string studentState, Nullable<int> studentZipCode, string studentPhone, string performanceMedium, Nullable<int> graduationYear, string emailAddress, ObjectParameter outputID)
         {
             var studentFirstNameParameter = studentFirstName != null ?
                 new ObjectParameter("StudentFirstName", studentFirstName) :
@@ -84,7 +84,76 @@ namespace USA_Music_Department.Models.db
                 new ObjectParameter("EmailAddress", emailAddress) :
                 new ObjectParameter("EmailAddress", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertStudentData", studentFirstNameParameter, studentLastNameParameter, studentAddressParameter, studentCityParameter, studentStateParameter, studentZipCodeParameter, studentPhoneParameter, performanceMediumParameter, graduationYearParameter, emailAddressParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertStudentData", studentFirstNameParameter, studentLastNameParameter, studentAddressParameter, studentCityParameter, studentStateParameter, studentZipCodeParameter, studentPhoneParameter, performanceMediumParameter, graduationYearParameter, emailAddressParameter, outputID);
+        }
+    
+        public virtual int CreateUpdate_InterestAreas(Nullable<int> studentID, Nullable<bool> bMMusicEdVocal, Nullable<bool> bMMusicEdInst, Nullable<bool> bMMusicPerfVocal, Nullable<bool> bMMusicPerfInst, Nullable<bool> bMMusicElecStudiesBusiness, Nullable<bool> bMMusicElecStudiesOutsideFields, Nullable<bool> mMPerfPiano, Nullable<bool> mMPerfVocal, Nullable<bool> mMCollabPiano, Nullable<bool> musicMinor, Nullable<bool> instEnsembles, Nullable<bool> choralEnsembles, Nullable<bool> operaTheater, Nullable<bool> jMB, string other)
+        {
+            var studentIDParameter = studentID.HasValue ?
+                new ObjectParameter("StudentID", studentID) :
+                new ObjectParameter("StudentID", typeof(int));
+    
+            var bMMusicEdVocalParameter = bMMusicEdVocal.HasValue ?
+                new ObjectParameter("BMMusicEdVocal", bMMusicEdVocal) :
+                new ObjectParameter("BMMusicEdVocal", typeof(bool));
+    
+            var bMMusicEdInstParameter = bMMusicEdInst.HasValue ?
+                new ObjectParameter("BMMusicEdInst", bMMusicEdInst) :
+                new ObjectParameter("BMMusicEdInst", typeof(bool));
+    
+            var bMMusicPerfVocalParameter = bMMusicPerfVocal.HasValue ?
+                new ObjectParameter("BMMusicPerfVocal", bMMusicPerfVocal) :
+                new ObjectParameter("BMMusicPerfVocal", typeof(bool));
+    
+            var bMMusicPerfInstParameter = bMMusicPerfInst.HasValue ?
+                new ObjectParameter("BMMusicPerfInst", bMMusicPerfInst) :
+                new ObjectParameter("BMMusicPerfInst", typeof(bool));
+    
+            var bMMusicElecStudiesBusinessParameter = bMMusicElecStudiesBusiness.HasValue ?
+                new ObjectParameter("BMMusicElecStudiesBusiness", bMMusicElecStudiesBusiness) :
+                new ObjectParameter("BMMusicElecStudiesBusiness", typeof(bool));
+    
+            var bMMusicElecStudiesOutsideFieldsParameter = bMMusicElecStudiesOutsideFields.HasValue ?
+                new ObjectParameter("BMMusicElecStudiesOutsideFields", bMMusicElecStudiesOutsideFields) :
+                new ObjectParameter("BMMusicElecStudiesOutsideFields", typeof(bool));
+    
+            var mMPerfPianoParameter = mMPerfPiano.HasValue ?
+                new ObjectParameter("MMPerfPiano", mMPerfPiano) :
+                new ObjectParameter("MMPerfPiano", typeof(bool));
+    
+            var mMPerfVocalParameter = mMPerfVocal.HasValue ?
+                new ObjectParameter("MMPerfVocal", mMPerfVocal) :
+                new ObjectParameter("MMPerfVocal", typeof(bool));
+    
+            var mMCollabPianoParameter = mMCollabPiano.HasValue ?
+                new ObjectParameter("MMCollabPiano", mMCollabPiano) :
+                new ObjectParameter("MMCollabPiano", typeof(bool));
+    
+            var musicMinorParameter = musicMinor.HasValue ?
+                new ObjectParameter("MusicMinor", musicMinor) :
+                new ObjectParameter("MusicMinor", typeof(bool));
+    
+            var instEnsemblesParameter = instEnsembles.HasValue ?
+                new ObjectParameter("InstEnsembles", instEnsembles) :
+                new ObjectParameter("InstEnsembles", typeof(bool));
+    
+            var choralEnsemblesParameter = choralEnsembles.HasValue ?
+                new ObjectParameter("ChoralEnsembles", choralEnsembles) :
+                new ObjectParameter("ChoralEnsembles", typeof(bool));
+    
+            var operaTheaterParameter = operaTheater.HasValue ?
+                new ObjectParameter("OperaTheater", operaTheater) :
+                new ObjectParameter("OperaTheater", typeof(bool));
+    
+            var jMBParameter = jMB.HasValue ?
+                new ObjectParameter("JMB", jMB) :
+                new ObjectParameter("JMB", typeof(bool));
+    
+            var otherParameter = other != null ?
+                new ObjectParameter("Other", other) :
+                new ObjectParameter("Other", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CreateUpdate_InterestAreas", studentIDParameter, bMMusicEdVocalParameter, bMMusicEdInstParameter, bMMusicPerfVocalParameter, bMMusicPerfInstParameter, bMMusicElecStudiesBusinessParameter, bMMusicElecStudiesOutsideFieldsParameter, mMPerfPianoParameter, mMPerfVocalParameter, mMCollabPianoParameter, musicMinorParameter, instEnsemblesParameter, choralEnsemblesParameter, operaTheaterParameter, jMBParameter, otherParameter);
         }
     }
 }

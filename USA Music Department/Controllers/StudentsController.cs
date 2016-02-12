@@ -47,13 +47,11 @@ namespace USA_Music_Department.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "StudentID,StudentFirstName,StudentLastName,StudentAddress,StudentCity,StudentState,StudentZipCode,StudentPhone,PerformanceMedium,GraduationYear,EmailAddress")] StudentToAdd student)
+        public ActionResult Create(StudentToAdd student)
         {
 
             if (ModelState.IsValid)
             {
-                db.InsertStudentData(student.StudentFirstName, student.StudentLastName, student.StudentAddress, student.StudentCity, student.StudentState, student.StudentZipCode, student.StudentPhone, student.PerformanceMedium, student.GraduationYear, student.EmailAddress);
-                db.SaveChanges();
                 return RedirectToAction("Index");
             }
 

@@ -112,6 +112,25 @@
       <Parameter Name="PerformanceMedium" Mode="In" Type="String" />
       <Parameter Name="GraduationYear" Mode="In" Type="Int32" />
       <Parameter Name="EmailAddress" Mode="In" Type="String" />
+      <Parameter Name="OutputID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CreateUpdate_InterestAreas">
+      <Parameter Name="StudentID" Mode="In" Type="Int32" />
+      <Parameter Name="BMMusicEdVocal" Mode="In" Type="Boolean" />
+      <Parameter Name="BMMusicEdInst" Mode="In" Type="Boolean" />
+      <Parameter Name="BMMusicPerfVocal" Mode="In" Type="Boolean" />
+      <Parameter Name="BMMusicPerfInst" Mode="In" Type="Boolean" />
+      <Parameter Name="BMMusicElecStudiesBusiness" Mode="In" Type="Boolean" />
+      <Parameter Name="BMMusicElecStudiesOutsideFields" Mode="In" Type="Boolean" />
+      <Parameter Name="MMPerfPiano" Mode="In" Type="Boolean" />
+      <Parameter Name="MMPerfVocal" Mode="In" Type="Boolean" />
+      <Parameter Name="MMCollabPiano" Mode="In" Type="Boolean" />
+      <Parameter Name="MusicMinor" Mode="In" Type="Boolean" />
+      <Parameter Name="InstEnsembles" Mode="In" Type="Boolean" />
+      <Parameter Name="ChoralEnsembles" Mode="In" Type="Boolean" />
+      <Parameter Name="OperaTheater" Mode="In" Type="Boolean" />
+      <Parameter Name="JMB" Mode="In" Type="Boolean" />
+      <Parameter Name="Other" Mode="In" Type="String" />
     </FunctionImport>
   </EntityContainer>
   <EntityType Name="InterestAreatoStudent">
