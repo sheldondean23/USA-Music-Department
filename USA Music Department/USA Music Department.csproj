@@ -198,6 +198,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BandStudentDBEntities.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\db\dbConnector.cs" />
     <Compile Include="Models\db\InterestArea.cs">
       <DependentUpon>BandStudentDBEntities.tt</DependentUpon>
     </Compile>
@@ -210,6 +211,7 @@
     <Compile Include="Models\db\StudentContact.cs">
       <DependentUpon>BandStudentDBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\db\StudentManipulation.cs" />
     <Compile Include="Models\db\User.cs">
       <DependentUpon>BandStudentDBEntities.tt</DependentUpon>
     </Compile>

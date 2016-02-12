@@ -63,5 +63,6 @@
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="DeleteStudentData" FunctionName="BandStudentDBModel.Store.DeleteStudentData" />
     <FunctionImportMapping FunctionImportName="InsertStudentData" FunctionName="BandStudentDBModel.Store.InsertStudentData" />
+    <FunctionImportMapping FunctionImportName="CreateUpdate_InterestAreas" FunctionName="BandStudentDBModel.Store.CreateUpdate_InterestAreas" />
   </EntityContainerMapping>
 </Mapping>
