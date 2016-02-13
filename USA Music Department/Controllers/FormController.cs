@@ -39,9 +39,10 @@ namespace USA_Music_Department.Controllers
         [HttpPost]
         public ActionResult AddPerson(StudentToAdd student)
         {
+            StudentManipulation astudent = new StudentManipulation();
             try
             {
-                StudentManipulation.Insert(student);
+                astudent.Insert(student);
                 return RedirectToAction("Index");
             }
             catch

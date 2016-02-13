@@ -11,7 +11,7 @@
         <EntityTypeShape EntityType="BandStudentDBModel.StudentContact" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="BandStudentDBModel.FK_StudentContactstoStudents" ManuallyRouted="false" />
         <AssociationConnector Association="BandStudentDBModel.FK_StudentContactstoUsers" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="BandStudentDBModel.InterestAreatoStudent" Width="1.5" PointX="5" PointY="3.625" />
+        <EntityTypeShape EntityType="BandStudentDBModel.InterestAreatoStudent" Width="2" PointX="5" PointY="3.625" />
         <AssociationConnector Association="BandStudentDBModel.FK_InterestAreatoStudentstoInterestArea" />
         <AssociationConnector Association="BandStudentDBModel.FK_InterestAreatoStudentstoStudents" />
       </Diagram>
