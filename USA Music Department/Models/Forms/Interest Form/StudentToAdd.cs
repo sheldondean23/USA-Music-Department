@@ -42,7 +42,7 @@ namespace USA_Music_Department.Models.Forms.Interest_Form
         [Required(ErrorMessage = "Phone Number Required")]
         [Display(Name = "Phone*")]
         [DataType(DataType.PhoneNumber)]
-        [RegularExpression("([0-9]{3})?[-. ]?([0-9]{3})[-. ]?([0-9]{4})", ErrorMessage = "Not a valid Phone number Ex: 123-456-7890 ")] 
+        [RegularExpression("([0-9]{3})?[-. ]?([0-9]{3})[-. ]?([0-9]{4})", ErrorMessage = "Not a valid Phone number Ex: 123-456-7890 ")]
         public string StudentPhone { get; set; }
 
         [Required(ErrorMessage = "Performance Medium Required")]
@@ -62,5 +62,7 @@ namespace USA_Music_Department.Models.Forms.Interest_Form
         [Display(Name = "Interest Areas*")]
         //[Required(ErrorMessage = "Please select at least one interest")]
         public InterestAreas InterestAreas { get; set; }
+
+        public int StudentID { get; set; }
     }
 }

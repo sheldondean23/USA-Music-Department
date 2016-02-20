@@ -1,12 +1,9 @@
-﻿@model USA_Music_Department.Models.db.Student
-
+﻿@model USA_Music_Department.Models.Forms.Interest_Form.StudentToAdd
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <h2 class="text-center">Details</h2>
-
 <div>
     <h4>Student</h4>
     <hr />
@@ -14,83 +11,130 @@
         <dt>
             @Html.DisplayNameFor(model => model.StudentFirstName)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.StudentFirstName)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.StudentLastName)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.StudentLastName)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.StudentAddress)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.StudentAddress)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.StudentCity)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.StudentCity)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.StudentState)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.StudentState)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.StudentZipCode)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.StudentZipCode)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.StudentPhone)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.StudentPhone)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.PerformanceMedium)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.PerformanceMedium)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.GraduationYear)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.GraduationYear)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.EmailAddress)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.EmailAddress)
         </dd>
-
+        <dt>
+            InterestAreas
+        </dt>
+        <dd>
+            BM BM Music Education Vocal
+            @Html.CheckBoxFor(model => model.InterestAreas.BM_Music_Education_Vocal)
+        </dd>
+        <dd>
+            BM Music Education Instrumental
+            @Html.CheckBoxFor(model => model.InterestAreas.BM_Music_Education_Instrumental))
+        </dd>
+        <dd>
+            BM Music Performance Vocal
+            @Html.CheckBoxFor(model => model.InterestAreas.BM_Music_Performance_Vocal)
+        </dd>
+        <dd>
+            BM Music Performance Instrumental
+            @Html.CheckBoxFor(model => model.InterestAreas.BM_Music_Performance_Instrumental)
+        </dd>
+        <dd>
+            BM Music Elective Studies Business
+            @Html.CheckBoxFor(model => model.InterestAreas.BM_Music_Elective_Studies_Business)
+        </dd>
+        <dd>
+            BM Music Elective Studies Outside Fields
+            @Html.CheckBoxFor(model => model.InterestAreas.BM_Music_Elective_Studies_Business)
+        </dd>
+        <dd>
+            MM Performance Piano
+            @Html.CheckBoxFor(model => model.InterestAreas.MM_Performance_Piano)
+        </dd>
+        <dd>
+            MM Performance Vocal
+            @Html.CheckBoxFor(model => model.InterestAreas.MM_Performance_Vocal)
+        </dd>
+        <dd>
+            MM Collaborative Piano
+            @Html.CheckBoxFor(model => model.InterestAreas.MM_Collaborative_Piano)
+        </dd>
+        <dd>
+            Music Education Vocal
+            @Html.CheckBoxFor(model => model.InterestAreas.BM_Music_Elective_Studies_Business)
+        </dd>
+        <dd>
+            Music Minor
+            @Html.CheckBoxFor(model => model.InterestAreas.Music_Minor)
+        </dd>
+        <dd>
+            Choral Ensemebles
+            @Html.CheckBoxFor(model => model.InterestAreas.Choral_Ensembles)
+        </dd>
+        <dd>
+            Instrumental Ensembles
+            @Html.CheckBoxFor(model => model.InterestAreas.Instrumental_Ensembles)
+        </dd>
+        <dd>
+            Opera Theater
+            @Html.CheckBoxFor(model => model.InterestAreas.Opera_Theatre)
+        </dd>
+        <dd>
+            Jaguar Marching Band
+            @Html.CheckBoxFor(model => model.InterestAreas.Jaguar_Marching_Band)
+        </dd>
+        <dd>
+            Other:
+            @Html.DisplayFor(model => model.InterestAreas.Other)
+        </dd>
     </dl>
 </div>
 <p>

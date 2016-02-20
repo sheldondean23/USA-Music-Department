@@ -9,10 +9,12 @@ namespace USA_Music_Department.Controllers
     public class ErrorController : Controller
 
     {
+        [AllowAnonymous]
         public ViewResult Index()
         {
             return View("Error");
         }
+        [AllowAnonymous]
         public ViewResult NotFound()
         {
             Response.StatusCode = 404;
