@@ -80,5 +80,12 @@ namespace USA_Music_Department.Models.db
             dbconnection.Close();
             return student;
         }
+
+        public static List<string> GetColumns(string tableName)
+        {
+            BandStudentDBEntities db = new BandStudentDBEntities();
+            return db.TableColumnNames(tableName).ToList();
+        }
+
     }
 }

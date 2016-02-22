@@ -1,12 +1,26 @@
 ﻿@model IEnumerable<USA_Music_Department.Models.db.Student>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2 class="text-center">Students List</h2>
-<p>
-    @Html.ActionLink("Create New", "interest", "Form")
-</p>
+<h2 class="text-center padding">Students List</h2>
+<div>
+    @using (Html.BeginForm())
+    {
+        <div class="flex padding">
+            <div class="flex-item ">@Html.DropDownList("FilterType", (List<SelectListItem>)Session["filterType"], "-- Search By--", new { @class = "form-control" })</div>
+            <div class="flex-item"><label class="control-label col-md-2" for="SearchString"> Filter text: </label></div>
+            <div class="flex-item ">@Html.TextBox("SearchString", null, new { @class = "form-control" })</div>
+            <div class="flex-item padding"><input class="btn btn-default" type="submit" value="Filter" /></div>
+            <div class="align-right">
+                <p>@Html.ActionLink("Create New", "interest", "Form")</p>
+                <p> @Html.ActionLink(" ", "Index", "Students", null, new { @class = "glyphicon glyphicon-repeat align-right" })</p>
+            </div>
+        </div>
+    }
+</div>
+@*<div class="glyphicon glyphicon-repeat right"></div>*@
 <table class="table sortable">
     <tr>
         <th>

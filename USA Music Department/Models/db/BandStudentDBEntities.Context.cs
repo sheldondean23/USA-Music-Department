@@ -155,5 +155,23 @@ namespace USA_Music_Department.Models.db
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CreateUpdate_InterestAreas", studentIDParameter, bMMusicEdVocalParameter, bMMusicEdInstParameter, bMMusicPerfVocalParameter, bMMusicPerfInstParameter, bMMusicElecStudiesBusinessParameter, bMMusicElecStudiesOutsideFieldsParameter, mMPerfPianoParameter, mMPerfVocalParameter, mMCollabPianoParameter, musicMinorParameter, instEnsemblesParameter, choralEnsemblesParameter, operaTheaterParameter, jMBParameter, otherParameter);
         }
+    
+        public virtual ObjectResult<GetStudentDetails_Result> GetStudentDetails(Nullable<int> studentid)
+        {
+            var studentidParameter = studentid.HasValue ?
+                new ObjectParameter("Studentid", studentid) :
+                new ObjectParameter("Studentid", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetStudentDetails_Result>("GetStudentDetails", studentidParameter);
+        }
+    
+        public virtual ObjectResult<string> TableColumnNames(string tableName)
+        {
+            var tableNameParameter = tableName != null ?
+                new ObjectParameter("TableName", tableName) :
+                new ObjectParameter("TableName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("TableColumnNames", tableNameParameter);
+        }
     }
 }

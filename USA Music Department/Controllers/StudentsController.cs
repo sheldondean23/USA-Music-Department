@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Dynamic;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
@@ -16,8 +17,21 @@ namespace USA_Music_Department.Controllers
         private BandStudentDBEntities db = new BandStudentDBEntities();
 
         // GET: Students
-        public ActionResult Index()
+        public ActionResult Index(string FilterType, string SearchString)
         {
+            var columnNames = StudentManipulation.GetColumns("Students");
+            Session["filterType"] = columnNames.Select(s => new SelectListItem()
+            {
+                Text = s.ToString(),
+                Value = s
+            }).ToList();
+            if (FilterType != null && SearchString != null)
+            {
+                var filteredContent = db.Students
+                                      .Where(FilterType + ".Contains(@0)", SearchString)
+                                      .Select(s => s).ToList();
+                return View(filteredContent);
+            }
             return View(db.Students.ToList());
         }
 
