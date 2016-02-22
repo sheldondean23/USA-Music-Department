@@ -1,92 +1,87 @@
 ﻿@model IEnumerable<USA_Music_Department.Models.db.Student>
-
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <h2 class="text-center">Students List</h2>
-
 <p>
     @Html.ActionLink("Create New", "interest", "Form")
 </p>
 <table class="table sortable">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.StudentFirstName)
+            Student First Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.StudentLastName)
+            Student Last Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.StudentAddress)
+            Student Address
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.StudentCity)
+            Student City
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.StudentState)
+            Student State
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.StudentZipCode)
+            Student Zip Code
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.StudentPhone)
+            Student Phone
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PerformanceMedium)
+            Performance Medium
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.GraduationYear)
+            Graduation Year
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EmailAddress)
+            Email Address
         </th>
         <th></th>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.StudentFirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StudentLastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StudentAddress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StudentCity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StudentState)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StudentZipCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StudentPhone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PerformanceMedium)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GraduationYear)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmailAddress)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.StudentID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.StudentID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.StudentID })
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentZipCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PerformanceMedium)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GraduationYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailAddress)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.StudentID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.StudentID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.StudentID })
+            </td>
+        </tr>
+    }
 </table>
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

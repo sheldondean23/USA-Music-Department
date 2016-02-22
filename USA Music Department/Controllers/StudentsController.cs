@@ -28,7 +28,8 @@ namespace USA_Music_Department.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            StudentToAdd student = StudentManipulation.Details(id);
+            student.StudentID = (int)id;
             if (student == null)
             {
                 return HttpNotFound();
