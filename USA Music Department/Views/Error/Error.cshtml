@@ -1,6 +1,6 @@
 ﻿@model System.Web.Mvc.HandleErrorInfo
 @{
-    Layout = "_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml"; ;
     ViewBag.Title = "Error";
 }
 <div class="list-header clearfix">
@@ -8,7 +8,7 @@
 </div>
 <div class="list-sfs-holder">
     <div class="alert alert-error">
-        An Error has Occured
+        An unexpected error has occured
     </div>
     @if (Model != null && HttpContext.Current.IsDebuggingEnabled)
     {
@@ -26,5 +26,4 @@
         </div>
     }
 </div>
-<h2>Error</h2>
 
