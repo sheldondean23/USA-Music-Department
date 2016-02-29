@@ -164,3 +164,4 @@ C:\Users\Greg Montieth\Documents\2016 Spring\Senior Project\USA-Music-Department
 C:\Users\Greg Montieth\Documents\2016 Spring\Senior Project\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\obj\Debug\USA Music Department.Tests.csprojResolveAssemblyReference.cache
 C:\Users\Greg Montieth\Documents\2016 Spring\Senior Project\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\obj\Debug\USA Music Department.Tests.dll
 C:\Users\Greg Montieth\Documents\2016 Spring\Senior Project\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\obj\Debug\USA Music Department.Tests.pdb
+C:\CIS497\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Linq.Dynamic.dll
