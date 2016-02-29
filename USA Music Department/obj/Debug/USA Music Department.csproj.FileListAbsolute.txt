@@ -208,3 +208,4 @@ C:\Users\Greg Montieth\Documents\2016 Spring\Senior Project\USA-Music-Department
 C:\Users\Greg Montieth\Documents\2016 Spring\Senior Project\USA-Music-Department\USA-Music-Department\USA Music Department\obj\Debug\USA Music Department.csproj.GenerateResource.Cache
 C:\Users\Greg Montieth\Documents\2016 Spring\Senior Project\USA-Music-Department\USA-Music-Department\USA Music Department\obj\Debug\USA Music Department.dll
 C:\Users\Greg Montieth\Documents\2016 Spring\Senior Project\USA-Music-Department\USA-Music-Department\USA Music Department\obj\Debug\USA Music Department.pdb
+C:\CIS497\USA-Music-Department\USA Music Department\bin\System.Linq.Dynamic.dll

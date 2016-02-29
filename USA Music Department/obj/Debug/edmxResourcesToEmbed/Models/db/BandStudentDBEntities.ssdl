@@ -55,6 +55,17 @@
     <Property Name="IsAdmin" Type="bit" />
     <Property Name="Active" Type="bit" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BandStudentDB.dbo._vGetUsers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="_vGetUsers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="UserFirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserLastName" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
   <Association Name="FK_InterestAreatoStudentstoInterestArea">
     <End Role="InterestAreas" Type="Self.InterestAreas" Multiplicity="0..1" />
     <End Role="InterestAreatoStudents" Type="Self.InterestAreatoStudents" Multiplicity="*" />
@@ -124,6 +135,12 @@
   <Function Name="DeleteStudentData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Id" Type="int" Mode="In" />
   </Function>
+  <Function Name="GetStudentDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Studentid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetUserRoles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Userid" Type="nvarchar" Mode="In" />
+  </Function>
   <Function Name="InsertStudentData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="StudentFirstName" Type="varchar" Mode="In" />
     <Parameter Name="StudentLastName" Type="varchar" Mode="In" />
@@ -137,12 +154,23 @@
     <Parameter Name="EmailAddress" Type="varchar" Mode="In" />
     <Parameter Name="OutputID" Type="int" Mode="InOut" />
   </Function>
+  <Function Name="TableColumnNames" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TableName" Type="nvarchar" Mode="In" />
+  </Function>
   <EntityContainer Name="BandStudentDBModelStoreContainer">
     <EntitySet Name="InterestAreas" EntityType="Self.InterestAreas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InterestAreatoStudents" EntityType="Self.InterestAreatoStudents" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="StudentContacts" EntityType="Self.StudentContacts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="_vGetUsers" EntityType="Self._vGetUsers" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [_vGetUsers].[id] AS [id], 
+    [_vGetUsers].[username] AS [username], 
+    [_vGetUsers].[UserFirstName] AS [UserFirstName], 
+    [_vGetUsers].[UserLastName] AS [UserLastName]
+    FROM [dbo].[_vGetUsers] AS [_vGetUsers]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_InterestAreatoStudentstoInterestArea" Association="Self.FK_InterestAreatoStudentstoInterestArea">
       <End Role="InterestAreas" EntitySet="InterestAreas" />
       <End Role="InterestAreatoStudents" EntitySet="InterestAreatoStudents" />

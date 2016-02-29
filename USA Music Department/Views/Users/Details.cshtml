@@ -1,0 +1,32 @@
+﻿@model USA_Music_Department.Models.Users.UserInformation
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>User Roles</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dd>
+            Admin
+            @Html.CheckBoxFor(model => model.RoleAdmin)
+        </dd>
+        <dd>
+            Can Edit
+            @Html.CheckBoxFor(model => model.RoleCanEdit)
+        </dd>
+        <dd>
+            Can View
+            @Html.CheckBoxFor(model => model.RoleCanView)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.id }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>

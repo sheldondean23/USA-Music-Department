@@ -59,7 +59,7 @@ namespace USA_Music_Department.Models.db
                 student.PerformanceMedium = reader.GetString(7);
                 student.GraduationYear = reader.GetInt32(8);
                 student.EmailAddress = reader.GetString(9);
-                student.InterestAreas.BM_Music_Education_Vocal = reader["BMMusicEdVocal"] as bool? ?? false;
+                student.InterestAreas.BM_Music_Education_Vocal = reader.GetBoolean(10);
                 student.InterestAreas.BM_Music_Education_Instrumental = reader.GetBoolean(11);
                 student.InterestAreas.BM_Music_Performance_Vocal = reader.GetBoolean(12);
                 student.InterestAreas.BM_Music_Performance_Instrumental = reader.GetBoolean(13);

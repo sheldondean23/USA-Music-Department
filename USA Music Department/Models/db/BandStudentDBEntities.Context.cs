@@ -32,6 +32,7 @@ namespace USA_Music_Department.Models.db
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<StudentContact> StudentContacts { get; set; }
         public virtual DbSet<InterestAreatoStudent> InterestAreatoStudents { get; set; }
+        public virtual DbSet<C_vGetUsers> C_vGetUsers { get; set; }
     
         public virtual int DeleteStudentData(Nullable<int> id)
         {
@@ -172,6 +173,15 @@ namespace USA_Music_Department.Models.db
                 new ObjectParameter("TableName", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("TableColumnNames", tableNameParameter);
+        }
+    
+        public virtual int GetUserRoles(string userid)
+        {
+            var useridParameter = userid != null ?
+                new ObjectParameter("Userid", userid) :
+                new ObjectParameter("Userid", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GetUserRoles", useridParameter);
         }
     }
 }

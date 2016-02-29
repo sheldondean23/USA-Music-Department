@@ -64,5 +64,49 @@
     <FunctionImportMapping FunctionImportName="DeleteStudentData" FunctionName="BandStudentDBModel.Store.DeleteStudentData" />
     <FunctionImportMapping FunctionImportName="InsertStudentData" FunctionName="BandStudentDBModel.Store.InsertStudentData" />
     <FunctionImportMapping FunctionImportName="CreateUpdate_InterestAreas" FunctionName="BandStudentDBModel.Store.CreateUpdate_InterestAreas" />
+    <FunctionImportMapping FunctionImportName="GetStudentDetails" FunctionName="BandStudentDBModel.Store.GetStudentDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BandStudentDBModel.GetStudentDetails_Result">
+          <ScalarProperty Name="StudentFirstName" ColumnName="StudentFirstName" />
+          <ScalarProperty Name="StudentLastName" ColumnName="StudentLastName" />
+          <ScalarProperty Name="StudentAddress" ColumnName="StudentAddress" />
+          <ScalarProperty Name="StudentCity" ColumnName="StudentCity" />
+          <ScalarProperty Name="StudentState" ColumnName="StudentState" />
+          <ScalarProperty Name="StudentZipCode" ColumnName="StudentZipCode" />
+          <ScalarProperty Name="StudentPhone" ColumnName="StudentPhone" />
+          <ScalarProperty Name="PerformanceMedium" ColumnName="PerformanceMedium" />
+          <ScalarProperty Name="GraduationYear" ColumnName="GraduationYear" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="BMMusicEdVocal" ColumnName="BMMusicEdVocal" />
+          <ScalarProperty Name="BMMusicEdInst" ColumnName="BMMusicEdInst" />
+          <ScalarProperty Name="BMMusicPerfVocal" ColumnName="BMMusicPerfVocal" />
+          <ScalarProperty Name="BMMusicPerfInst" ColumnName="BMMusicPerfInst" />
+          <ScalarProperty Name="BMMusicElecStudiesBusiness" ColumnName="BMMusicElecStudiesBusiness" />
+          <ScalarProperty Name="BMMusicElecStudiesOutsideFields" ColumnName="BMMusicElecStudiesOutsideFields" />
+          <ScalarProperty Name="MMPerfPiano" ColumnName="MMPerfPiano" />
+          <ScalarProperty Name="MMPerfVocal" ColumnName="MMPerfVocal" />
+          <ScalarProperty Name="MMCollabPiano" ColumnName="MMCollabPiano" />
+          <ScalarProperty Name="MusicMinor" ColumnName="MusicMinor" />
+          <ScalarProperty Name="InstEnsembles" ColumnName="InstEnsembles" />
+          <ScalarProperty Name="ChoralEnsembles" ColumnName="ChoralEnsembles" />
+          <ScalarProperty Name="OperaTheater" ColumnName="OperaTheater" />
+          <ScalarProperty Name="JMB" ColumnName="JMB" />
+          <ScalarProperty Name="Other" ColumnName="Other" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TableColumnNames" FunctionName="BandStudentDBModel.Store.TableColumnNames" />
+    <EntitySetMapping Name="C_vGetUsers">
+      <EntityTypeMapping TypeName="BandStudentDBModel.C_vGetUsers">
+        <MappingFragment StoreEntitySet="_vGetUsers">
+          <ScalarProperty Name="UserLastName" ColumnName="UserLastName" />
+          <ScalarProperty Name="UserFirstName" ColumnName="UserFirstName" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetUserRoles" FunctionName="BandStudentDBModel.Store.GetUserRoles" />
   </EntityContainerMapping>
 </Mapping>

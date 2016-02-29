@@ -1,0 +1,45 @@
+﻿@model IEnumerable<USA_Music_Department.Models.db.C_vGetUsers>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserLastName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserFirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserLastName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id })|
+            @Html.ActionLink("Check Roles", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
