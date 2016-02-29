@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CsvFiles;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -15,6 +16,7 @@ namespace USA_Music_Department.Controllers
     public class StudentsController : Controller
     {
         private BandStudentDBEntities db = new BandStudentDBEntities();
+        private List<Student> filteredContent;
 
         // GET: Students
         public ActionResult Index(string FilterType, string SearchString)
@@ -27,7 +29,7 @@ namespace USA_Music_Department.Controllers
             }).ToList();
             if (FilterType != null && SearchString != null)
             {
-                var filteredContent = db.Students
+                filteredContent = db.Students
                                       .Where(FilterType + ".Contains(@0)", SearchString)
                                       .Select(s => s).ToList();
                 return View(filteredContent);
@@ -134,6 +136,59 @@ namespace USA_Music_Department.Controllers
         //    return RedirectToAction("Index");
         //}
 
+        public ActionResult Export(string exportDeffinition)
+        {
+
+            if (exportDeffinition == "all")
+            {
+                db.Students.ToCsv(Server.MapPath("~/CSV/Student List.csv"));
+
+                string filename = "Student List.csv";
+                string filepath = Server.MapPath("~/CSV/Student List.csv");
+                byte[] filedata = System.IO.File.ReadAllBytes(filepath);
+                string contentType = MimeMapping.GetMimeMapping(filepath);
+                var cd = new System.Net.Mime.ContentDisposition
+                {
+                    FileName = filename,
+                    Inline = true,
+                };
+
+                Response.AppendHeader("Content-Disposition", cd.ToString());
+
+                return File(filedata, contentType);
+            }
+            else if (exportDeffinition == string.Empty || exportDeffinition == null)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                if (filteredContent == null)
+                {
+                    TempData["alertMessage"] = "Error, the filtered list is empty. Please download filtered list, with student data.";
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+
+                    filteredContent.ToCsv(Server.MapPath("~/CSV/Fitlered Student List.csv"));
+
+                    string filename = "Fitlered Student List.csv";
+                    string filepath = Server.MapPath("~/CSV/Fitlered Student List.csv");
+                    byte[] filedata = System.IO.File.ReadAllBytes(filepath);
+                    string contentType = MimeMapping.GetMimeMapping(filepath);
+                    var cd = new System.Net.Mime.ContentDisposition
+                    {
+                        FileName = filename,
+                        Inline = true,
+                    };
+
+                    Response.AppendHeader("Content-Disposition", cd.ToString());
+
+                    return File(filedata, contentType);
+                }
+            }
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -73,3 +73,12 @@ div.container.body-content
 {
     margin-left: 20px
 }
+.refresh-button 
+{
+    background-color: white;
+    width: 35px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    text-align: center;
+    font-weight: 900;
+}

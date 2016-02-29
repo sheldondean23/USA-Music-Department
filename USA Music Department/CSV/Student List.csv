@@ -1,0 +1,2 @@
+StudentID;StudentFirstName;StudentLastName;StudentAddress;StudentCity;StudentState;StudentZipCode;StudentPhone;PerformanceMedium;GraduationYear;EmailAddress;StudentContacts;InterestAreatoStudents
+17;Test;Test;Test;Test;Test;12345;1234567894;Test;1980;Test@Test.Test;System.Collections.Generic.HashSet`1[USA_Music_Department.Models.db.StudentContact];System.Collections.Generic.HashSet`1[USA_Music_Department.Models.db.InterestAreatoStudent]

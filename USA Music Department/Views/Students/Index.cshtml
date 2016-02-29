@@ -3,24 +3,31 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    if (null != TempData["alertMessage"])
+    {
+        <script type="text/javascript">
+       alert('@TempData["alertMessage"]');
+        </script>
+    }
 }
 <h2 class="text-center padding">Students List</h2>
 <div>
     @using (Html.BeginForm())
     {
-        <div class="flex padding">
+        <div class="flex padding align-left">
             <div class="flex-item ">@Html.DropDownList("FilterType", (List<SelectListItem>)Session["filterType"], "-- Search By--", new { @class = "form-control" })</div>
             <div class="flex-item"><label class="control-label col-md-2" for="SearchString"> Filter text: </label></div>
             <div class="flex-item ">@Html.TextBox("SearchString", null, new { @class = "form-control" })</div>
             <div class="flex-item padding"><input class="btn btn-default" type="submit" value="Filter" /></div>
-            <div class="align-right">
-                <p>@Html.ActionLink("Create New", "interest", "Form")</p>
-                <p> @Html.ActionLink(" ", "Index", "Students", null, new { @class = "glyphicon glyphicon-repeat align-right" })</p>
-            </div>
         </div>
     }
+    <div class="align-right">
+        <p>@Html.ActionLink(" Create New", "Create", "Students", new { @class = "btn btn-default glyphicon-plus" })</p>
+        <p class="refresh-button">@Html.ActionLink(" ", "Index", "Students", null, new { @class = "glyphicon glyphicon-repeat" })</p>
+    </div>
 </div>
-@*<div class="glyphicon glyphicon-repeat right"></div>*@
+
 <table class="table sortable">
     <tr>
         <th>
@@ -96,6 +103,11 @@
         </tr>
     }
 </table>
+
+<p class="btn btn-default"><span class="glyphicon glyphicon-download-alt"></span>@Html.ActionLink(" Expot All", "Export", "Students", new { exportDeffinition = "all" }, null)</p>
+<p class="btn btn-default"><span class="glyphicon glyphicon-download-alt"></span>@Html.ActionLink(" Expot Filtered List", "Export", "Students", new { exportDeffinition = "filteredList" }, null)</p>
+
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
