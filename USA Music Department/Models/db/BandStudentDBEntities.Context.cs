@@ -43,7 +43,7 @@ namespace USA_Music_Department.Models.db
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteStudentData", idParameter);
         }
     
-        public virtual int InsertStudentData(string studentFirstName, string studentLastName, string studentAddress, string studentCity, string studentState, Nullable<int> studentZipCode, string studentPhone, string performanceMedium, Nullable<int> graduationYear, string emailAddress, ObjectParameter outputID)
+        public virtual int InsertStudentData(string studentFirstName, string studentLastName, string studentAddress, string studentCity, string studentState, string studentZipCode, string studentPhone, string performanceMedium, string graduationYear, string emailAddress, ObjectParameter outputID)
         {
             var studentFirstNameParameter = studentFirstName != null ?
                 new ObjectParameter("StudentFirstName", studentFirstName) :
@@ -65,9 +65,9 @@ namespace USA_Music_Department.Models.db
                 new ObjectParameter("StudentState", studentState) :
                 new ObjectParameter("StudentState", typeof(string));
     
-            var studentZipCodeParameter = studentZipCode.HasValue ?
+            var studentZipCodeParameter = studentZipCode != null ?
                 new ObjectParameter("StudentZipCode", studentZipCode) :
-                new ObjectParameter("StudentZipCode", typeof(int));
+                new ObjectParameter("StudentZipCode", typeof(string));
     
             var studentPhoneParameter = studentPhone != null ?
                 new ObjectParameter("StudentPhone", studentPhone) :
@@ -77,9 +77,9 @@ namespace USA_Music_Department.Models.db
                 new ObjectParameter("PerformanceMedium", performanceMedium) :
                 new ObjectParameter("PerformanceMedium", typeof(string));
     
-            var graduationYearParameter = graduationYear.HasValue ?
+            var graduationYearParameter = graduationYear != null ?
                 new ObjectParameter("GraduationYear", graduationYear) :
-                new ObjectParameter("GraduationYear", typeof(int));
+                new ObjectParameter("GraduationYear", typeof(string));
     
             var emailAddressParameter = emailAddress != null ?
                 new ObjectParameter("EmailAddress", emailAddress) :

@@ -54,10 +54,10 @@ namespace USA_Music_Department.Models.db
                 student.StudentAddress = reader.GetString(2);
                 student.StudentCity = reader.GetString(3);
                 student.StudentState = reader.GetString(4);
-                student.StudentZipCode = reader.GetInt32(5);
+                student.StudentZipCode = reader.GetString(5);
                 student.StudentPhone = reader.GetString(6);
                 student.PerformanceMedium = reader.GetString(7);
-                student.GraduationYear = reader.GetInt32(8);
+                student.GraduationYear = reader.GetString(8);
                 student.EmailAddress = reader.GetString(9);
                 student.InterestAreas.BM_Music_Education_Vocal = reader.GetBoolean(10);
                 student.InterestAreas.BM_Music_Education_Instrumental = reader.GetBoolean(11);

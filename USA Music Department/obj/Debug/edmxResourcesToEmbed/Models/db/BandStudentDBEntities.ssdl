@@ -36,10 +36,10 @@
     <Property Name="StudentAddress" Type="varchar" MaxLength="200" />
     <Property Name="StudentCity" Type="varchar" MaxLength="100" />
     <Property Name="StudentState" Type="varchar" MaxLength="50" />
-    <Property Name="StudentZipCode" Type="int" />
+    <Property Name="StudentZipCode" Type="varchar" MaxLength="20" />
     <Property Name="StudentPhone" Type="varchar" MaxLength="20" />
     <Property Name="PerformanceMedium" Type="varchar" MaxLength="100" />
-    <Property Name="GraduationYear" Type="int" />
+    <Property Name="GraduationYear" Type="varchar" MaxLength="20" />
     <Property Name="EmailAddress" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="Users">
@@ -147,10 +147,10 @@ warning 6002: The table/view 'BandStudentDB.dbo._vGetUsers' does not have a prim
     <Parameter Name="StudentAddress" Type="varchar" Mode="In" />
     <Parameter Name="StudentCity" Type="varchar" Mode="In" />
     <Parameter Name="StudentState" Type="varchar" Mode="In" />
-    <Parameter Name="StudentZipCode" Type="int" Mode="In" />
+    <Parameter Name="StudentZipCode" Type="varchar" Mode="In" />
     <Parameter Name="StudentPhone" Type="varchar" Mode="In" />
     <Parameter Name="PerformanceMedium" Type="varchar" Mode="In" />
-    <Parameter Name="GraduationYear" Type="int" Mode="In" />
+    <Parameter Name="GraduationYear" Type="varchar" Mode="In" />
     <Parameter Name="EmailAddress" Type="varchar" Mode="In" />
     <Parameter Name="OutputID" Type="int" Mode="InOut" />
   </Function>

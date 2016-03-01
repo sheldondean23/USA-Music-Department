@@ -125,31 +125,31 @@ namespace USA_Music_Department.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: Users/Delete/5
-        public ActionResult Delete(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            C_vGetUsers c_vGetUsers = db.C_vGetUsers.Find(id);
-            if (c_vGetUsers == null)
-            {
-                return HttpNotFound();
-            }
-            return View(c_vGetUsers);
-        }
+        //// GET: Users/Delete/5
+        //public ActionResult Delete(string id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    C_vGetUsers c_vGetUsers = db.C_vGetUsers.Find(id);
+        //    if (c_vGetUsers == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(c_vGetUsers);
+        //}
 
-        // POST: Users/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
-        {
-            C_vGetUsers c_vGetUsers = db.C_vGetUsers.Find(id);
-            db.C_vGetUsers.Remove(c_vGetUsers);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //// POST: Users/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(string id)
+        //{
+        //    C_vGetUsers c_vGetUsers = db.C_vGetUsers.Find(id);
+        //    db.C_vGetUsers.Remove(c_vGetUsers);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
         protected override void Dispose(bool disposing)
         {

@@ -37,7 +37,7 @@ namespace USA_Music_Department.Models.Forms.Interest_Form
         [Required(ErrorMessage = "Zip Code Required")]
         [Display(Name = "Zip Code*")]
         [RegularExpression("[0-9]{5}(?:-[0-9]{4})?", ErrorMessage = "Invalid Zip Ex:99999")] //Cannot add extended zips due to integer
-        public Nullable<int> StudentZipCode { get; set; }
+        public string StudentZipCode { get; set; }
 
         [Required(ErrorMessage = "Phone Number Required")]
         [Display(Name = "Phone*")]
@@ -53,7 +53,7 @@ namespace USA_Music_Department.Models.Forms.Interest_Form
         [Required(ErrorMessage = "Grad Year Required")]
         [Display(Name = "High School Graduation Year *")]
         [RegularExpression("(19|20)[0-9]{2}", ErrorMessage = "Year must be between 1900 - 2099")]
-        public Nullable<int> GraduationYear { get; set; }
+        public string GraduationYear { get; set; }
 
         [Display(Name = "Email")]
         [EmailAddress(ErrorMessage = "Invalid Email")]

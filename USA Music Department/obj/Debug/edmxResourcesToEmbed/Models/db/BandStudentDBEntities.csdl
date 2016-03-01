@@ -18,10 +18,10 @@
     <Property Name="StudentAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="StudentCity" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="StudentState" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="StudentZipCode" Type="Int32" />
+    <Property Name="StudentZipCode" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
     <Property Name="StudentPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="PerformanceMedium" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="GraduationYear" Type="Int32" />
+    <Property Name="GraduationYear" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="StudentContacts" Relationship="Self.FK_StudentContactstoStudents" FromRole="Students" ToRole="StudentContacts" />
     <NavigationProperty Name="InterestAreatoStudents" Relationship="BandStudentDBModel.FK_InterestAreatoStudentstoStudents" FromRole="Student" ToRole="InterestAreatoStudent" />
     <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -107,10 +107,10 @@
       <Parameter Name="StudentAddress" Mode="In" Type="String" />
       <Parameter Name="StudentCity" Mode="In" Type="String" />
       <Parameter Name="StudentState" Mode="In" Type="String" />
-      <Parameter Name="StudentZipCode" Mode="In" Type="Int32" />
+      <Parameter Name="StudentZipCode" Mode="In" Type="String" />
       <Parameter Name="StudentPhone" Mode="In" Type="String" />
       <Parameter Name="PerformanceMedium" Mode="In" Type="String" />
-      <Parameter Name="GraduationYear" Mode="In" Type="Int32" />
+      <Parameter Name="GraduationYear" Mode="In" Type="String" />
       <Parameter Name="EmailAddress" Mode="In" Type="String" />
       <Parameter Name="OutputID" Mode="InOut" Type="Int32" />
     </FunctionImport>
