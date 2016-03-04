@@ -22,12 +22,14 @@ namespace USA_Music_Department.Controllers
         public ActionResult Index(string FilterType, string SearchString)
         {
             var columnNames = StudentManipulation.GetColumns("Students");
-            Session["filterType"] = columnNames.Select(s => new SelectListItem()
+            Session["filterType"] = columnNames
+                .Where(s =>!s.Contains("ID"))
+                .Select(s => new SelectListItem()
             {
                 Text = s.ToString(),
                 Value = s
             }).ToList();
-            if (FilterType != null && SearchString != null)
+            if (FilterType != null && FilterType != string.Empty && SearchString != null && SearchString != string.Empty)
             {
                 filteredContent = db.Students
                                       .Where(FilterType + ".Contains(@0)", SearchString)

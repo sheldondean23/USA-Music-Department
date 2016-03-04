@@ -98,14 +98,15 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.StudentID }) |
                 @Html.ActionLink("Details", "Details", new { id = item.StudentID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.StudentID })
+                @Html.ActionLink("Delete", "Delete", new { id = item.StudentID }) &nbsp;&nbsp;
+                @Html.ActionLink("Is Contacted", "Delete", new { id = item.StudentID })
             </td>
         </tr>
     }
 </table>
 
-<p class="btn btn-default"><span class="glyphicon glyphicon-download-alt"></span>@Html.ActionLink(" Expot All", "Export", "Students", new { exportDeffinition = "all" }, null)</p>
-<p class="btn btn-default"><span class="glyphicon glyphicon-download-alt"></span>@Html.ActionLink(" Expot Filtered List", "Export", "Students", new { exportDeffinition = "filteredList" }, null)</p>
+<p class="btn btn-default"><span class="glyphicon glyphicon-download-alt"></span>@Html.ActionLink(" Export All", "Export", "Students", new { exportDeffinition = "all" }, null)</p>
+<p class="btn btn-default"><span class="glyphicon glyphicon-download-alt"></span>@Html.ActionLink(" Export Filtered List", "Export", "Students", new { exportDeffinition = "filteredList" }, null)</p>
 
 
 @section Scripts {
