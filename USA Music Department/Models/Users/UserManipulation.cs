@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using USA_Music_Department.Models.Users;
 using USA_Music_Department.Controllers;
 using Microsoft.AspNet.Identity.Owin;
+using USA_Music_Department.Models.db;
 
 namespace USA_Music_Department.Models.Users
 {
@@ -41,6 +42,36 @@ namespace USA_Music_Department.Models.Users
             dbconnection.Close();
             return user;
         }
+
+        public static User GetUserInfo(string username)
+        {
+            string connectionstring = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            User user = new User();
+            SqlConnection dbconnection = new SqlConnection(connectionstring);
+            SqlCommand cmd = new SqlCommand();
+            cmd.Parameters.AddWithValue("@UserName", username);
+            SqlDataReader reader;
+
+            cmd.CommandText = "GetUserDetails";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = dbconnection;
+
+            dbconnection.Open();
+
+            reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                user.UserID = reader.GetInt32(0);
+                user.UserFirstName = reader.GetString(1);
+                user.UserLastName = reader.GetString(2);
+                user.Active = reader.GetBoolean(3);
+            }
+
+            dbconnection.Dispose();
+            dbconnection.Close();
+            return user;
+        }
+
         public static UserInformation UpdateRoles(string ID, bool RoleCanView, bool RoleCanEdit, bool RoleAdmin)
         {
             UserInformation user = new UserInformation();

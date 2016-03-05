@@ -27,7 +27,7 @@ namespace USA_Music_Department.Models.db
         public string UserMiddleName { get; set; }
         public string UserLastName { get; set; }
         public Nullable<bool> IsAdmin { get; set; }
-        public Nullable<bool> Active { get; set; }
+        public bool Active { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StudentContact> StudentContacts { get; set; }
