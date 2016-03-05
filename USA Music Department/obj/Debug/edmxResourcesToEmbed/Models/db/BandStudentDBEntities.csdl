@@ -37,7 +37,7 @@
     <Property Name="UserMiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="UserLastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="IsAdmin" Type="Boolean" />
-    <Property Name="Active" Type="Boolean" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="StudentContacts" Relationship="Self.FK_StudentContactstoUsers" FromRole="Users" ToRole="StudentContacts" />
   </EntityType>
   <EntityType Name="StudentContact">
@@ -141,6 +141,16 @@
     <EntitySet Name="C_vGetUsers" EntityType="BandStudentDBModel.C_vGetUsers" />
     <FunctionImport Name="GetUserRoles">
       <Parameter Name="Userid" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CreateBlankUserRecord">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateUserRecord">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="UserFirstName" Mode="In" Type="String" />
+      <Parameter Name="UserLastName" Mode="In" Type="String" />
+      <Parameter Name="Active" Mode="In" Type="Boolean" />
     </FunctionImport>
   </EntityContainer>
   <EntityType Name="InterestAreatoStudent">

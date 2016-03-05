@@ -58,7 +58,7 @@
           <Property Name="UserMiddleName" Type="varchar" MaxLength="50" />
           <Property Name="UserLastName" Type="varchar" MaxLength="100" />
           <Property Name="IsAdmin" Type="bit" />
-          <Property Name="Active" Type="bit" />
+          <Property Name="Active" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'BandStudentDB.dbo._vGetUsers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -122,6 +122,9 @@ warning 6002: The table/view 'BandStudentDB.dbo._vGetUsers' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="CreateBlankUserRecord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="CreateUpdate_InterestAreas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="StudentID" Type="int" Mode="In" />
           <Parameter Name="BMMusicEdVocal" Type="bit" Mode="In" />
@@ -164,6 +167,13 @@ warning 6002: The table/view 'BandStudentDB.dbo._vGetUsers' does not have a prim
         </Function>
         <Function Name="TableColumnNames" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="TableName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateUserRecord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+          <Parameter Name="UserFirstName" Type="varchar" Mode="In" />
+          <Parameter Name="UserLastName" Type="varchar" Mode="In" />
+          <Parameter Name="Active" Type="bit" Mode="In" />
         </Function>
         <EntityContainer Name="BandStudentDBModelStoreContainer">
           <EntitySet Name="InterestAreas" EntityType="Self.InterestAreas" Schema="dbo" store:Type="Tables" />
@@ -237,7 +247,7 @@ warning 6002: The table/view 'BandStudentDB.dbo._vGetUsers' does not have a prim
           <Property Name="UserMiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="UserLastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="IsAdmin" Type="Boolean" />
-          <Property Name="Active" Type="Boolean" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="StudentContacts" Relationship="Self.FK_StudentContactstoUsers" FromRole="Users" ToRole="StudentContacts" />
         </EntityType>
         <EntityType Name="StudentContact">
@@ -341,6 +351,16 @@ warning 6002: The table/view 'BandStudentDB.dbo._vGetUsers' does not have a prim
           <EntitySet Name="C_vGetUsers" EntityType="BandStudentDBModel.C_vGetUsers" />
           <FunctionImport Name="GetUserRoles">
           <Parameter Name="Userid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="CreateBlankUserRecord">
+          <Parameter Name="UserName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateUserRecord">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="UserFirstName" Mode="In" Type="String" />
+            <Parameter Name="UserLastName" Mode="In" Type="String" />
+            <Parameter Name="Active" Mode="In" Type="Boolean" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="InterestAreatoStudent">
@@ -528,6 +548,8 @@ warning 6002: The table/view 'BandStudentDB.dbo._vGetUsers' does not have a prim
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="GetUserRoles" FunctionName="BandStudentDBModel.Store.GetUserRoles" />
+          <FunctionImportMapping FunctionImportName="CreateBlankUserRecord" FunctionName="BandStudentDBModel.Store.CreateBlankUserRecord" />
+          <FunctionImportMapping FunctionImportName="UpdateUserRecord" FunctionName="BandStudentDBModel.Store.UpdateUserRecord" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -183,5 +183,39 @@ namespace USA_Music_Department.Models.db
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GetUserRoles", useridParameter);
         }
+    
+        public virtual int CreateBlankUserRecord(string userName)
+        {
+            var userNameParameter = userName != null ?
+                new ObjectParameter("UserName", userName) :
+                new ObjectParameter("UserName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CreateBlankUserRecord", userNameParameter);
+        }
+    
+        public virtual int UpdateUserRecord(Nullable<int> userId, string userName, string userFirstName, string userLastName, Nullable<bool> active)
+        {
+            var userIdParameter = userId.HasValue ?
+                new ObjectParameter("UserId", userId) :
+                new ObjectParameter("UserId", typeof(int));
+    
+            var userNameParameter = userName != null ?
+                new ObjectParameter("UserName", userName) :
+                new ObjectParameter("UserName", typeof(string));
+    
+            var userFirstNameParameter = userFirstName != null ?
+                new ObjectParameter("UserFirstName", userFirstName) :
+                new ObjectParameter("UserFirstName", typeof(string));
+    
+            var userLastNameParameter = userLastName != null ?
+                new ObjectParameter("UserLastName", userLastName) :
+                new ObjectParameter("UserLastName", typeof(string));
+    
+            var activeParameter = active.HasValue ?
+                new ObjectParameter("Active", active) :
+                new ObjectParameter("Active", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdateUserRecord", userIdParameter, userNameParameter, userFirstNameParameter, userLastNameParameter, activeParameter);
+        }
     }
 }

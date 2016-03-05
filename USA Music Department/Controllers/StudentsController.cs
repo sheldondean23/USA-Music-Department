@@ -58,24 +58,24 @@ namespace USA_Music_Department.Controllers
         // GET: Students/Create
         public ActionResult Create()
         {
-            return View();
+            return RedirectToAction("interest", "Form");
         }
 
         // POST: Students/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(StudentToAdd student)
-        {
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create(StudentToAdd student)
+        //{
 
-            if (ModelState.IsValid)
-            {
-                return RedirectToAction("Index");
-            }
+        //    if (ModelState.IsValid)
+        //    {
+        //        return RedirectToAction("Index");
+        //    }
 
-            return View(student);
-        }
+        //    return View(student);
+        //}
 
         // GET: Students/Edit/5
         public ActionResult Edit(int? id)

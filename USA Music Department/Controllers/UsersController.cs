@@ -64,6 +64,45 @@ namespace USA_Music_Department.Controllers
             return View(c_vGetUsers);
         }
 
+        // GET: Users/EditUserInfo/5
+        public ActionResult EditUserInfo(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            C_vGetUsers c_vGetUsers = db.C_vGetUsers.Find(id);
+
+            var user = new Models.db.User();
+
+            user = UserManipulation.GetUserInfo(c_vGetUsers.username);
+            user.UserName = c_vGetUsers.username;
+            var userid = user.UserName;
+            
+            if (c_vGetUsers == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user);
+        }
+
+        // POST: Users/EditUserInfo/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditUserInfo(User user)
+        {
+            var db = new BandStudentDBEntities();
+            if (ModelState.IsValid)
+            {
+                db.UpdateUserRecord(user.UserID, user.UserName, user.UserFirstName, user.UserLastName, user.Active);
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
+
         // GET: Users/Edit/5
         public ActionResult Edit(string id)
         {
