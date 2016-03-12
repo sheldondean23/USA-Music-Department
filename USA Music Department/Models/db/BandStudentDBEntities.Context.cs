@@ -217,5 +217,26 @@ namespace USA_Music_Department.Models.db
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdateUserRecord", userIdParameter, userNameParameter, userFirstNameParameter, userLastNameParameter, activeParameter);
         }
+    
+        public virtual int InsertContactRecord(Nullable<int> studentid, Nullable<int> contactedBy, Nullable<System.DateTime> contactedDate, string contactedMedium)
+        {
+            var studentidParameter = studentid.HasValue ?
+                new ObjectParameter("Studentid", studentid) :
+                new ObjectParameter("Studentid", typeof(int));
+    
+            var contactedByParameter = contactedBy.HasValue ?
+                new ObjectParameter("ContactedBy", contactedBy) :
+                new ObjectParameter("ContactedBy", typeof(int));
+    
+            var contactedDateParameter = contactedDate.HasValue ?
+                new ObjectParameter("ContactedDate", contactedDate) :
+                new ObjectParameter("ContactedDate", typeof(System.DateTime));
+    
+            var contactedMediumParameter = contactedMedium != null ?
+                new ObjectParameter("ContactedMedium", contactedMedium) :
+                new ObjectParameter("ContactedMedium", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertContactRecord", studentidParameter, contactedByParameter, contactedDateParameter, contactedMediumParameter);
+        }
     }
 }

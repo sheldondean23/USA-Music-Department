@@ -61,6 +61,13 @@
           <Property Name="Active" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6013: The table/view 'BandStudentDB.dbo._vContactList' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="_vContactList">
+          <Property Name="ContactedBy" Type="varchar" MaxLength="151" />
+          <Property Name="ContactedDate" Type="date" />
+          <Property Name="Contacted Using" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'BandStudentDB.dbo._vGetUsers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="_vGetUsers">
           <Key>
@@ -151,6 +158,12 @@ warning 6002: The table/view 'BandStudentDB.dbo._vGetUsers' does not have a prim
         </Function>
         <Function Name="GetUserRoles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Userid" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="InsertContactRecord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Studentid" Type="int" Mode="In" />
+          <Parameter Name="ContactedBy" Type="int" Mode="In" />
+          <Parameter Name="ContactedDate" Type="date" Mode="In" />
+          <Parameter Name="ContactedMedium" Type="varchar" Mode="In" />
         </Function>
         <Function Name="InsertStudentData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="StudentFirstName" Type="varchar" Mode="In" />
@@ -362,6 +375,12 @@ warning 6002: The table/view 'BandStudentDB.dbo._vGetUsers' does not have a prim
             <Parameter Name="UserLastName" Mode="In" Type="String" />
             <Parameter Name="Active" Mode="In" Type="Boolean" />
           </FunctionImport>
+          <FunctionImport Name="InsertContactRecord">
+            <Parameter Name="Studentid" Mode="In" Type="Int32" />
+            <Parameter Name="ContactedBy" Mode="In" Type="Int32" />
+            <Parameter Name="ContactedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="ContactedMedium" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="InterestAreatoStudent">
           <Key>
@@ -550,6 +569,7 @@ warning 6002: The table/view 'BandStudentDB.dbo._vGetUsers' does not have a prim
           <FunctionImportMapping FunctionImportName="GetUserRoles" FunctionName="BandStudentDBModel.Store.GetUserRoles" />
           <FunctionImportMapping FunctionImportName="CreateBlankUserRecord" FunctionName="BandStudentDBModel.Store.CreateBlankUserRecord" />
           <FunctionImportMapping FunctionImportName="UpdateUserRecord" FunctionName="BandStudentDBModel.Store.UpdateUserRecord" />
+          <FunctionImportMapping FunctionImportName="InsertContactRecord" FunctionName="BandStudentDBModel.Store.InsertContactRecord" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

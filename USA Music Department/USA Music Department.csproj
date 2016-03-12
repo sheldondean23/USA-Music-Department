@@ -205,6 +205,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BandStudentDBEntities.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\db\ContactList.cs" />
     <Compile Include="Models\db\C_vGetUsers.cs">
       <DependentUpon>BandStudentDBEntities.tt</DependentUpon>
     </Compile>
@@ -330,6 +331,8 @@
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Users\EditUserInfo.cshtml" />
+    <Content Include="Views\Students\StudentContact.cshtml" />
+    <Content Include="Views\Students\ContactsList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

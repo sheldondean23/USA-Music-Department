@@ -10,6 +10,9 @@ using System.Web;
 using System.Web.Mvc;
 using USA_Music_Department.Models.db;
 using USA_Music_Department.Models.Forms.Interest_Form;
+using USA_Music_Department.Models.Users;
+using USA_Music_Department.Controllers;
+using Microsoft.AspNet.Identity;
 
 namespace USA_Music_Department.Controllers
 {
@@ -37,6 +40,21 @@ namespace USA_Music_Department.Controllers
                 return View(filteredContent);
             }
             return View(db.Students.ToList());
+        }
+
+        // GET: Students
+        public ActionResult ContactsList(int? id)
+        {
+
+            var model = (from a in db.Students
+                         join a2 in db.StudentContacts on a.StudentID equals a2.StudentId
+                         join a3 in db.Users on a2.ContactedBy equals a3.UserID
+                         let employeename = (a3.UserFirstName + " " + a3.UserLastName).ToString()
+                         where a.StudentID == id
+                         select new ContactList { EmployeeName = employeename, ContactedDate = a2.ContactedDate.ToString(), ContactMedium = a2.ContactedMedium });
+            ViewBag.Id = id;
+            return View(model);
+
         }
 
         // GET: Students/Details/5
@@ -137,6 +155,41 @@ namespace USA_Music_Department.Controllers
         //    db.SaveChanges();
         //    return RedirectToAction("Index");
         //}
+
+        // GET: Students/Edit/5
+        public ActionResult StudentContact(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Student student = db.Students.Find(id);
+            StudentContact studentcontact = new StudentContact();
+            studentcontact.StudentId = id;
+            if (student == null)
+            {
+                return HttpNotFound();
+            }
+            return View(studentcontact);
+        }
+
+        // POST: Students/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult StudentContact(StudentContact studentcontact)
+        {
+            var username = System.Web.HttpContext.Current.User.Identity.GetUserName();
+            var user = UserManipulation.GetUserInfo(username);
+            if (ModelState.IsValid)
+            {
+                db.InsertContactRecord(studentcontact.StudentId, user.UserID, studentcontact.ContactedDate, studentcontact.ContactedMedium);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(studentcontact);
+        }
 
         public ActionResult Export(string exportDeffinition)
         {

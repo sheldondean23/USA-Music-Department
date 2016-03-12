@@ -152,6 +152,12 @@
       <Parameter Name="UserLastName" Mode="In" Type="String" />
       <Parameter Name="Active" Mode="In" Type="Boolean" />
     </FunctionImport>
+    <FunctionImport Name="InsertContactRecord">
+      <Parameter Name="Studentid" Mode="In" Type="Int32" />
+      <Parameter Name="ContactedBy" Mode="In" Type="Int32" />
+      <Parameter Name="ContactedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ContactedMedium" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="InterestAreatoStudent">
     <Key>
