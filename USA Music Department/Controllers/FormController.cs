@@ -8,7 +8,6 @@ using USA_Music_Department.Models.db;
 using System.Net.Http;
 using System.Net.Mail;
 
-
 namespace USA_Music_Department.Controllers
 {
     public class FormController : Controller
@@ -51,12 +50,13 @@ namespace USA_Music_Department.Controllers
                 myMessage.AddTo("banddroiddonotreply@gmail.com");
                 myMessage.From = new MailAddress("banddroiddonotreply@gmail.com", "USA Music Department");
                 myMessage.Subject = "New Student";
-                myMessage.Text = student.StudentFirstName + " " + student.StudentLastName + " has submitted an application as of " + DateTime.Now + ".";
+                myMessage.Text = student.StudentFirstName + " " +  student.StudentLastName + " has submitted an application as of " + DateTime.Now + ".";
                 var transportWeb = new SendGrid.Web("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");
                 transportWeb.DeliverAsync(myMessage);
-                //Email Information    
+                //Email Information          
 
                 return RedirectToAction("Index");
+                              
             }
             catch
             {
