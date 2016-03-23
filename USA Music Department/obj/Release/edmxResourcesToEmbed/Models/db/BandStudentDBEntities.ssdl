@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BandStudentDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="InterestAreas">
+    <Key>
+      <PropertyRef Name="InterestAreaID" />
+    </Key>
+    <Property Name="InterestAreaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InterestAreaName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="InterestAreatoStudents">
+    <Key>
+      <PropertyRef Name="InterestAreatoStudentsId" />
+    </Key>
+    <Property Name="InterestAreatoStudentsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InterestAreaID" Type="int" />
+    <Property Name="StudentID" Type="int" />
+    <Property Name="InterestNotes" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="StudentContacts">
+    <Key>
+      <PropertyRef Name="StudentContactId" />
+    </Key>
+    <Property Name="StudentContactId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentId" Type="int" />
+    <Property Name="ContactedBy" Type="int" />
+    <Property Name="ContactedDate" Type="date" />
+    <Property Name="ContactedMedium" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentFirstName" Type="varchar" MaxLength="50" />
+    <Property Name="StudentLastName" Type="varchar" MaxLength="50" />
+    <Property Name="StudentAddress" Type="varchar" MaxLength="200" />
+    <Property Name="StudentCity" Type="varchar" MaxLength="100" />
+    <Property Name="StudentState" Type="varchar" MaxLength="50" />
+    <Property Name="StudentZipCode" Type="varchar" MaxLength="20" />
+    <Property Name="StudentPhone" Type="varchar" MaxLength="20" />
+    <Property Name="PerformanceMedium" Type="varchar" MaxLength="100" />
+    <Property Name="GraduationYear" Type="varchar" MaxLength="20" />
+    <Property Name="EmailAddress" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="PasswordHash" Type="varchar" MaxLength="50" />
+    <Property Name="UserFirstName" Type="varchar" MaxLength="50" />
+    <Property Name="UserMiddleName" Type="varchar" MaxLength="50" />
+    <Property Name="UserLastName" Type="varchar" MaxLength="100" />
+    <Property Name="IsAdmin" Type="bit" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'BandStudentDB.dbo._vContactList' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="_vContactList">
+          <Property Name="ContactedBy" Type="varchar" MaxLength="151" />
+          <Property Name="ContactedDate" Type="date" />
+          <Property Name="Contacted Using" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BandStudentDB.dbo._vGetUsers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="_vGetUsers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="UserFirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserLastName" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_InterestAreatoStudentstoInterestArea">
+    <End Role="InterestAreas" Type="Self.InterestAreas" Multiplicity="0..1" />
+    <End Role="InterestAreatoStudents" Type="Self.InterestAreatoStudents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InterestAreas">
+        <PropertyRef Name="InterestAreaID" />
+      </Principal>
+      <Dependent Role="InterestAreatoStudents">
+        <PropertyRef Name="InterestAreaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InterestAreatoStudentstoStudents">
+    <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+    <End Role="InterestAreatoStudents" Type="Self.InterestAreatoStudents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="InterestAreatoStudents">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentContactstoStudents">
+    <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+    <End Role="StudentContacts" Type="Self.StudentContacts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="StudentContacts">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentContactstoUsers">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="StudentContacts" Type="Self.StudentContacts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="StudentContacts">
+        <PropertyRef Name="ContactedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="CreateBlankUserRecord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="CreateUpdate_InterestAreas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StudentID" Type="int" Mode="In" />
+    <Parameter Name="BMMusicEdVocal" Type="bit" Mode="In" />
+    <Parameter Name="BMMusicEdInst" Type="bit" Mode="In" />
+    <Parameter Name="BMMusicPerfVocal" Type="bit" Mode="In" />
+    <Parameter Name="BMMusicPerfInst" Type="bit" Mode="In" />
+    <Parameter Name="BMMusicElecStudiesBusiness" Type="bit" Mode="In" />
+    <Parameter Name="BMMusicElecStudiesOutsideFields" Type="bit" Mode="In" />
+    <Parameter Name="MMPerfPiano" Type="bit" Mode="In" />
+    <Parameter Name="MMPerfVocal" Type="bit" Mode="In" />
+    <Parameter Name="MMCollabPiano" Type="bit" Mode="In" />
+    <Parameter Name="MusicMinor" Type="bit" Mode="In" />
+    <Parameter Name="InstEnsembles" Type="bit" Mode="In" />
+    <Parameter Name="ChoralEnsembles" Type="bit" Mode="In" />
+    <Parameter Name="OperaTheater" Type="bit" Mode="In" />
+    <Parameter Name="JMB" Type="bit" Mode="In" />
+    <Parameter Name="Other" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteStudentData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetStudentDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Studentid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetUserRoles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Userid" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="InsertContactRecord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Studentid" Type="int" Mode="In" />
+    <Parameter Name="ContactedBy" Type="int" Mode="In" />
+    <Parameter Name="ContactedDate" Type="date" Mode="In" />
+    <Parameter Name="ContactedMedium" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="InsertStudentData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StudentFirstName" Type="varchar" Mode="In" />
+    <Parameter Name="StudentLastName" Type="varchar" Mode="In" />
+    <Parameter Name="StudentAddress" Type="varchar" Mode="In" />
+    <Parameter Name="StudentCity" Type="varchar" Mode="In" />
+    <Parameter Name="StudentState" Type="varchar" Mode="In" />
+    <Parameter Name="StudentZipCode" Type="varchar" Mode="In" />
+    <Parameter Name="StudentPhone" Type="varchar" Mode="In" />
+    <Parameter Name="PerformanceMedium" Type="varchar" Mode="In" />
+    <Parameter Name="GraduationYear" Type="varchar" Mode="In" />
+    <Parameter Name="EmailAddress" Type="varchar" Mode="In" />
+    <Parameter Name="OutputID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="TableColumnNames" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TableName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UpdateUserRecord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+    <Parameter Name="UserFirstName" Type="varchar" Mode="In" />
+    <Parameter Name="UserLastName" Type="varchar" Mode="In" />
+    <Parameter Name="Active" Type="bit" Mode="In" />
+  </Function>
+  <EntityContainer Name="BandStudentDBModelStoreContainer">
+    <EntitySet Name="InterestAreas" EntityType="Self.InterestAreas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InterestAreatoStudents" EntityType="Self.InterestAreatoStudents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentContacts" EntityType="Self.StudentContacts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="_vGetUsers" EntityType="Self._vGetUsers" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [_vGetUsers].[id] AS [id], 
+    [_vGetUsers].[username] AS [username], 
+    [_vGetUsers].[UserFirstName] AS [UserFirstName], 
+    [_vGetUsers].[UserLastName] AS [UserLastName]
+    FROM [dbo].[_vGetUsers] AS [_vGetUsers]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_InterestAreatoStudentstoInterestArea" Association="Self.FK_InterestAreatoStudentstoInterestArea">
+      <End Role="InterestAreas" EntitySet="InterestAreas" />
+      <End Role="InterestAreatoStudents" EntitySet="InterestAreatoStudents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InterestAreatoStudentstoStudents" Association="Self.FK_InterestAreatoStudentstoStudents">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="InterestAreatoStudents" EntitySet="InterestAreatoStudents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentContactstoStudents" Association="Self.FK_StudentContactstoStudents">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="StudentContacts" EntitySet="StudentContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentContactstoUsers" Association="Self.FK_StudentContactstoUsers">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="StudentContacts" EntitySet="StudentContacts" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

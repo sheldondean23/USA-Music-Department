@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="Default Web Site/BandDroid" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Github\ Bandroid\ Repository\\USA-Music-Department\\USA\ Music\ Department\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Github\ Bandroid\ Repository\\USA-Music-Department\\USA\ Music\ Department\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="BandStudentDBEntities-Web.config Connection String" description="" value="metadata=res://*/Models.db.BandStudentDBEntities.csdl|res://*/Models.db.BandStudentDBEntities.ssdl|res://*/Models.db.BandStudentDBEntities.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=localhost\sqlexpress;Initial Catalog=BandStudentDB;Integrated Security=True&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Github\ Bandroid\ Repository\\USA-Music-Department\\USA\ Music\ Department\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BandStudentDBEntities']/@connectionString" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=localhost\sqlexpress;Initial Catalog=BandStudentDB;Integrated Security=True" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Github\ Bandroid\ Repository\\USA-Music-Department\\USA\ Music\ Department\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>

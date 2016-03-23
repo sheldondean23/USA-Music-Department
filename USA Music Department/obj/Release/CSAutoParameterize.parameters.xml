@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=localhost\sqlexpress;Initial Catalog=BandStudentDB;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Github\ Bandroid\ Repository\\USA-Music-Department\\USA\ Music\ Department\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="BandStudentDBEntities-Web.config Connection String" description="BandStudentDBEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.db.BandStudentDBEntities.csdl|res://*/Models.db.BandStudentDBEntities.ssdl|res://*/Models.db.BandStudentDBEntities.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=localhost\sqlexpress;Initial Catalog=BandStudentDB;Integrated Security=True;connect timeout=30;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Github\ Bandroid\ Repository\\USA-Music-Department\\USA\ Music\ Department\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BandStudentDBEntities']/@connectionString" />
+  </parameter>
+</parameters>

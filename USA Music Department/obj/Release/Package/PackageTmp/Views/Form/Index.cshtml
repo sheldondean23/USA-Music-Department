@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Student Forms</h2>
+
+<h3>
+    If you are a high school student looking to be enrolled at South Alabama, a student enrolled at South Alabama,
+     or transfering to South Alabama; click on the link below to fill out an interest form. The interest form will
+     help us to get to know you and give us a way to contat you with more information on joining the University of
+     South Alabama Department of Music!
+</h3>
+@Html.ActionLink("Click Here For The Department of Music Interest form »", "interest", "Form",null, new { @class = "btn btn-primary btn-lg" })
+
+<h3>
+    If you are a high school student and would like to be put into consideration to become a member of the latest
+     and greatest Jaguar Marching Honor Band click the link below.
+</h3>
+@Html.ActionLink("Click Here For The Marching Honor Band Interest form »", "HonorBand", "Form", null, new { @class = "btn btn-primary btn-lg" })
+

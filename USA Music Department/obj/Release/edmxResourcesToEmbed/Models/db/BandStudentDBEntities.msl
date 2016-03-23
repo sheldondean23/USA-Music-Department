@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BandStudentDBModelStoreContainer" CdmEntityContainer="BandStudentDBEntities">
+    <EntitySetMapping Name="InterestAreas">
+      <EntityTypeMapping TypeName="BandStudentDBModel.InterestArea">
+        <MappingFragment StoreEntitySet="InterestAreas">
+          <ScalarProperty Name="InterestAreaID" ColumnName="InterestAreaID" />
+          <ScalarProperty Name="InterestAreaName" ColumnName="InterestAreaName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="BandStudentDBModel.Student">
+        <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="StudentFirstName" ColumnName="StudentFirstName" />
+          <ScalarProperty Name="StudentLastName" ColumnName="StudentLastName" />
+          <ScalarProperty Name="StudentAddress" ColumnName="StudentAddress" />
+          <ScalarProperty Name="StudentCity" ColumnName="StudentCity" />
+          <ScalarProperty Name="StudentState" ColumnName="StudentState" />
+          <ScalarProperty Name="StudentZipCode" ColumnName="StudentZipCode" />
+          <ScalarProperty Name="StudentPhone" ColumnName="StudentPhone" />
+          <ScalarProperty Name="PerformanceMedium" ColumnName="PerformanceMedium" />
+          <ScalarProperty Name="GraduationYear" ColumnName="GraduationYear" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="BandStudentDBModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="UserFirstName" ColumnName="UserFirstName" />
+          <ScalarProperty Name="UserMiddleName" ColumnName="UserMiddleName" />
+          <ScalarProperty Name="UserLastName" ColumnName="UserLastName" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentContacts">
+      <EntityTypeMapping TypeName="BandStudentDBModel.StudentContact">
+        <MappingFragment StoreEntitySet="StudentContacts">
+          <ScalarProperty Name="StudentContactId" ColumnName="StudentContactId" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="ContactedBy" ColumnName="ContactedBy" />
+          <ScalarProperty Name="ContactedDate" ColumnName="ContactedDate" />
+          <ScalarProperty Name="ContactedMedium" ColumnName="ContactedMedium" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InterestAreatoStudents">
+      <EntityTypeMapping TypeName="BandStudentDBModel.InterestAreatoStudent">
+        <MappingFragment StoreEntitySet="InterestAreatoStudents">
+          <ScalarProperty Name="InterestNotes" ColumnName="InterestNotes" />
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="InterestAreaID" ColumnName="InterestAreaID" />
+          <ScalarProperty Name="InterestAreatoStudentsId" ColumnName="InterestAreatoStudentsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DeleteStudentData" FunctionName="BandStudentDBModel.Store.DeleteStudentData" />
+    <FunctionImportMapping FunctionImportName="InsertStudentData" FunctionName="BandStudentDBModel.Store.InsertStudentData" />
+    <FunctionImportMapping FunctionImportName="CreateUpdate_InterestAreas" FunctionName="BandStudentDBModel.Store.CreateUpdate_InterestAreas" />
+    <FunctionImportMapping FunctionImportName="GetStudentDetails" FunctionName="BandStudentDBModel.Store.GetStudentDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BandStudentDBModel.GetStudentDetails_Result">
+          <ScalarProperty Name="StudentFirstName" ColumnName="StudentFirstName" />
+          <ScalarProperty Name="StudentLastName" ColumnName="StudentLastName" />
+          <ScalarProperty Name="StudentAddress" ColumnName="StudentAddress" />
+          <ScalarProperty Name="StudentCity" ColumnName="StudentCity" />
+          <ScalarProperty Name="StudentState" ColumnName="StudentState" />
+          <ScalarProperty Name="StudentZipCode" ColumnName="StudentZipCode" />
+          <ScalarProperty Name="StudentPhone" ColumnName="StudentPhone" />
+          <ScalarProperty Name="PerformanceMedium" ColumnName="PerformanceMedium" />
+          <ScalarProperty Name="GraduationYear" ColumnName="GraduationYear" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="BMMusicEdVocal" ColumnName="BMMusicEdVocal" />
+          <ScalarProperty Name="BMMusicEdInst" ColumnName="BMMusicEdInst" />
+          <ScalarProperty Name="BMMusicPerfVocal" ColumnName="BMMusicPerfVocal" />
+          <ScalarProperty Name="BMMusicPerfInst" ColumnName="BMMusicPerfInst" />
+          <ScalarProperty Name="BMMusicElecStudiesBusiness" ColumnName="BMMusicElecStudiesBusiness" />
+          <ScalarProperty Name="BMMusicElecStudiesOutsideFields" ColumnName="BMMusicElecStudiesOutsideFields" />
+          <ScalarProperty Name="MMPerfPiano" ColumnName="MMPerfPiano" />
+          <ScalarProperty Name="MMPerfVocal" ColumnName="MMPerfVocal" />
+          <ScalarProperty Name="MMCollabPiano" ColumnName="MMCollabPiano" />
+          <ScalarProperty Name="MusicMinor" ColumnName="MusicMinor" />
+          <ScalarProperty Name="InstEnsembles" ColumnName="InstEnsembles" />
+          <ScalarProperty Name="ChoralEnsembles" ColumnName="ChoralEnsembles" />
+          <ScalarProperty Name="OperaTheater" ColumnName="OperaTheater" />
+          <ScalarProperty Name="JMB" ColumnName="JMB" />
+          <ScalarProperty Name="Other" ColumnName="Other" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TableColumnNames" FunctionName="BandStudentDBModel.Store.TableColumnNames" />
+    <EntitySetMapping Name="C_vGetUsers">
+      <EntityTypeMapping TypeName="BandStudentDBModel.C_vGetUsers">
+        <MappingFragment StoreEntitySet="_vGetUsers">
+          <ScalarProperty Name="UserLastName" ColumnName="UserLastName" />
+          <ScalarProperty Name="UserFirstName" ColumnName="UserFirstName" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetUserRoles" FunctionName="BandStudentDBModel.Store.GetUserRoles" />
+    <FunctionImportMapping FunctionImportName="CreateBlankUserRecord" FunctionName="BandStudentDBModel.Store.CreateBlankUserRecord" />
+    <FunctionImportMapping FunctionImportName="UpdateUserRecord" FunctionName="BandStudentDBModel.Store.UpdateUserRecord" />
+    <FunctionImportMapping FunctionImportName="InsertContactRecord" FunctionName="BandStudentDBModel.Store.InsertContactRecord" />
+  </EntityContainerMapping>
+</Mapping>

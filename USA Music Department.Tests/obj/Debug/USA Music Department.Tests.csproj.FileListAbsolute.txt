@@ -165,3 +165,61 @@ C:\CIS497\USA-Music-Department\USA Music Department.Tests\bin\Debug\EntityFramew
 C:\CIS497\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
 C:\CIS497\USA-Music-Department\USA Music Department.Tests\obj\Debug\USA Music Department.Tests.dll
 C:\CIS497\USA-Music-Department\USA Music Department.Tests\obj\Debug\USA Music Department.Tests.pdb
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\roslyn\csc.exe
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\roslyn\Microsoft.CodeAnalysis.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\roslyn\Microsoft.CSharp.Core.targets
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\roslyn\System.Collections.Immutable.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\roslyn\System.Reflection.Metadata.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\roslyn\vbc.exe
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\roslyn\VBCSCompiler.exe
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\roslyn\VBCSCompiler.exe.config
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\USA Music Department.Tests.dll.config
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\USA Music Department.Tests.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\USA Music Department.Tests.pdb
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Web.Helpers.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Web.Mvc.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Web.Razor.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Web.WebPages.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\USA Music Department.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.Owin.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Web.Optimization.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.Owin.Security.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\Owin.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\EntityFramework.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Linq.Dynamic.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\USA Music Department.pdb
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\Newtonsoft.Json.xml
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Web.Helpers.xml
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Web.Mvc.xml
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Web.Razor.xml
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Web.WebPages.xml
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.Owin.xml
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Web.Optimization.xml
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.Owin.Security.xml
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\EntityFramework.xml
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\obj\Debug\USA Music Department.Tests.csprojResolveAssemblyReference.cache
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\obj\Debug\USA Music Department.Tests.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\obj\Debug\USA Music Department.Tests.pdb
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\SendGridMail.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\SendGrid.SmtpApi.dll
