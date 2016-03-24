@@ -70,3 +70,8 @@ C:\Github Bandroid Repository\USA-Music-Department\USA Music Department\obj\Rele
 C:\Github Bandroid Repository\USA-Music-Department\USA Music Department\obj\Release\USA Music Department.csproj.GenerateResource.Cache
 C:\Github Bandroid Repository\USA-Music-Department\USA Music Department\obj\Release\USA Music Department.dll
 C:\Github Bandroid Repository\USA-Music-Department\USA Music Department\obj\Release\USA Music Department.pdb
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department\bin\SendGrid.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department\bin\SendGrid.SmtpApi.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department\bin\SendGridMail.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department\bin\System.Net.Http.Formatting.dll
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department\bin\System.Net.Http.Formatting.xml

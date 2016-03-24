@@ -21,6 +21,7 @@ namespace USA_Music_Department.Controllers
         private BandStudentDBEntities db = new BandStudentDBEntities();
         private List<Student> filteredContent;
 
+        [Authorize(Roles="CanView")]
         // GET: Students
         public ActionResult Index(string FilterType, string SearchString)
         {

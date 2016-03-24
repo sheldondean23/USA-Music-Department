@@ -18,7 +18,7 @@ namespace USA_Music_Department.Controllers
     public class UsersController : Controller
     {
         private BandStudentDBEntities db = new BandStudentDBEntities();
-
+        [Authorize(Roles ="Admin")]
         // GET: Users
         public ActionResult Index()
         {
@@ -119,7 +119,7 @@ namespace USA_Music_Department.Controllers
             }
             return View(user);
         }
-
+        [Authorize(Roles ="Admin")]
         // POST: Users/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
