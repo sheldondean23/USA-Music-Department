@@ -136,7 +136,7 @@ namespace USA_Music_Department.Controllers
 
         //
         // GET: /Account/Register
-        [AllowAnonymous]
+        [Authorize(Roles = "Admin")]
         public ActionResult Register()
         {
             return View();
@@ -144,8 +144,8 @@ namespace USA_Music_Department.Controllers
 
         //
         // POST: /Account/Register
+        [Authorize(Roles = "Admin")]
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {

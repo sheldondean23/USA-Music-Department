@@ -20,12 +20,14 @@ namespace USA_Music_Department.Controllers
         private BandStudentDBEntities db = new BandStudentDBEntities();
 
         // GET: Users
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View(db.C_vGetUsers.ToList());
         }
 
         // GET: Users/Details/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -42,6 +44,7 @@ namespace USA_Music_Department.Controllers
         }
 
         // GET: Users/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -52,6 +55,7 @@ namespace USA_Music_Department.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "id,username,UserFirstName,UserLastName")] C_vGetUsers c_vGetUsers)
         {
             if (ModelState.IsValid)
@@ -65,6 +69,7 @@ namespace USA_Music_Department.Controllers
         }
 
         // GET: Users/EditUserInfo/5
+        [Authorize(Roles = "Admin")]
         public ActionResult EditUserInfo(string id)
         {
             if (id == null)
@@ -87,6 +92,7 @@ namespace USA_Music_Department.Controllers
         }
 
         // POST: Users/EditUserInfo/5
+        [Authorize(Roles = "Admin")]
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -104,6 +110,7 @@ namespace USA_Music_Department.Controllers
 
 
         // GET: Users/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(string id)
         {
             if (id == null)
@@ -121,6 +128,7 @@ namespace USA_Music_Department.Controllers
         }
 
         // POST: Users/Edit/5
+        [Authorize(Roles = "Admin")]
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
