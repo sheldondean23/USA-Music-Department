@@ -23,6 +23,7 @@ namespace USA_Music_Department.Controllers
 
         [Authorize(Roles="CanView")]
         // GET: Students
+        [Authorize(Roles = "CanView")]
         public ActionResult Index(string FilterType, string SearchString)
         {
             var columnNames = StudentManipulation.GetColumns("Students");
@@ -44,6 +45,7 @@ namespace USA_Music_Department.Controllers
         }
 
         // GET: Students
+        [Authorize(Roles = "CanView")]
         public ActionResult ContactsList(int? id)
         {
 
@@ -59,6 +61,7 @@ namespace USA_Music_Department.Controllers
         }
 
         // GET: Students/Details/5
+        [Authorize(Roles = "CanView")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -75,6 +78,7 @@ namespace USA_Music_Department.Controllers
         }
 
         // GET: Students/Create
+        [Authorize(Roles = "CanEdit")]
         public ActionResult Create()
         {
             return RedirectToAction("interest", "Form");
@@ -97,6 +101,7 @@ namespace USA_Music_Department.Controllers
         //}
 
         // GET: Students/Edit/5
+        [Authorize(Roles = "CanEdit")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -112,6 +117,7 @@ namespace USA_Music_Department.Controllers
         }
 
         // POST: Students/Edit/5
+        [Authorize(Roles = "CanEdit")]
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -128,6 +134,7 @@ namespace USA_Music_Department.Controllers
         }
 
         // GET: Students/Delete/5
+        [Authorize(Roles = "CanEdit")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -158,6 +165,7 @@ namespace USA_Music_Department.Controllers
         //}
 
         // GET: Students/Edit/5
+        [Authorize(Roles = "CanEdit")]
         public ActionResult StudentContact(int? id)
         {
             if (id == null)
@@ -175,6 +183,7 @@ namespace USA_Music_Department.Controllers
         }
 
         // POST: Students/Edit/5
+        [Authorize(Roles = "CanEdit")]
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -192,6 +201,7 @@ namespace USA_Music_Department.Controllers
             return View(studentcontact);
         }
 
+        [Authorize(Roles = "CanView")]
         public ActionResult Export(string exportDeffinition)
         {
 
