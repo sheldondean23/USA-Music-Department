@@ -107,7 +107,8 @@ namespace USA_Music_Department.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            StudentToAdd student = StudentManipulation.Details(id);
+            student.StudentID = (int)id;
             if (student == null)
             {
                 return HttpNotFound();
@@ -121,12 +122,15 @@ namespace USA_Music_Department.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "StudentID,StudentFirstName,StudentLastName,StudentAddress,StudentCity,StudentState,StudentZipCode,StudentPhone,PerformanceMedium,GraduationYear")] Student student)
+        public ActionResult Edit(StudentToAdd student)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(student).State = EntityState.Modified;
-                db.SaveChanges();
+                db.UpdateStudentData(student.StudentID, student.StudentFirstName, student.StudentLastName, student.StudentAddress, student.StudentCity, student.StudentState, student.StudentZipCode, student.StudentPhone, student.PerformanceMedium, student.GraduationYear, student.EmailAddress);
+                db.CreateUpdate_InterestAreas(student.StudentID, student.InterestAreas.BM_Music_Education_Vocal, student.InterestAreas.BM_Music_Education_Instrumental, student.InterestAreas.BM_Music_Performance_Vocal,
+                                              student.InterestAreas.BM_Music_Performance_Instrumental, student.InterestAreas.BM_Music_Elective_Studies_Business, student.InterestAreas.BM_Music_Elective_Studies_Outside_Fields,
+                                              student.InterestAreas.MM_Performance_Piano, student.InterestAreas.MM_Performance_Vocal, student.InterestAreas.MM_Collaborative_Piano, student.InterestAreas.Music_Minor, student.InterestAreas.Instrumental_Ensembles,
+                                              student.InterestAreas.Choral_Ensembles, student.InterestAreas.Opera_Theatre, student.InterestAreas.Jaguar_Marching_Band, student.InterestAreas.Other, student.InterestAreas.MM_Instrumental_Studies);
                 return RedirectToAction("Index");
             }
             return View(student);
@@ -145,23 +149,18 @@ namespace USA_Music_Department.Controllers
             {
                 return HttpNotFound();
             }
-            else
-            {
-                db.DeleteStudentData(id);
-            }
-            return RedirectToAction("Index");
+            return View(student);
         }
 
         // POST: Students/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(int id)
-        //{
-        //    Student student = db.Students.Find(id);
-        //    db.Students.Remove(student);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
+        [Authorize(Roles = "CanEdit")]
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            db.DeleteStudentData(id);
+            return RedirectToAction("Index");
+        }
 
         // GET: Students/Edit/5
         [Authorize(Roles = "CanEdit")]
