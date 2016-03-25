@@ -61,13 +61,6 @@
           <Property Name="Active" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'BandStudentDB.dbo._vContactList' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="_vContactList">
-          <Property Name="ContactedBy" Type="varchar" MaxLength="151" />
-          <Property Name="ContactedDate" Type="date" />
-          <Property Name="Contacted Using" Type="varchar" MaxLength="50" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'BandStudentDB.dbo._vGetUsers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="_vGetUsers">
           <Key>
@@ -149,6 +142,7 @@ warning 6002: The table/view 'BandStudentDB.dbo._vGetUsers' does not have a prim
           <Parameter Name="OperaTheater" Type="bit" Mode="In" />
           <Parameter Name="JMB" Type="bit" Mode="In" />
           <Parameter Name="Other" Type="varchar" Mode="In" />
+          <Parameter Name="MMInstrumentalStudies" Type="bit" Mode="In" />
         </Function>
         <Function Name="DeleteStudentData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id" Type="int" Mode="In" />
@@ -180,6 +174,19 @@ warning 6002: The table/view 'BandStudentDB.dbo._vGetUsers' does not have a prim
         </Function>
         <Function Name="TableColumnNames" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="TableName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateStudentData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StudentId" Type="int" Mode="In" />
+          <Parameter Name="StudentFirstName" Type="varchar" Mode="In" />
+          <Parameter Name="StudentLastName" Type="varchar" Mode="In" />
+          <Parameter Name="StudentAddress" Type="varchar" Mode="In" />
+          <Parameter Name="StudentCity" Type="varchar" Mode="In" />
+          <Parameter Name="StudentState" Type="varchar" Mode="In" />
+          <Parameter Name="StudentZipCode" Type="varchar" Mode="In" />
+          <Parameter Name="StudentPhone" Type="varchar" Mode="In" />
+          <Parameter Name="PerformanceMedium" Type="varchar" Mode="In" />
+          <Parameter Name="GraduationYear" Type="varchar" Mode="In" />
+          <Parameter Name="EmailAddress" Type="varchar" Mode="In" />
         </Function>
         <Function Name="UpdateUserRecord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="UserId" Type="int" Mode="In" />
@@ -354,6 +361,7 @@ warning 6002: The table/view 'BandStudentDB.dbo._vGetUsers' does not have a prim
             <Parameter Name="OperaTheater" Mode="In" Type="Boolean" />
             <Parameter Name="JMB" Mode="In" Type="Boolean" />
             <Parameter Name="Other" Mode="In" Type="String" />
+            <Parameter Name="MMInstrumentalStudies" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="GetStudentDetails" ReturnType="Collection(BandStudentDBModel.GetStudentDetails_Result)">
           <Parameter Name="Studentid" Mode="In" Type="Int32" />
@@ -380,6 +388,19 @@ warning 6002: The table/view 'BandStudentDB.dbo._vGetUsers' does not have a prim
             <Parameter Name="ContactedBy" Mode="In" Type="Int32" />
             <Parameter Name="ContactedDate" Mode="In" Type="DateTime" />
             <Parameter Name="ContactedMedium" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateStudentData">
+            <Parameter Name="StudentId" Mode="In" Type="Int32" />
+            <Parameter Name="StudentFirstName" Mode="In" Type="String" />
+            <Parameter Name="StudentLastName" Mode="In" Type="String" />
+            <Parameter Name="StudentAddress" Mode="In" Type="String" />
+            <Parameter Name="StudentCity" Mode="In" Type="String" />
+            <Parameter Name="StudentState" Mode="In" Type="String" />
+            <Parameter Name="StudentZipCode" Mode="In" Type="String" />
+            <Parameter Name="StudentPhone" Mode="In" Type="String" />
+            <Parameter Name="PerformanceMedium" Mode="In" Type="String" />
+            <Parameter Name="GraduationYear" Mode="In" Type="String" />
+            <Parameter Name="EmailAddress" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="InterestAreatoStudent">
@@ -570,6 +591,7 @@ warning 6002: The table/view 'BandStudentDB.dbo._vGetUsers' does not have a prim
           <FunctionImportMapping FunctionImportName="CreateBlankUserRecord" FunctionName="BandStudentDBModel.Store.CreateBlankUserRecord" />
           <FunctionImportMapping FunctionImportName="UpdateUserRecord" FunctionName="BandStudentDBModel.Store.UpdateUserRecord" />
           <FunctionImportMapping FunctionImportName="InsertContactRecord" FunctionName="BandStudentDBModel.Store.InsertContactRecord" />
+          <FunctionImportMapping FunctionImportName="UpdateStudentData" FunctionName="BandStudentDBModel.Store.UpdateStudentData" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

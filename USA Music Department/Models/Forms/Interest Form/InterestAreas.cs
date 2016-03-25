@@ -8,20 +8,6 @@ namespace USA_Music_Department.Models.Forms.Interest_Form
 {
     public class InterestAreas
     {
-        //public bool BM_Music_Education_Vocal;
-        //public bool Music_Education_Instrumental;
-        //public bool Music_Performance_Vocal;
-        //public bool Music_Performance_Instrumental;
-        //public bool Music_Elective_Studies_Business;
-        //public bool Music_Elective_Studies_Outside_Fields;
-        //public bool Performance_Piano;
-        //public bool Performance_Vocal;
-        //public bool Collaborative_Piano;
-        //public bool Minor;
-        //public bool Choral_Ensembles;
-        //public bool Opera_Ensembles;
-        //public bool Opera_Theatre;
-        //public bool Jaguar_Marching_Band;
         [Display(Name = "BM BM Music Education Vocal")]
         public bool BM_Music_Education_Vocal { get; set; }
         [Display(Name = "BM Music Education Instrumental")]
@@ -51,5 +37,7 @@ namespace USA_Music_Department.Models.Forms.Interest_Form
         [Display(Name = "Jaguar Marching Band")]
         public bool Jaguar_Marching_Band { get; set; }
         public string Other { get; set; }
+        [Display(Name = "MM Instrumental Studies")]
+        public bool MM_Instrumental_Studies { get; set; }
     }
 }
