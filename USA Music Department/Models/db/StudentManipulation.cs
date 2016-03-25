@@ -24,7 +24,7 @@ namespace USA_Music_Department.Models.db
                                           student.InterestAreas.BM_Music_Elective_Studies_Business, student.InterestAreas.BM_Music_Elective_Studies_Outside_Fields,
                                           student.InterestAreas.MM_Performance_Piano, student.InterestAreas.MM_Performance_Vocal, student.InterestAreas.MM_Collaborative_Piano,
                                           student.InterestAreas.Music_Minor, student.InterestAreas.Instrumental_Ensembles, student.InterestAreas.Choral_Ensembles,
-                                          student.InterestAreas.Opera_Theatre, student.InterestAreas.Jaguar_Marching_Band, student.InterestAreas.Other);
+                                          student.InterestAreas.Opera_Theatre, student.InterestAreas.Jaguar_Marching_Band, student.InterestAreas.Other, student.InterestAreas.MM_Instrumental_Studies);
             db.SaveChanges();
         }
 
@@ -58,7 +58,11 @@ namespace USA_Music_Department.Models.db
                 student.StudentPhone = reader.GetString(6);
                 student.PerformanceMedium = reader.GetString(7);
                 student.GraduationYear = reader.GetString(8);
-                student.EmailAddress = reader.GetString(9);
+                try {
+                    student.EmailAddress = reader.GetString(9);
+                }
+                catch { student.EmailAddress = "No E-Mail";
+                }
                 student.InterestAreas.BM_Music_Education_Vocal = reader.GetBoolean(10);
                 student.InterestAreas.BM_Music_Education_Instrumental = reader.GetBoolean(11);
                 student.InterestAreas.BM_Music_Performance_Vocal = reader.GetBoolean(12);
@@ -73,7 +77,8 @@ namespace USA_Music_Department.Models.db
                 student.InterestAreas.Choral_Ensembles = reader.GetBoolean(21);
                 student.InterestAreas.Opera_Theatre = reader.GetBoolean(22);
                 student.InterestAreas.Jaguar_Marching_Band = reader.GetBoolean(23);
-                student.InterestAreas.Other = reader.GetString(25);
+                student.InterestAreas.MM_Instrumental_Studies = reader.GetBoolean(25);
+                student.InterestAreas.Other = reader.GetString(26);
             }
 
             dbconnection.Dispose();

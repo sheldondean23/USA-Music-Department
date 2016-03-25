@@ -10,6 +10,9 @@ using System.Web;
 using System.Web.Mvc;
 using USA_Music_Department.Models.db;
 using USA_Music_Department.Models.Forms.Interest_Form;
+using USA_Music_Department.Models.Users;
+using USA_Music_Department.Controllers;
+using Microsoft.AspNet.Identity;
 
 namespace USA_Music_Department.Controllers
 {
@@ -19,6 +22,7 @@ namespace USA_Music_Department.Controllers
         private List<Student> filteredContent;
 
         // GET: Students
+        [Authorize(Roles = "CanView")]
         public ActionResult Index(string FilterType, string SearchString)
         {
             var columnNames = StudentManipulation.GetColumns("Students");
@@ -39,7 +43,24 @@ namespace USA_Music_Department.Controllers
             return View(db.Students.ToList());
         }
 
+        // GET: Students
+        [Authorize(Roles = "CanView")]
+        public ActionResult ContactsList(int? id)
+        {
+
+            var model = (from a in db.Students
+                         join a2 in db.StudentContacts on a.StudentID equals a2.StudentId
+                         join a3 in db.Users on a2.ContactedBy equals a3.UserID
+                         let employeename = (a3.UserFirstName + " " + a3.UserLastName).ToString()
+                         where a.StudentID == id
+                         select new ContactList { EmployeeName = employeename, ContactedDate = a2.ContactedDate.ToString(), ContactMedium = a2.ContactedMedium });
+            ViewBag.Id = id;
+            return View(model);
+
+        }
+
         // GET: Students/Details/5
+        [Authorize(Roles = "CanView")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -56,6 +77,7 @@ namespace USA_Music_Department.Controllers
         }
 
         // GET: Students/Create
+        [Authorize(Roles = "CanEdit")]
         public ActionResult Create()
         {
             return RedirectToAction("interest", "Form");
@@ -78,13 +100,15 @@ namespace USA_Music_Department.Controllers
         //}
 
         // GET: Students/Edit/5
+        [Authorize(Roles = "CanEdit")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            StudentToAdd student = StudentManipulation.Details(id);
+            student.StudentID = (int)id;
             if (student == null)
             {
                 return HttpNotFound();
@@ -93,22 +117,27 @@ namespace USA_Music_Department.Controllers
         }
 
         // POST: Students/Edit/5
+        [Authorize(Roles = "CanEdit")]
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "StudentID,StudentFirstName,StudentLastName,StudentAddress,StudentCity,StudentState,StudentZipCode,StudentPhone,PerformanceMedium,GraduationYear")] Student student)
+        public ActionResult Edit(StudentToAdd student)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(student).State = EntityState.Modified;
-                db.SaveChanges();
+                db.UpdateStudentData(student.StudentID, student.StudentFirstName, student.StudentLastName, student.StudentAddress, student.StudentCity, student.StudentState, student.StudentZipCode, student.StudentPhone, student.PerformanceMedium, student.GraduationYear, student.EmailAddress);
+                db.CreateUpdate_InterestAreas(student.StudentID, student.InterestAreas.BM_Music_Education_Vocal, student.InterestAreas.BM_Music_Education_Instrumental, student.InterestAreas.BM_Music_Performance_Vocal,
+                                              student.InterestAreas.BM_Music_Performance_Instrumental, student.InterestAreas.BM_Music_Elective_Studies_Business, student.InterestAreas.BM_Music_Elective_Studies_Outside_Fields,
+                                              student.InterestAreas.MM_Performance_Piano, student.InterestAreas.MM_Performance_Vocal, student.InterestAreas.MM_Collaborative_Piano, student.InterestAreas.Music_Minor, student.InterestAreas.Instrumental_Ensembles,
+                                              student.InterestAreas.Choral_Ensembles, student.InterestAreas.Opera_Theatre, student.InterestAreas.Jaguar_Marching_Band, student.InterestAreas.Other, student.InterestAreas.MM_Instrumental_Studies);
                 return RedirectToAction("Index");
             }
             return View(student);
         }
 
         // GET: Students/Delete/5
+        [Authorize(Roles = "CanEdit")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -120,24 +149,57 @@ namespace USA_Music_Department.Controllers
             {
                 return HttpNotFound();
             }
-            else
-            {
-                db.DeleteStudentData(id);
-            }
-            return RedirectToAction("Index");
+            return View(student);
         }
 
         // POST: Students/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(int id)
-        //{
-        //    Student student = db.Students.Find(id);
-        //    db.Students.Remove(student);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
+        [Authorize(Roles = "CanEdit")]
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            db.DeleteStudentData(id);
+            return RedirectToAction("Index");
+        }
 
+        // GET: Students/Edit/5
+        [Authorize(Roles = "CanEdit")]
+        public ActionResult StudentContact(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Student student = db.Students.Find(id);
+            StudentContact studentcontact = new StudentContact();
+            studentcontact.StudentId = id;
+            if (student == null)
+            {
+                return HttpNotFound();
+            }
+            return View(studentcontact);
+        }
+
+        // POST: Students/Edit/5
+        [Authorize(Roles = "CanEdit")]
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult StudentContact(StudentContact studentcontact)
+        {
+            var username = System.Web.HttpContext.Current.User.Identity.GetUserName();
+            var user = UserManipulation.GetUserInfo(username);
+            if (ModelState.IsValid)
+            {
+                db.InsertContactRecord(studentcontact.StudentId, user.UserID, studentcontact.ContactedDate, studentcontact.ContactedMedium);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(studentcontact);
+        }
+
+        [Authorize(Roles = "CanView")]
         public ActionResult Export(string exportDeffinition)
         {
 

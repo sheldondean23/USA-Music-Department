@@ -1,0 +1,43 @@
+﻿@model IEnumerable<USA_Music_Department.Models.db.ContactList>
+
+@{
+    ViewBag.Title = "ContactsList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ContactsList</h2>
+@Html.ActionLink("Add Contact", "StudentContact", new { id = ViewBag.Id})
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactMedium)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactMedium)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeName)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.StudentContactId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.StudentContactId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.StudentContactId })*@
+        </td>
+    </tr>
+}
+
+</table>

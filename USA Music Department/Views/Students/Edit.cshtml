@@ -16,7 +16,7 @@
         <h4>Student</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @*@Html.HiddenFor(model => model.StudentID)*@
+        @Html.HiddenFor(model => model.StudentID)
 
         <div class="form-group">
             @Html.LabelFor(model => model.StudentFirstName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -113,6 +113,10 @@
                 <div class="flex">
                     @Html.CheckBoxFor(model => model.InterestAreas.MM_Performance_Piano, new { htmlAttributes = new { @class = "padding" } })
                     @Html.LabelFor(model => model.InterestAreas.MM_Performance_Piano)
+                </div>
+                <div class="flex">
+                    @Html.CheckBoxFor(model => model.InterestAreas.MM_Instrumental_Studies, new { htmlAttributes = new { @class = "padding" } })
+                    @Html.LabelFor(model => model.InterestAreas.MM_Instrumental_Studies)
                 </div>
                 <div class="flex">
                     @Html.CheckBoxFor(model => model.InterestAreas.Music_Minor, new { htmlAttributes = new { @class = "padding" } })

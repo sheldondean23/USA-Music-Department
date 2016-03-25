@@ -88,7 +88,7 @@ namespace USA_Music_Department.Models.db
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertStudentData", studentFirstNameParameter, studentLastNameParameter, studentAddressParameter, studentCityParameter, studentStateParameter, studentZipCodeParameter, studentPhoneParameter, performanceMediumParameter, graduationYearParameter, emailAddressParameter, outputID);
         }
     
-        public virtual int CreateUpdate_InterestAreas(Nullable<int> studentID, Nullable<bool> bMMusicEdVocal, Nullable<bool> bMMusicEdInst, Nullable<bool> bMMusicPerfVocal, Nullable<bool> bMMusicPerfInst, Nullable<bool> bMMusicElecStudiesBusiness, Nullable<bool> bMMusicElecStudiesOutsideFields, Nullable<bool> mMPerfPiano, Nullable<bool> mMPerfVocal, Nullable<bool> mMCollabPiano, Nullable<bool> musicMinor, Nullable<bool> instEnsembles, Nullable<bool> choralEnsembles, Nullable<bool> operaTheater, Nullable<bool> jMB, string other)
+        public virtual int CreateUpdate_InterestAreas(Nullable<int> studentID, Nullable<bool> bMMusicEdVocal, Nullable<bool> bMMusicEdInst, Nullable<bool> bMMusicPerfVocal, Nullable<bool> bMMusicPerfInst, Nullable<bool> bMMusicElecStudiesBusiness, Nullable<bool> bMMusicElecStudiesOutsideFields, Nullable<bool> mMPerfPiano, Nullable<bool> mMPerfVocal, Nullable<bool> mMCollabPiano, Nullable<bool> musicMinor, Nullable<bool> instEnsembles, Nullable<bool> choralEnsembles, Nullable<bool> operaTheater, Nullable<bool> jMB, string other, Nullable<bool> mMInstrumentalStudies)
         {
             var studentIDParameter = studentID.HasValue ?
                 new ObjectParameter("StudentID", studentID) :
@@ -154,7 +154,11 @@ namespace USA_Music_Department.Models.db
                 new ObjectParameter("Other", other) :
                 new ObjectParameter("Other", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CreateUpdate_InterestAreas", studentIDParameter, bMMusicEdVocalParameter, bMMusicEdInstParameter, bMMusicPerfVocalParameter, bMMusicPerfInstParameter, bMMusicElecStudiesBusinessParameter, bMMusicElecStudiesOutsideFieldsParameter, mMPerfPianoParameter, mMPerfVocalParameter, mMCollabPianoParameter, musicMinorParameter, instEnsemblesParameter, choralEnsemblesParameter, operaTheaterParameter, jMBParameter, otherParameter);
+            var mMInstrumentalStudiesParameter = mMInstrumentalStudies.HasValue ?
+                new ObjectParameter("MMInstrumentalStudies", mMInstrumentalStudies) :
+                new ObjectParameter("MMInstrumentalStudies", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CreateUpdate_InterestAreas", studentIDParameter, bMMusicEdVocalParameter, bMMusicEdInstParameter, bMMusicPerfVocalParameter, bMMusicPerfInstParameter, bMMusicElecStudiesBusinessParameter, bMMusicElecStudiesOutsideFieldsParameter, mMPerfPianoParameter, mMPerfVocalParameter, mMCollabPianoParameter, musicMinorParameter, instEnsemblesParameter, choralEnsemblesParameter, operaTheaterParameter, jMBParameter, otherParameter, mMInstrumentalStudiesParameter);
         }
     
         public virtual ObjectResult<GetStudentDetails_Result> GetStudentDetails(Nullable<int> studentid)
@@ -216,6 +220,76 @@ namespace USA_Music_Department.Models.db
                 new ObjectParameter("Active", typeof(bool));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdateUserRecord", userIdParameter, userNameParameter, userFirstNameParameter, userLastNameParameter, activeParameter);
+        }
+    
+        public virtual int InsertContactRecord(Nullable<int> studentid, Nullable<int> contactedBy, Nullable<System.DateTime> contactedDate, string contactedMedium)
+        {
+            var studentidParameter = studentid.HasValue ?
+                new ObjectParameter("Studentid", studentid) :
+                new ObjectParameter("Studentid", typeof(int));
+    
+            var contactedByParameter = contactedBy.HasValue ?
+                new ObjectParameter("ContactedBy", contactedBy) :
+                new ObjectParameter("ContactedBy", typeof(int));
+    
+            var contactedDateParameter = contactedDate.HasValue ?
+                new ObjectParameter("ContactedDate", contactedDate) :
+                new ObjectParameter("ContactedDate", typeof(System.DateTime));
+    
+            var contactedMediumParameter = contactedMedium != null ?
+                new ObjectParameter("ContactedMedium", contactedMedium) :
+                new ObjectParameter("ContactedMedium", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertContactRecord", studentidParameter, contactedByParameter, contactedDateParameter, contactedMediumParameter);
+        }
+    
+        public virtual int UpdateStudentData(Nullable<int> studentId, string studentFirstName, string studentLastName, string studentAddress, string studentCity, string studentState, string studentZipCode, string studentPhone, string performanceMedium, string graduationYear, string emailAddress)
+        {
+            var studentIdParameter = studentId.HasValue ?
+                new ObjectParameter("StudentId", studentId) :
+                new ObjectParameter("StudentId", typeof(int));
+    
+            var studentFirstNameParameter = studentFirstName != null ?
+                new ObjectParameter("StudentFirstName", studentFirstName) :
+                new ObjectParameter("StudentFirstName", typeof(string));
+    
+            var studentLastNameParameter = studentLastName != null ?
+                new ObjectParameter("StudentLastName", studentLastName) :
+                new ObjectParameter("StudentLastName", typeof(string));
+    
+            var studentAddressParameter = studentAddress != null ?
+                new ObjectParameter("StudentAddress", studentAddress) :
+                new ObjectParameter("StudentAddress", typeof(string));
+    
+            var studentCityParameter = studentCity != null ?
+                new ObjectParameter("StudentCity", studentCity) :
+                new ObjectParameter("StudentCity", typeof(string));
+    
+            var studentStateParameter = studentState != null ?
+                new ObjectParameter("StudentState", studentState) :
+                new ObjectParameter("StudentState", typeof(string));
+    
+            var studentZipCodeParameter = studentZipCode != null ?
+                new ObjectParameter("StudentZipCode", studentZipCode) :
+                new ObjectParameter("StudentZipCode", typeof(string));
+    
+            var studentPhoneParameter = studentPhone != null ?
+                new ObjectParameter("StudentPhone", studentPhone) :
+                new ObjectParameter("StudentPhone", typeof(string));
+    
+            var performanceMediumParameter = performanceMedium != null ?
+                new ObjectParameter("PerformanceMedium", performanceMedium) :
+                new ObjectParameter("PerformanceMedium", typeof(string));
+    
+            var graduationYearParameter = graduationYear != null ?
+                new ObjectParameter("GraduationYear", graduationYear) :
+                new ObjectParameter("GraduationYear", typeof(string));
+    
+            var emailAddressParameter = emailAddress != null ?
+                new ObjectParameter("EmailAddress", emailAddress) :
+                new ObjectParameter("EmailAddress", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdateStudentData", studentIdParameter, studentFirstNameParameter, studentLastNameParameter, studentAddressParameter, studentCityParameter, studentStateParameter, studentZipCodeParameter, studentPhoneParameter, performanceMediumParameter, graduationYearParameter, emailAddressParameter);
         }
     }
 }
