@@ -275,7 +275,7 @@
       <DependentUpon>BandStudentDBEntities.edmx</DependentUpon>
       <LastGenOutput>BandStudentDBEntities.cs</LastGenOutput>
     </Content>
-    <Content Include="Pictures\newjaglarge.jpg" />
+    <Content Include="Content\Pictures\newjaglarge.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\db\BandStudentDBEntities.edmx">

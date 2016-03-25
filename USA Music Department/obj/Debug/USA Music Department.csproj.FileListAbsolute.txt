@@ -285,3 +285,4 @@ C:\Github Bandroid Repository\USA-Music-Department\USA Music Department\bin\Send
 C:\Github Bandroid Repository\USA-Music-Department\USA Music Department\bin\SendGridMail.dll
 C:\Github Bandroid Repository\USA-Music-Department\USA Music Department\bin\System.Net.Http.Formatting.dll
 C:\Github Bandroid Repository\USA-Music-Department\USA Music Department\bin\System.Net.Http.Formatting.xml
+C:\Github Bandroid Repository\USA-Music-Department\USA Music Department\obj\Debug\USA Music Department.csprojResolveAssemblyReference.cache

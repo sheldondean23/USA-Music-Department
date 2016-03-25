@@ -12,7 +12,9 @@ namespace USA_Music_Department.Controllers
 {
     public class FormController : Controller
     {
+        
         BandStudentDBEntities db = new BandStudentDBEntities();
+        [AllowAnonymous]
         // GET: Form
         public ActionResult Index()
         {
@@ -20,6 +22,7 @@ namespace USA_Music_Department.Controllers
         }
 
         // GET: Form/interest
+        [AllowAnonymous]
         public ActionResult interest()
         {
             return View();
@@ -39,6 +42,7 @@ namespace USA_Music_Department.Controllers
 
         // POST: Form/AddPerson
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult AddPerson(StudentToAdd student)
         {
             try
@@ -51,7 +55,7 @@ namespace USA_Music_Department.Controllers
                 myMessage.From = new MailAddress("banddroiddonotreply@gmail.com", "USA Music Department");
                 myMessage.Subject = "New Student";
                 myMessage.Text = student.StudentFirstName + " " +  student.StudentLastName + " has submitted an application as of " + DateTime.Now + ".";
-                var transportWeb = new SendGrid.Web("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");
+                var transportWeb = new SendGrid.Web("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");
                 transportWeb.DeliverAsync(myMessage);
                 //Email Information          
 
