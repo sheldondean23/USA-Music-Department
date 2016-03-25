@@ -131,6 +131,7 @@
       <Parameter Name="OperaTheater" Mode="In" Type="Boolean" />
       <Parameter Name="JMB" Mode="In" Type="Boolean" />
       <Parameter Name="Other" Mode="In" Type="String" />
+      <Parameter Name="MMInstrumentalStudies" Mode="In" Type="Boolean" />
     </FunctionImport>
     <FunctionImport Name="GetStudentDetails" ReturnType="Collection(BandStudentDBModel.GetStudentDetails_Result)">
       <Parameter Name="Studentid" Mode="In" Type="Int32" />
@@ -157,6 +158,19 @@
       <Parameter Name="ContactedBy" Mode="In" Type="Int32" />
       <Parameter Name="ContactedDate" Mode="In" Type="DateTime" />
       <Parameter Name="ContactedMedium" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateStudentData">
+      <Parameter Name="StudentId" Mode="In" Type="Int32" />
+      <Parameter Name="StudentFirstName" Mode="In" Type="String" />
+      <Parameter Name="StudentLastName" Mode="In" Type="String" />
+      <Parameter Name="StudentAddress" Mode="In" Type="String" />
+      <Parameter Name="StudentCity" Mode="In" Type="String" />
+      <Parameter Name="StudentState" Mode="In" Type="String" />
+      <Parameter Name="StudentZipCode" Mode="In" Type="String" />
+      <Parameter Name="StudentPhone" Mode="In" Type="String" />
+      <Parameter Name="PerformanceMedium" Mode="In" Type="String" />
+      <Parameter Name="GraduationYear" Mode="In" Type="String" />
+      <Parameter Name="EmailAddress" Mode="In" Type="String" />
     </FunctionImport>
   </EntityContainer>
   <EntityType Name="InterestAreatoStudent">
