@@ -28,7 +28,7 @@ namespace USA_Music_Department.Controllers
 
         // GET: Users/Details/5
         [Authorize(Roles = "Admin")]
-        public ActionResult Details(string id)
+        public ActionResult Details(string id, string name)
         {
             if (id == null)
             {
@@ -36,6 +36,7 @@ namespace USA_Music_Department.Controllers
             }
             C_vGetUsers c_vGetUsers = db.C_vGetUsers.Find(id);
             UserInformation user = UserManipulation.Details(id);
+            user.Username = name;
             if (c_vGetUsers == null)
             {
                 return HttpNotFound();
@@ -111,7 +112,7 @@ namespace USA_Music_Department.Controllers
 
         // GET: Users/Edit/5
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit(string id)
+        public ActionResult Edit(string id, string name)
         {
             if (id == null)
             {
@@ -120,6 +121,7 @@ namespace USA_Music_Department.Controllers
             C_vGetUsers c_vGetUsers = db.C_vGetUsers.Find(id);
             UserInformation user = UserManipulation.Details(id);
             user.Userid = id;
+            user.Username = name;
             if (c_vGetUsers == null)
             {
                 return HttpNotFound();

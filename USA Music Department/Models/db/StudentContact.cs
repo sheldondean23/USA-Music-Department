@@ -11,13 +11,15 @@ namespace USA_Music_Department.Models.db
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
     public partial class StudentContact
     {
         public int StudentContactId { get; set; }
         public Nullable<int> StudentId { get; set; }
         public Nullable<int> ContactedBy { get; set; }
-        public Nullable<System.DateTime> ContactedDate { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime? ContactedDate { get; set; }
         public string ContactedMedium { get; set; }
     
         public virtual Student Student { get; set; }

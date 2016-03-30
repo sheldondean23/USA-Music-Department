@@ -5,9 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ContactsList</h2>
+<h2 class="text-center">ContactsList</h2>
 @Html.ActionLink("Add Contact", "StudentContact", new { id = ViewBag.Id})
-<table class="table">
+<table  class="table sortable tablefit" width="100%">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.ContactedDate)

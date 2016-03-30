@@ -11,6 +11,6 @@ namespace USA_Music_Department.Models.Users
         public bool RoleCanView { get; set; }
         public bool RoleCanEdit { get; set; }
         public bool RoleAdmin { get; set; }
-
+        public string Username { get; set; }
     }
 }

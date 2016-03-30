@@ -13,6 +13,7 @@ using USA_Music_Department.Models.Forms.Interest_Form;
 using USA_Music_Department.Models.Users;
 using USA_Music_Department.Controllers;
 using Microsoft.AspNet.Identity;
+using USA_Music_Department.Models.db.Services;
 
 namespace USA_Music_Department.Controllers
 {
@@ -20,24 +21,16 @@ namespace USA_Music_Department.Controllers
     {
         private BandStudentDBEntities db = new BandStudentDBEntities();
         private List<Student> filteredContent;
+        private StudentService service = new StudentService();
 
         // GET: Students
         [Authorize(Roles = "CanView")]
-        public ActionResult Index(string FilterType, string SearchString)
-        {
-            var columnNames = StudentManipulation.GetColumns("Students");
-            Session["filterType"] = columnNames
-                .Where(s =>!s.Contains("ID"))
-                .Select(s => new SelectListItem()
+        public ActionResult Index(string FilterType, string SearchString, string startDate, string endDate)
+        {            
+            Session["filterType"] = service.GetFilterList();
+            service.GetStudents(FilterType, SearchString, startDate, endDate, ref filteredContent);
+            if (!(filteredContent.Count() == 0))
             {
-                Text = s.ToString(),
-                Value = s
-            }).ToList();
-            if (FilterType != null && FilterType != string.Empty && SearchString != null && SearchString != string.Empty)
-            {
-                filteredContent = db.Students
-                                      .Where(FilterType + ".Contains(@0)", SearchString)
-                                      .Select(s => s).ToList();
                 return View(filteredContent);
             }
             return View(db.Students.ToList());
@@ -198,7 +191,7 @@ namespace USA_Music_Department.Controllers
             }
             return View(studentcontact);
         }
-
+                
         [Authorize(Roles = "CanView")]
         public ActionResult Export(string exportDeffinition)
         {

@@ -5,11 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2 class="text-center">Users</h2>
 
 <p>
 </p>
-<table class="table">
+<table  class="table sortable tablefit" width="100%">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.username)
@@ -35,9 +35,9 @@
             @Html.DisplayFor(modelItem => item.UserLastName)
         </td>
         <td>
-            @Html.ActionLink("Edit Roles", "Edit", new { id=item.id })|
-            @Html.ActionLink("Check Roles", "Details", new { id=item.id }) |
-            @Html.ActionLink("Edit User Information", "EditUserInfo", new { id = item.id }) |
+            @Html.ActionLink("Edit Roles", "Edit", new { id=item.id, name=item.username})|
+            @Html.ActionLink("Check Roles", "Details", new { id=item.id, name = item.username}) |
+            @Html.ActionLink("Edit User Information", "EditUserInfo", new { id = item.id}) |
             @*@Html.ActionLink("Delete", "Delete", new { id=item.id })*@
         </td>
     </tr>

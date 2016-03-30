@@ -10,9 +10,14 @@ namespace USA_Music_Department.Controllers
     public class HomeController : Controller
     {
         [AllowAnonymous]
+        public ActionResult Home()
+        {
+            return View();
+        }
+        [AllowAnonymous]
         public ActionResult Index()
         {           
-            return View();
+            return RedirectToAction("interest","Form");
         }
         [AllowAnonymous]
         public ActionResult About()

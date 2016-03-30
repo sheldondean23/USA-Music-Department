@@ -13,22 +13,13 @@
 }
 <h2 class="text-center padding">Students List</h2>
 <div>
-    @using (Html.BeginForm())
-    {
-        <div class="flex padding align-left">
-            <div class="flex-item ">@Html.DropDownList("FilterType", (List<SelectListItem>)Session["filterType"], "-- Search By--", new { @class = "form-control" })</div>
-            <div class="flex-item"><label class="control-label col-md-2" for="SearchString"> Filter text: </label></div>
-            <div class="flex-item ">@Html.TextBox("SearchString", null, new { @class = "form-control" })</div>
-            <div class="flex-item padding"><input class="btn btn-default" type="submit" value="Filter" /></div>
-        </div>
-    }
+    @{Html.RenderPartial("_Search");}
     <div class="align-right">
         <p>@Html.ActionLink(" Create New", "Create", "Students", new { @class = "btn btn-default glyphicon-plus" })</p>
         <p class="refresh-button">@Html.ActionLink(" ", "Index", "Students", null, new { @class = "glyphicon glyphicon-repeat" })</p>
     </div>
 </div>
-
-<table class="table sortable">
+<table class="table sortable tablefit" width="100%">
     <tr>
         <th>
             Student First Name
@@ -52,7 +43,7 @@
             Student Phone
         </th>
         <th>
-            Performance Medium
+            <span style="white-space:nowrap">Performance</span>  Medium
         </th>
         <th>
             Graduation Year
@@ -96,10 +87,9 @@
                 @Html.DisplayFor(modelItem => item.EmailAddress)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.StudentID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.StudentID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.StudentID }) |&nbsp;&nbsp;
-                @*@Html.ActionLink("Is Contacted", "StudentContact", new { id = item.StudentID }) |*@
+                @Html.ActionLink("Edit", "Edit", new { id = item.StudentID })|
+                @Html.ActionLink("Details", "Details", new { id = item.StudentID })|
+                @Html.ActionLink("Delete", "Delete", new { id = item.StudentID })|
                 @Html.ActionLink("Contact List", "ContactsList", new { id = item.StudentID })
             </td>
         </tr>
