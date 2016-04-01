@@ -20,18 +20,18 @@ namespace USA_Music_Department.Controllers
     public class StudentsController : Controller
     {
         private BandStudentDBEntities db = new BandStudentDBEntities();
-        private List<Student> filteredContent;
+        private List<Student> filteredContent = new List<Student>();
         private StudentService service = new StudentService();
 
         // GET: Students
         [Authorize(Roles = "CanView")]
-        public ActionResult Index(string FilterType, string SearchString, string startDate, string endDate)
+        public ActionResult Index(string FilterType, string SearchString, string StartDate, string EndDate)
         {            
             Session["filterType"] = service.GetFilterList();
-            service.GetStudents(FilterType, SearchString, startDate, endDate, ref filteredContent);
-            if (!(filteredContent.Count() == 0))
-            {
-                return View(filteredContent);
+            service.GetStudents(FilterType, SearchString, StartDate, EndDate, ref filteredContent);
+            if (!(filteredContent == null))
+            {               
+                    return View(filteredContent);                
             }
             return View(db.Students.ToList());
         }
@@ -245,6 +245,13 @@ namespace USA_Music_Department.Controllers
                     return File(filedata, contentType);
                 }
             }
+        }
+
+        [Route("GetSelectedFilter/{ID?}"), HttpGet]
+        public ActionResult GetSelectedFilter(string id)
+        {
+            Session["SelectedFilter"] = id;
+            return RedirectToAction("Index");
         }
         protected override void Dispose(bool disposing)
         {

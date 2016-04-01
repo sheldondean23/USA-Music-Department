@@ -2,9 +2,23 @@
 @using (Html.BeginForm())
 {
     <div class="flex padding align-left">
-        <div class="flex-item ">@Html.DropDownList("FilterType", (List<SelectListItem>)Session["filterType"], "-- Search By--", new { @class = "form-control" })</div>
-        <div class="flex-item"><label class="control-label col-md-2" for="SearchString"> Filter text: </label></div>
-        <div class="flex-item ">@Html.TextBox("SearchString", null, new { @class = "form-control date-picker" })</div>
+        <div class="flex-item " id="filterOptions" data-url="@Url.Action("GetSelectedFilter")">@Html.DropDownList("FilterType", (List<SelectListItem>)Session["filterType"], "-- Search By--", new { @id = "ddl", @class = "form-control" })</div>
+        <div id="filterText" class="flex">
+            @if (!((string)Session["SelectedFilter"] == "ContactedDate"))
+            {
+                <div class="flex-item"><label class="control-label col-md-2" for="SearchString"> Filter text: </label></div>
+                <div class="flex-item ">@Html.TextBox("SearchString", null, new { @class = "form-control date-picker" })</div>
+            }
+            else
+            {
+                <div class="flex-item"><label class="control-label col-md-2" for="SearchString"> Start Date: </label></div>
+                <div class="flex-item ">@Html.TextBox("StartDate", null, "{0:yyyy-MM-dd}", new { @type = "date", @class = "form-control date-picker" })</div>
+                <div class="flex-item"><label class="control-label col-md-2" for="SearchString"> End Date: </label></div>
+                <div class="flex-item ">@Html.TextBox("EndDate", null, "{0:yyyy-MM-dd}", new { @type = "date", @class = "form-control date-picker" })</div>
+            }
+        </div>
+
+
         <div class="flex-item padding"><input class="btn btn-default" type="submit" value="Filter" /></div>
     </div>
 }

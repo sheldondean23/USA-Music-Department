@@ -19,7 +19,7 @@
         <p class="refresh-button">@Html.ActionLink(" ", "Index", "Students", null, new { @class = "glyphicon glyphicon-repeat" })</p>
     </div>
 </div>
-<table class="table sortable tablefit" width="100%">
+<table class="table tablefit sortable " style="width: 100%;">
     <tr>
         <th>
             Student First Name
@@ -103,3 +103,17 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+@*<script type="text/javascript">
+        $('#filterOptions').change(function () {
+            var url = $("#filterOptions").data("url") + '/' + $("#filterOptions").val();
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: 'json',
+                error: function (ex) {
+                    console.log('Failed to retrieve filter option. ' + ex);
+                }
+            });
+            return false;
+        });
+</script>*@
