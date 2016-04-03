@@ -247,7 +247,7 @@ namespace USA_Music_Department.Controllers
             }
         }
 
-        [Route("GetSelectedFilter/{ID?}"), HttpGet]
+        [Route("GetSelectedFilter/{id?}"), HttpGet]
         public ActionResult GetSelectedFilter(string id)
         {
             Session["SelectedFilter"] = id;
