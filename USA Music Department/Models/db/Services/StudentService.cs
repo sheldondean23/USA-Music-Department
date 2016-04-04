@@ -24,6 +24,11 @@ namespace USA_Music_Department.Models.db.Services
                 Text = "ContactedDate",
                 Value = "ContactedDate"
             });
+            list.Add(new SelectListItem()
+            {
+                Text = "InterestArea",
+                Value = "InterestArea"
+            });
             return list;
         }
         public void GetStudents(string FilterType, string SearchString, string startDate, string endDate, ref List<Student> filterContent)
@@ -51,11 +56,21 @@ namespace USA_Music_Department.Models.db.Services
                         StudentListConvert(x, ref filterContent);
                     }
                 }
+                if (FilterType == "InterestArea")
+                {
+                    var replacedsearchstring = SearchString.Replace(" ", "");
+                    var x = (from a in db.Students
+                             join a2 in db.InterestAreatoStudents on a.StudentID equals a2.StudentID
+                             join a3 in db.InterestAreas on a2.InterestAreaID equals a3.InterestAreaID
+                             where a3.InterestAreaName.Contains(replacedsearchstring)
+                             select a).ToList();
+                    filterContent = x.GroupBy(p => p.StudentID).Select(g => g.FirstOrDefault()).ToList();
+                }
                 else
                 {
                     try
                     {
-filterContent = db.Students
+                        filterContent = db.Students
                                       .Where(FilterType + ".Contains(@0)", SearchString)
                                       .Select(s => s).ToList();
                     }

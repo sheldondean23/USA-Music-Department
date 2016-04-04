@@ -29,9 +29,12 @@ namespace USA_Music_Department.Controllers
         {            
             Session["filterType"] = service.GetFilterList();
             service.GetStudents(FilterType, SearchString, StartDate, EndDate, ref filteredContent);
-            if (!(filteredContent == null))
-            {               
-                    return View(filteredContent);                
+            if (!(FilterType == null || FilterType == ""))
+            {
+                if (!(filteredContent == null))
+                {
+                    return View(filteredContent);
+                }
             }
             return View(db.Students.ToList());
         }
