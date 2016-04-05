@@ -49,7 +49,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
         $('#filterOptions').change(function () {
-            if ( $("#ddl").val() == "ContactedDate")
+            if ($("#ddl").val() == "ContactedDate" || $("#ddl").val() == "ApplicationDate")
             {
                 document.getElementById("filterText").innerHTML = '<div class="flex-item"><label class="control-label col-md-2" for="SearchString"> Start Date: </label></div><div class="flex-item ">@Html.TextBox("StartDate", null, "{0:yyyy-MM-dd}", new { @type = "date", @class = "form-control date-picker" })</div><div class="flex-item"><label class="control-label col-md-2" for="SearchString"> End Date: </label></div><div class="flex-item ">@Html.TextBox("EndDate", null, "{0:yyyy-MM-dd}", new { @type = "date", @class = "form-control date-picker" })</div>'
             }

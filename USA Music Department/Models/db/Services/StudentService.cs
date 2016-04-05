@@ -42,18 +42,24 @@ namespace USA_Music_Department.Models.db.Services
                     {
                         var dsd = Convert.ToDateTime(startDate);
                         var ded = Convert.ToDateTime(endDate);
-                        var x = db.Students
-                                            .Join(db.StudentContacts,
-                                                  sid => sid.StudentID,
-                                                  cid => cid.StudentId,
-                                                  (astudent, contact) => new
-                                                  {
-                                                      astudent,
-                                                      contact.ContactedDate
-                                                  })
-                                            .Where(s => s.ContactedDate >= dsd && s.ContactedDate <= ded)
-                                            .Select(s => s);
-                        StudentListConvert(x, ref filterContent);
+                        var x = (from a in db.Students
+                                 join a2 in db.StudentContacts on a.StudentID equals a2.StudentId
+                                 where a2.ContactedDate >= dsd && a2.ContactedDate < ded
+                                 select a).ToList();
+
+                        filterContent = x.GroupBy(p => p.StudentID).Select(g => g.FirstOrDefault()).ToList();
+                        //    db.Students
+                        //                    .Join(db.StudentContacts,
+                        //                          sid => sid.StudentID,
+                        //                          cid => cid.StudentId,
+                        //                          (astudent, contact) => new
+                        //                          {
+                        //                              astudent,
+                        //                              contact.ContactedDate
+                        //                          })
+                        //                    .Where(s => s.ContactedDate >= dsd && s.ContactedDate <= ded)
+                        //                    .Select(s => s);
+                        //StudentListConvert(x, ref filterContent);
                     }
                 }
                 if (FilterType == "InterestArea")
@@ -65,6 +71,14 @@ namespace USA_Music_Department.Models.db.Services
                              where a3.InterestAreaName.Contains(replacedsearchstring)
                              select a).ToList();
                     filterContent = x.GroupBy(p => p.StudentID).Select(g => g.FirstOrDefault()).ToList();
+                }
+                if (FilterType == "ApplicationDate")
+                {
+                    var dsd = Convert.ToDateTime(startDate);
+                    var ded = Convert.ToDateTime(endDate);
+                    filterContent = (from a in db.Students
+                             where a.ApplicationDate >= dsd && a.ApplicationDate < ded
+                             select a).ToList();
                 }
                 else
                 {
