@@ -41,7 +41,7 @@ namespace USA_Music_Department.Models.db.Services
                     if (!(startDate == string.Empty) && !(endDate == string.Empty))
                     {
                         var dsd = Convert.ToDateTime(startDate);
-                        var ded = Convert.ToDateTime(endDate);
+                        var ded = Convert.ToDateTime(endDate).AddDays(1);
                         var x = (from a in db.Students
                                  join a2 in db.StudentContacts on a.StudentID equals a2.StudentId
                                  where a2.ContactedDate >= dsd && a2.ContactedDate < ded
@@ -74,10 +74,10 @@ namespace USA_Music_Department.Models.db.Services
                 if (FilterType == "ApplicationDate")
                 {
                     var dsd = Convert.ToDateTime(startDate);
-                    var ded = Convert.ToDateTime(endDate);
+                    var ded = Convert.ToDateTime(endDate).AddDays(1);
                     filterContent = (from a in db.Students
                              where a.ApplicationDate >= dsd && a.ApplicationDate < ded
-                             select a).ToList();
+                    select a).ToList();
                 }
                 else
                 {
