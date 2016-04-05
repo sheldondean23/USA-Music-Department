@@ -223,3 +223,59 @@ C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\ob
 C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\obj\Debug\USA Music Department.Tests.pdb
 C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\SendGridMail.dll
 C:\Github Bandroid Repository\USA-Music-Department\USA Music Department.Tests\bin\Debug\SendGrid.SmtpApi.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\roslyn\csc.exe
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\roslyn\Microsoft.CodeAnalysis.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\roslyn\Microsoft.CSharp.Core.targets
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\roslyn\Microsoft.VisualBasic.Core.targets
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\roslyn\System.Collections.Immutable.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\roslyn\System.Reflection.Metadata.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\roslyn\vbc.exe
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\roslyn\VBCSCompiler.exe
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\roslyn\VBCSCompiler.exe.config
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\USA Music Department.Tests.dll.config
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\USA Music Department.Tests.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\USA Music Department.Tests.pdb
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Web.Helpers.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Web.Mvc.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Web.Razor.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Web.WebPages.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Web.WebPages.Razor.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\USA Music Department.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.Owin.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Web.Optimization.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.Owin.Security.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\Owin.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\EntityFramework.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Linq.Dynamic.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\USA Music Department.pdb
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\Newtonsoft.Json.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Web.Helpers.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Web.Mvc.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Web.Razor.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Web.WebPages.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Web.WebPages.Razor.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.Owin.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\System.Web.Optimization.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.Owin.Security.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\EntityFramework.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\obj\Debug\USA Music Department.Tests.csprojResolveAssemblyReference.cache
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\obj\Debug\USA Music Department.Tests.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\obj\Debug\USA Music Department.Tests.pdb

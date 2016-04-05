@@ -41,6 +41,7 @@
     <Property Name="PerformanceMedium" Type="varchar" MaxLength="100" />
     <Property Name="GraduationYear" Type="varchar" MaxLength="20" />
     <Property Name="EmailAddress" Type="varchar" MaxLength="100" />
+    <Property Name="ApplicationDate" Type="date" Nullable="false" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
