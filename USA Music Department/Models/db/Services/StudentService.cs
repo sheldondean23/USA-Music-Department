@@ -58,11 +58,10 @@ namespace USA_Music_Department.Models.db.Services
                 }
                 if (FilterType == "InterestArea")
                 {
-                    var replacedsearchstring = SearchString.Replace(" ", "");
                     var x = (from a in db.Students
                              join a2 in db.InterestAreatoStudents on a.StudentID equals a2.StudentID
                              join a3 in db.InterestAreas on a2.InterestAreaID equals a3.InterestAreaID
-                             where a3.InterestAreaName.Contains(replacedsearchstring)
+                             where a3.InterestAreaName.Contains(SearchString)
                              select a).ToList();
                     filterContent = x.GroupBy(p => p.StudentID).Select(g => g.FirstOrDefault()).ToList();
                 }
