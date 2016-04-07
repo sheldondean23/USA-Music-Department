@@ -20,19 +20,21 @@ namespace USA_Music_Department.Controllers
     public class StudentsController : Controller
     {
         private BandStudentDBEntities db = new BandStudentDBEntities();
-        private List<Student> filteredContent = new List<Student>();
         private StudentService service = new StudentService();
+        private List<Student> filteredContent = new List<Student>();
 
         // GET: Students
         [Authorize(Roles = "CanView")]
         public ActionResult Index(string FilterType, string SearchString, string StartDate, string EndDate)
-        {            
+        {
+           // Session["filteredContent"].clear;
             Session["filterType"] = service.GetFilterList();
             service.GetStudents(FilterType, SearchString, StartDate, EndDate, ref filteredContent);
             if (!(FilterType == null || FilterType == ""))
             {
                 if (!(filteredContent == null))
                 {
+                    Session["filteredContent"] = filteredContent;
                     return View(filteredContent);
                 }
             }
@@ -198,7 +200,7 @@ namespace USA_Music_Department.Controllers
         [Authorize(Roles = "CanView")]
         public ActionResult Export(string exportDeffinition)
         {
-
+            filteredContent = (List<Student>)Session["filteredContent"];
             if (exportDeffinition == "all")
             {
                 db.Students.ToCsv(Server.MapPath("~/CSV/Student List.csv"));

@@ -25,6 +25,7 @@
     <NavigationProperty Name="StudentContacts" Relationship="Self.FK_StudentContactstoStudents" FromRole="Students" ToRole="StudentContacts" />
     <NavigationProperty Name="InterestAreatoStudents" Relationship="BandStudentDBModel.FK_InterestAreatoStudentstoStudents" FromRole="Student" ToRole="InterestAreatoStudent" />
     <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ApplicationDate" Type="DateTime" Nullable="false" Precision="0" />
   </EntityType>
   <EntityType Name="User">
     <Key>

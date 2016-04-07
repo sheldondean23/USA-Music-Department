@@ -109,17 +109,3 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
-@*<script type="text/javascript">
-        $('#filterOptions').change(function () {
-            var url = $("#filterOptions").data("url") + '/' + $("#filterOptions").val();
-            $.ajax({
-                type: 'GET',
-                url: url,
-                dataType: 'json',
-                error: function (ex) {
-                    console.log('Failed to retrieve filter option. ' + ex);
-                }
-            });
-            return false;
-        });
-</script>*@

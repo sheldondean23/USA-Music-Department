@@ -41,7 +41,7 @@ namespace USA_Music_Department.Models.db.Services
                     if (!(startDate == string.Empty) && !(endDate == string.Empty))
                     {
                         var dsd = Convert.ToDateTime(startDate);
-                        var ded = Convert.ToDateTime(endDate);
+                        var ded = Convert.ToDateTime(endDate).AddDays(1);
                         var x = (from a in db.Students
                                  join a2 in db.StudentContacts on a.StudentID equals a2.StudentId
                                  where a2.ContactedDate >= dsd && a2.ContactedDate < ded
@@ -64,21 +64,20 @@ namespace USA_Music_Department.Models.db.Services
                 }
                 if (FilterType == "InterestArea")
                 {
-                    var replacedsearchstring = SearchString.Replace(" ", "");
                     var x = (from a in db.Students
                              join a2 in db.InterestAreatoStudents on a.StudentID equals a2.StudentID
                              join a3 in db.InterestAreas on a2.InterestAreaID equals a3.InterestAreaID
-                             where a3.InterestAreaName.Contains(replacedsearchstring)
+                             where a3.InterestAreaName.Contains(SearchString)
                              select a).ToList();
                     filterContent = x.GroupBy(p => p.StudentID).Select(g => g.FirstOrDefault()).ToList();
                 }
                 if (FilterType == "ApplicationDate")
                 {
                     var dsd = Convert.ToDateTime(startDate);
-                    var ded = Convert.ToDateTime(endDate);
+                    var ded = Convert.ToDateTime(endDate).AddDays(1);
                     filterContent = (from a in db.Students
                              where a.ApplicationDate >= dsd && a.ApplicationDate < ded
-                             select a).ToList();
+                    select a).ToList();
                 }
                 else
                 {
