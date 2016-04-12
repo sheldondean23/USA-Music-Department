@@ -286,3 +286,80 @@ C:\Github Bandroid Repository\USA-Music-Department\USA Music Department\bin\Send
 C:\Github Bandroid Repository\USA-Music-Department\USA Music Department\bin\System.Net.Http.Formatting.dll
 C:\Github Bandroid Repository\USA-Music-Department\USA Music Department\bin\System.Net.Http.Formatting.xml
 C:\Github Bandroid Repository\USA-Music-Department\USA Music Department\obj\Debug\USA Music Department.csprojResolveAssemblyReference.cache
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\roslyn\csc.exe
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\roslyn\System.Collections.Immutable.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\roslyn\System.Reflection.Metadata.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\roslyn\vbc.exe
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\roslyn\VBCSCompiler.exe
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\roslyn\VBCSCompiler.exe.config
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\USA Music Department.dll.config
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\USA Music Department.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\USA Music Department.pdb
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Antlr3.Runtime.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\EntityFramework.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\EntityFramework.SqlServer.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Microsoft.AspNet.Identity.Core.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Microsoft.Owin.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Microsoft.Owin.Security.Cookies.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Microsoft.Owin.Security.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Microsoft.Owin.Security.Facebook.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Microsoft.Owin.Security.Google.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Microsoft.Owin.Security.OAuth.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Microsoft.Owin.Security.Twitter.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Microsoft.Web.Infrastructure.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Newtonsoft.Json.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Owin.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\SendGrid.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\SendGrid.SmtpApi.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\SendGridMail.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\System.Linq.Dynamic.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\System.Net.Http.Formatting.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\System.Web.Helpers.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\System.Web.Mvc.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\System.Web.Optimization.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\System.Web.Razor.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\System.Web.WebPages.Deployment.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\System.Web.WebPages.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\System.Web.WebPages.Razor.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\WebGrease.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Newtonsoft.Json.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\System.Net.Http.Formatting.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\System.Web.Helpers.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\System.Web.Mvc.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\System.Web.Optimization.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\System.Web.Razor.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\System.Web.WebPages.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\System.Web.WebPages.Deployment.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\System.Web.WebPages.Razor.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Antlr3.Runtime.pdb
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\EntityFramework.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\EntityFramework.SqlServer.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Microsoft.AspNet.Identity.Core.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Microsoft.Owin.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Microsoft.Owin.Security.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Microsoft.Owin.Security.Facebook.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Microsoft.Owin.Security.Cookies.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Microsoft.Owin.Security.OAuth.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Microsoft.Owin.Security.Google.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Microsoft.Owin.Security.Twitter.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\obj\Debug\USA Music Department.csprojResolveAssemblyReference.cache
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\obj\Debug\USA_Music_Department.Migrations.Initial.resources
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\obj\Debug\USA Music Department.csproj.GenerateResource.Cache
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\obj\Debug\USA Music Department.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department\obj\Debug\USA Music Department.pdb

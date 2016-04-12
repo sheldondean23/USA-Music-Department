@@ -9,12 +9,14 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using USA_Music_Department.Models;
+using USA_Music_Department.Models.db;
 
 namespace USA_Music_Department.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
+        BandStudentDBEntities db = new BandStudentDBEntities();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -72,7 +74,21 @@ namespace USA_Music_Department.Controllers
             {
                 return View(model);
             }
+            var activequery = from a in db.Users
+                              where a.UserName == model.Email
+                              select new { a.UserName, a.Active };
 
+            bool isactive = false;
+            string username = null;
+            foreach (var c in activequery)
+            {
+                username = c.UserName;
+                isactive = c.Active;
+            }
+            if ((username != null) && (isactive != true))
+            {
+                return View("Lockout");
+            }
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
@@ -155,15 +171,16 @@ namespace USA_Music_Department.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    //await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
+                    db.CreateBlankUserRecord(model.Email);
                     return RedirectToAction("Index", "Home");
+                    
                 }
                 AddErrors(result);
             }
@@ -231,16 +248,18 @@ namespace USA_Music_Department.Controllers
 
         //
         // GET: /Account/ResetPassword
-        [AllowAnonymous]
-        public ActionResult ResetPassword(string code)
+        [Authorize(Roles = "Admin")]
+        public ActionResult ResetPassword(string id, string username)
         {
-            return code == null ? View("Error") : View();
+            ResetPasswordViewModel pwdview = new ResetPasswordViewModel();
+            pwdview.Email = username;
+            return View(pwdview);
         }
 
         //
         // POST: /Account/ResetPassword
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
         {
@@ -254,6 +273,7 @@ namespace USA_Music_Department.Controllers
                 // Don't reveal that the user does not exist
                 return RedirectToAction("ResetPasswordConfirmation", "Account");
             }
+            model.Code = UserManager.GeneratePasswordResetToken(user.Id);
             var result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
             if (result.Succeeded)
             {
