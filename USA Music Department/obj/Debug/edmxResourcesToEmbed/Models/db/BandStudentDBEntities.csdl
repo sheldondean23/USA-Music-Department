@@ -132,7 +132,7 @@
       <Parameter Name="OperaTheater" Mode="In" Type="Boolean" />
       <Parameter Name="JMB" Mode="In" Type="Boolean" />
       <Parameter Name="Other" Mode="In" Type="String" />
-      <Parameter Name="MMInstrumentalStudies" Mode="In" Type="Boolean" />
+      <Parameter Name="MMConcentrationinMusicEducation" Mode="In" Type="Boolean" />
     </FunctionImport>
     <FunctionImport Name="GetStudentDetails" ReturnType="Collection(BandStudentDBModel.GetStudentDetails_Result)">
       <Parameter Name="Studentid" Mode="In" Type="Int32" />

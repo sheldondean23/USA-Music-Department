@@ -64,7 +64,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.StudentPhone, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Cell Phone*", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.StudentPhone, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.StudentPhone, "", new { @class = "text-danger" })
@@ -112,8 +112,8 @@
                     @Html.LabelFor(model => model.InterestAreas.MM_Performance_Piano)
                 </div>
                 <div class="flex">
-                    @Html.CheckBoxFor(model => model.InterestAreas.MM_Instrumental_Studies, new { htmlAttributes = new { @class = "padding" } })
-                    @Html.LabelFor(model => model.InterestAreas.MM_Instrumental_Studies)
+                    @Html.CheckBoxFor(model => model.InterestAreas.MM_Concentration_in_Music_Education, new { htmlAttributes = new { @class = "padding" } })
+                    @Html.LabelFor(model => model.InterestAreas.MM_Concentration_in_Music_Education)
                 </div>
                 <div class="flex">
                     @Html.CheckBoxFor(model => model.InterestAreas.Music_Minor, new { htmlAttributes = new { @class = "padding" } })

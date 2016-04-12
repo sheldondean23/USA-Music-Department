@@ -8,7 +8,7 @@ namespace USA_Music_Department.Models.Forms.Interest_Form
 {
     public class InterestAreas
     {
-        [Display(Name = "BM BM Music Education Vocal")]
+        [Display(Name = "BM Music Education Vocal")]
         public bool BM_Music_Education_Vocal { get; set; }
         [Display(Name = "BM Music Education Instrumental")]
         public bool BM_Music_Education_Instrumental { get; set; }
@@ -37,7 +37,7 @@ namespace USA_Music_Department.Models.Forms.Interest_Form
         [Display(Name = "Jaguar Marching Band")]
         public bool Jaguar_Marching_Band { get; set; }
         public string Other { get; set; }
-        [Display(Name = "MM Instrumental Studies")]
-        public bool MM_Instrumental_Studies { get; set; }
+        [Display(Name = "MM Concentration in Music Education")]
+        public bool MM_Concentration_in_Music_Education { get; set; }
     }
 }

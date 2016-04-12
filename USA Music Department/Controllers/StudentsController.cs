@@ -128,7 +128,7 @@ namespace USA_Music_Department.Controllers
                 db.CreateUpdate_InterestAreas(student.StudentID, student.InterestAreas.BM_Music_Education_Vocal, student.InterestAreas.BM_Music_Education_Instrumental, student.InterestAreas.BM_Music_Performance_Vocal,
                                               student.InterestAreas.BM_Music_Performance_Instrumental, student.InterestAreas.BM_Music_Elective_Studies_Business, student.InterestAreas.BM_Music_Elective_Studies_Outside_Fields,
                                               student.InterestAreas.MM_Performance_Piano, student.InterestAreas.MM_Performance_Vocal, student.InterestAreas.MM_Collaborative_Piano, student.InterestAreas.Music_Minor, student.InterestAreas.Instrumental_Ensembles,
-                                              student.InterestAreas.Choral_Ensembles, student.InterestAreas.Opera_Theatre, student.InterestAreas.Jaguar_Marching_Band, student.InterestAreas.Other, student.InterestAreas.MM_Instrumental_Studies);
+                                              student.InterestAreas.Choral_Ensembles, student.InterestAreas.Opera_Theatre, student.InterestAreas.Jaguar_Marching_Band, student.InterestAreas.Other, student.InterestAreas.MM_Concentration_in_Music_Education);
                 return RedirectToAction("Index");
             }
             return View(student);

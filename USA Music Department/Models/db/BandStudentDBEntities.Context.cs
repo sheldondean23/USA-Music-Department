@@ -88,7 +88,7 @@ namespace USA_Music_Department.Models.db
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertStudentData", studentFirstNameParameter, studentLastNameParameter, studentAddressParameter, studentCityParameter, studentStateParameter, studentZipCodeParameter, studentPhoneParameter, performanceMediumParameter, graduationYearParameter, emailAddressParameter, outputID);
         }
     
-        public virtual int CreateUpdate_InterestAreas(Nullable<int> studentID, Nullable<bool> bMMusicEdVocal, Nullable<bool> bMMusicEdInst, Nullable<bool> bMMusicPerfVocal, Nullable<bool> bMMusicPerfInst, Nullable<bool> bMMusicElecStudiesBusiness, Nullable<bool> bMMusicElecStudiesOutsideFields, Nullable<bool> mMPerfPiano, Nullable<bool> mMPerfVocal, Nullable<bool> mMCollabPiano, Nullable<bool> musicMinor, Nullable<bool> instEnsembles, Nullable<bool> choralEnsembles, Nullable<bool> operaTheater, Nullable<bool> jMB, string other, Nullable<bool> mMInstrumentalStudies)
+        public virtual int CreateUpdate_InterestAreas(Nullable<int> studentID, Nullable<bool> bMMusicEdVocal, Nullable<bool> bMMusicEdInst, Nullable<bool> bMMusicPerfVocal, Nullable<bool> bMMusicPerfInst, Nullable<bool> bMMusicElecStudiesBusiness, Nullable<bool> bMMusicElecStudiesOutsideFields, Nullable<bool> mMPerfPiano, Nullable<bool> mMPerfVocal, Nullable<bool> mMCollabPiano, Nullable<bool> musicMinor, Nullable<bool> instEnsembles, Nullable<bool> choralEnsembles, Nullable<bool> operaTheater, Nullable<bool> jMB, string other, Nullable<bool> mMConcentrationinMusicEducation)
         {
             var studentIDParameter = studentID.HasValue ?
                 new ObjectParameter("StudentID", studentID) :
@@ -154,11 +154,11 @@ namespace USA_Music_Department.Models.db
                 new ObjectParameter("Other", other) :
                 new ObjectParameter("Other", typeof(string));
     
-            var mMInstrumentalStudiesParameter = mMInstrumentalStudies.HasValue ?
-                new ObjectParameter("MMInstrumentalStudies", mMInstrumentalStudies) :
-                new ObjectParameter("MMInstrumentalStudies", typeof(bool));
+            var mMConcentrationinMusicEducationParameter = mMConcentrationinMusicEducation.HasValue ?
+                new ObjectParameter("MMConcentrationinMusicEducation", mMConcentrationinMusicEducation) :
+                new ObjectParameter("MMConcentrationinMusicEducation", typeof(bool));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CreateUpdate_InterestAreas", studentIDParameter, bMMusicEdVocalParameter, bMMusicEdInstParameter, bMMusicPerfVocalParameter, bMMusicPerfInstParameter, bMMusicElecStudiesBusinessParameter, bMMusicElecStudiesOutsideFieldsParameter, mMPerfPianoParameter, mMPerfVocalParameter, mMCollabPianoParameter, musicMinorParameter, instEnsemblesParameter, choralEnsemblesParameter, operaTheaterParameter, jMBParameter, otherParameter, mMInstrumentalStudiesParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CreateUpdate_InterestAreas", studentIDParameter, bMMusicEdVocalParameter, bMMusicEdInstParameter, bMMusicPerfVocalParameter, bMMusicPerfInstParameter, bMMusicElecStudiesBusinessParameter, bMMusicElecStudiesOutsideFieldsParameter, mMPerfPianoParameter, mMPerfVocalParameter, mMCollabPianoParameter, musicMinorParameter, instEnsemblesParameter, choralEnsemblesParameter, operaTheaterParameter, jMBParameter, otherParameter, mMConcentrationinMusicEducationParameter);
         }
     
         public virtual ObjectResult<GetStudentDetails_Result> GetStudentDetails(Nullable<int> studentid)

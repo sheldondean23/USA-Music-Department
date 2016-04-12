@@ -1,0 +1,79 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - USA Music Department Information Portal</title>
+    @Styles.Render("~/Content/cssjqryUi")
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/Custom.css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top red-fill">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("USA Music Department", "Home", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Student List", "Index", "Students")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-contentLong">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - University of South Alabama Music Department</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryui")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/sorttable.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+        $('#filterOptions').change(function () {
+            if ($("#ddl").val() == "ContactedDate" || $("#ddl").val() == "ApplicationDate")
+            {
+                document.getElementById("filterText").innerHTML = '<div class="flex-item"><label class="control-label col-md-2" for="SearchString"> Start Date: </label></div><div class="flex-item ">@Html.TextBox("StartDate", null, "{0:yyyy-MM-dd}", new { @type = "date", @class = "form-control date-picker" })</div><div class="flex-item"><label class="control-label col-md-2" for="SearchString"> End Date: </label></div><div class="flex-item ">@Html.TextBox("EndDate", null, "{0:yyyy-MM-dd}", new { @type = "date", @class = "form-control date-picker" })</div>'
+            }
+            else
+            {
+                document.getElementById("filterText").innerHTML = '<div class="flex-item"><label class="control-label col-md-2" for="SearchString"> Filter text: </label></div><div class="flex-item ">@Html.TextBox("SearchString", null, new {@class = "form-control date-picker" })</div>'
+            }
+            var url = $("#filterOptions").data("url") + '/' + $("#ddl").val();
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: 'json',
+                success: function (result) {
+                    console.log(result);
+                },
+                error: function (ex) {
+                    console.log('Failed to retrieve filter option. ' + ex);
+                }
+            });
+            return false;
+        });
+        });
+    </script>
+
+</body>
+</html>
