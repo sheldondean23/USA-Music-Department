@@ -97,28 +97,28 @@ namespace USA_Music_Department.Models.db.Services
                 }
             }
         }
-        private void StudentListConvert(IEnumerable<dynamic> datesList, ref List<Student> studentList)
-        {
-            if (!(studentList == null))
-            {
-                studentList.Clear();
-            }
-            Student aStudent = new Student();
-            foreach (dynamic item in datesList)
-                {
-                    aStudent.StudentID = item.StudentID;
-                    aStudent.StudentFirstName = item.StudentFirstName;
-                    aStudent.StudentLastName = item.StudentLastName;
-                    aStudent.StudentAddress = item.StudentAddress;
-                    aStudent.StudentCity = item.StudentCity;
-                    aStudent.StudentState = item.StudentState;
-                    aStudent.StudentZipCode = item.StudentZipCode;
-                    aStudent.StudentPhone = item.StudentPhone;
-                    aStudent.PerformanceMedium = item.PerformanceMedium;
-                    aStudent.GraduationYear = item.GraduationYear;
-                    aStudent.EmailAddress = item.EmailAddress;
-                    studentList.Add(aStudent);
-                }            
-        }
+        //private void StudentListConvert(IEnumerable<dynamic> datesList, ref List<Student> studentList)
+        //{
+        //    if (!(studentList == null))
+        //    {
+        //        studentList.Clear();
+        //    }
+        //    Student aStudent = new Student();
+        //    foreach (dynamic item in datesList)
+        //        {
+        //            aStudent.StudentID = item.StudentID;
+        //            aStudent.StudentFirstName = item.StudentFirstName;
+        //            aStudent.StudentLastName = item.StudentLastName;
+        //            aStudent.StudentAddress = item.StudentAddress;
+        //            aStudent.StudentCity = item.StudentCity;
+        //            aStudent.StudentState = item.StudentState;
+        //            aStudent.StudentZipCode = item.StudentZipCode;
+        //            aStudent.StudentPhone = item.StudentPhone;
+        //            aStudent.PerformanceMedium = item.PerformanceMedium;
+        //            aStudent.GraduationYear = item.GraduationYear;
+        //            aStudent.EmailAddress = item.EmailAddress;
+        //            studentList.Add(aStudent);
+        //        }            
+        //}
     }
 }

@@ -32,7 +32,7 @@
             </div>
         </div>
     </div>
-    <div class="container body-content" {min-width: 500px;}>
+    <div class="container body-content" >
         @RenderBody()
         <hr />
         <footer>
@@ -45,34 +45,6 @@
         @Scripts.Render("~/bundles/jqueryui")
     @RenderSection("scripts", required: false)
     <script src="~/Scripts/sorttable.js"></script>
- 
-    <script type="text/javascript">
-        $(document).ready(function () {
-        $('#filterOptions').change(function () {
-            if ($("#ddl").val() == "ContactedDate" || $("#ddl").val() == "ApplicationDate")
-            {
-                document.getElementById("filterText").innerHTML = '<div class="flex-item"><label class="control-label col-md-2" for="SearchString"> Start Date: </label></div><div class="flex-item ">@Html.TextBox("StartDate", null, "{0:yyyy-MM-dd}", new { @type = "date", @class = "form-control date-picker" })</div><div class="flex-item"><label class="control-label col-md-2" for="SearchString"> End Date: </label></div><div class="flex-item ">@Html.TextBox("EndDate", null, "{0:yyyy-MM-dd}", new { @type = "date", @class = "form-control date-picker" })</div>'
-            }
-            else
-            {
-                document.getElementById("filterText").innerHTML = '<div class="flex-item"><label class="control-label col-md-2" for="SearchString"> Filter text: </label></div><div class="flex-item ">@Html.TextBox("SearchString", null, new {@class = "form-control date-picker" })</div>'
-            }
-            var url = $("#filterOptions").data("url") + '/' + $("#ddl").val();
-            $.ajax({
-                type: 'GET',
-                url: url,
-                dataType: 'json',
-                success: function (result) {
-                    console.log(result);
-                },
-                error: function (ex) {
-                    console.log('Failed to retrieve filter option. ' + ex);
-                }
-            });
-            return false;
-        });
-        });
-    </script>
 
 </body>
 </html>
