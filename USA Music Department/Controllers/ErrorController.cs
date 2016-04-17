@@ -17,7 +17,7 @@ namespace USA_Music_Department.Controllers
         [AllowAnonymous]
         public ViewResult NotFound()
         {
-            Response.StatusCode = 404;
+            //Response.StatusCode = 404;
             return View("NotFound");
         }
     }

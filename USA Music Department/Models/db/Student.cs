@@ -33,7 +33,7 @@ namespace USA_Music_Department.Models.db
         public string GraduationYear { get; set; }
         public string EmailAddress { get; set; }
         public System.DateTime ApplicationDate { get; set; }
-        public string ApplicationDateSubString { get { return ApplicationDate.ToString().Substring(0, 8); } }
+        public string ApplicationDateSubString { get { return ApplicationDate.ToString("M/dd/yyyy"); } }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StudentContact> StudentContacts { get; set; }
