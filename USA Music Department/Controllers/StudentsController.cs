@@ -128,7 +128,7 @@ namespace USA_Music_Department.Controllers
                 db.CreateUpdate_InterestAreas(student.StudentID, student.InterestAreas.BM_Music_Education_Vocal, student.InterestAreas.BM_Music_Education_Instrumental, student.InterestAreas.BM_Music_Performance_Vocal,
                                               student.InterestAreas.BM_Music_Performance_Instrumental, student.InterestAreas.BM_Music_Elective_Studies_Business, student.InterestAreas.BM_Music_Elective_Studies_Outside_Fields,
                                               student.InterestAreas.MM_Performance_Piano, student.InterestAreas.MM_Performance_Vocal, student.InterestAreas.MM_Collaborative_Piano, student.InterestAreas.Music_Minor, student.InterestAreas.Instrumental_Ensembles,
-                                              student.InterestAreas.Choral_Ensembles, student.InterestAreas.Opera_Theatre, student.InterestAreas.Jaguar_Marching_Band, student.InterestAreas.Other, student.InterestAreas.MM_Instrumental_Studies);
+                                              student.InterestAreas.Choral_Ensembles, student.InterestAreas.Opera_Theatre, student.InterestAreas.Jaguar_Marching_Band, student.InterestAreas.Other, student.InterestAreas.MM_Concentration_in_Music_Education);
                 return RedirectToAction("Index");
             }
             return View(student);
@@ -203,7 +203,9 @@ namespace USA_Music_Department.Controllers
             filteredContent = (List<Student>)Session["filteredContent"];
             if (exportDeffinition == "all")
             {
-                db.Students.ToCsv(Server.MapPath("~/CSV/Student List.csv"));
+                var content = db.Students.ToList();
+                var export = service.exportList(content);
+                export.ToCsv(Server.MapPath("~/CSV/Student List.csv"));
 
                 string filename = "Student List.csv";
                 string filepath = Server.MapPath("~/CSV/Student List.csv");
@@ -232,8 +234,8 @@ namespace USA_Music_Department.Controllers
                 }
                 else
                 {
-
-                    filteredContent.ToCsv(Server.MapPath("~/CSV/Fitlered Student List.csv"));
+                    var export = service.exportList(filteredContent);
+                    export.ToCsv(Server.MapPath("~/CSV/Fitlered Student List.csv"));
 
                     string filename = "Fitlered Student List.csv";
                     string filepath = Server.MapPath("~/CSV/Fitlered Student List.csv");

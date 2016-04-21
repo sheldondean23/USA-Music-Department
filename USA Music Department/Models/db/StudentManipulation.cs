@@ -24,7 +24,7 @@ namespace USA_Music_Department.Models.db
                                           student.InterestAreas.BM_Music_Elective_Studies_Business, student.InterestAreas.BM_Music_Elective_Studies_Outside_Fields,
                                           student.InterestAreas.MM_Performance_Piano, student.InterestAreas.MM_Performance_Vocal, student.InterestAreas.MM_Collaborative_Piano,
                                           student.InterestAreas.Music_Minor, student.InterestAreas.Instrumental_Ensembles, student.InterestAreas.Choral_Ensembles,
-                                          student.InterestAreas.Opera_Theatre, student.InterestAreas.Jaguar_Marching_Band, student.InterestAreas.Other, student.InterestAreas.MM_Instrumental_Studies);
+                                          student.InterestAreas.Opera_Theatre, student.InterestAreas.Jaguar_Marching_Band, student.InterestAreas.Other, student.InterestAreas.MM_Concentration_in_Music_Education);
             db.SaveChanges();
         }
 
@@ -77,7 +77,7 @@ namespace USA_Music_Department.Models.db
                 student.InterestAreas.Choral_Ensembles = reader.GetBoolean(21);
                 student.InterestAreas.Opera_Theatre = reader.GetBoolean(22);
                 student.InterestAreas.Jaguar_Marching_Band = reader.GetBoolean(23);
-                student.InterestAreas.MM_Instrumental_Studies = reader.GetBoolean(25);
+                student.InterestAreas.MM_Concentration_in_Music_Education = reader.GetBoolean(25);
                 student.InterestAreas.Other = reader.GetString(26);
             }
 

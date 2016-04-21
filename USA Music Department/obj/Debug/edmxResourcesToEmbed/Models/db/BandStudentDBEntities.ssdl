@@ -135,7 +135,7 @@ warning 6002: The table/view 'BandStudentDB.dbo._vGetUsers' does not have a prim
     <Parameter Name="OperaTheater" Type="bit" Mode="In" />
     <Parameter Name="JMB" Type="bit" Mode="In" />
     <Parameter Name="Other" Type="varchar" Mode="In" />
-    <Parameter Name="MMInstrumentalStudies" Type="bit" Mode="In" />
+    <Parameter Name="MMConcentrationinMusicEducation" Type="bit" Mode="In" />
   </Function>
   <Function Name="DeleteStudentData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Id" Type="int" Mode="In" />

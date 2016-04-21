@@ -64,7 +64,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.StudentPhone, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Cell Phone*", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.StudentPhone, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.StudentPhone, "", new { @class = "text-danger" })
@@ -112,8 +112,8 @@
                     @Html.LabelFor(model => model.InterestAreas.MM_Performance_Piano)
                 </div>
                 <div class="flex">
-                    @Html.CheckBoxFor(model => model.InterestAreas.MM_Instrumental_Studies, new { htmlAttributes = new { @class = "padding" } })
-                    @Html.LabelFor(model => model.InterestAreas.MM_Instrumental_Studies)
+                    @Html.CheckBoxFor(model => model.InterestAreas.MM_Concentration_in_Music_Education, new { htmlAttributes = new { @class = "padding" } })
+                    @Html.LabelFor(model => model.InterestAreas.MM_Concentration_in_Music_Education)
                 </div>
                 <div class="flex">
                     @Html.CheckBoxFor(model => model.InterestAreas.Music_Minor, new { htmlAttributes = new { @class = "padding" } })
@@ -137,7 +137,9 @@
                 </div>
                 <div class="flex">
                     @Html.LabelFor(model => model.InterestAreas.Other, htmlAttributes: new { @class = "no-padding" })
-                    @Html.EditorFor(model => model.InterestAreas.Other, new { htmlAttributes = new { @class = "form-control" } })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.InterestAreas.Other, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
                 </div>
             </div>
         </div>
@@ -153,7 +155,32 @@
         <div class="form-group">
             @Html.LabelFor(model => model.PerformanceMedium, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PerformanceMedium, new { htmlAttributes = new { @class = "form-control" } })
+                <select class = "form-control" name="PerformanceMedium">
+                    <option value="Voice - Soprano">Voice - Soprano</option>
+                    <option value="Voice - Mezzo Soprano">Voice - Mezzo Soprano</option>
+                    <option value="Voice - Alto">Voice - Alto</option>
+                    <option value="Voice - Tenor">Voice - Tenor</option>
+                    <option value="Voice - Baritone">Voice - Baritone</option>
+                    <option value="Voice - Bass">Voice - Bass</option>
+                    <option value="Piano">Piano</option>
+                    <option value="Flute">Flute</option>
+                    <option value="Oboe">Oboe</option>
+                    <option value="Bassoon">Bassoon</option>
+                    <option value="Clarinet">Clarinet</option>
+                    <option value="Saxophone">Saxophone</option>
+                    <option value="Trumpet">Trumpet</option>
+                    <option value="French Horn">French Horn</option>
+                    <option value="Trombone">Trombone</option>
+                    <option value="Euphonium">Euphonium</option>
+                    <option value="Tuba">Tuba</option>
+                    <option value="Percussion">Percussion</option>
+                    <option value="Violin">Violin</option>
+                    <option value="Viola">Viola</option>
+                    <option value="Cello">Cello</option>
+                    <option value="Double Bass">Double Bass</option>
+                    <option value="Guitar">Guitar</option>
+                    <option value="Marching">Marching</option>
+                </select>
                 @Html.ValidationMessageFor(model => model.PerformanceMedium, "", new { @class = "text-danger" })
             </div>
         </div>

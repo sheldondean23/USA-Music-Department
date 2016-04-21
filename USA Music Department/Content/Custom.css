@@ -12,7 +12,6 @@ div.container.body-content
     border-radius: 25px;
     color: white;
     box-sizing: border-box;
-    /*min-width: 1000px;*/
 }
 .red-fill
 {
@@ -99,4 +98,12 @@ a
     table-layout:fixed;
     word-wrap:break-word;
     border-collapse:collapse;
+}
+div.container.body-contentLong
+{    
+    background-color:rgba(3, 2, 104, 0.85);
+    border-radius: 25px;
+    color: white;
+    box-sizing: border-box;
+    min-width: 1200px;
 }
