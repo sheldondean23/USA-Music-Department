@@ -279,3 +279,5 @@ C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\b
 C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\obj\Debug\USA Music Department.Tests.csprojResolveAssemblyReference.cache
 C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\obj\Debug\USA Music Department.Tests.dll
 C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\obj\Debug\USA Music Department.Tests.pdb
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\SendGridMail.dll
+C:\CIS497\USA-Music-Department\USA-Music-Department\USA Music Department.Tests\bin\Debug\SendGrid.SmtpApi.dll
