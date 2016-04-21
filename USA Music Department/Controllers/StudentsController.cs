@@ -203,7 +203,9 @@ namespace USA_Music_Department.Controllers
             filteredContent = (List<Student>)Session["filteredContent"];
             if (exportDeffinition == "all")
             {
-                db.Students.ToCsv(Server.MapPath("~/CSV/Student List.csv"));
+                var content = db.Students.ToList();
+                var export = service.exportList(content);
+                export.ToCsv(Server.MapPath("~/CSV/Student List.csv"));
 
                 string filename = "Student List.csv";
                 string filepath = Server.MapPath("~/CSV/Student List.csv");
@@ -232,8 +234,8 @@ namespace USA_Music_Department.Controllers
                 }
                 else
                 {
-
-                    filteredContent.ToCsv(Server.MapPath("~/CSV/Fitlered Student List.csv"));
+                    var export = service.exportList(filteredContent);
+                    export.ToCsv(Server.MapPath("~/CSV/Fitlered Student List.csv"));
 
                     string filename = "Fitlered Student List.csv";
                     string filepath = Server.MapPath("~/CSV/Fitlered Student List.csv");

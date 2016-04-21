@@ -92,10 +92,29 @@ namespace USA_Music_Department.Models.db.Services
 
                        
                     }
-
                     
                 }
             }
+        }
+        public List<StudentExport> exportList(List<Student> list)
+        {          
+            BandStudentDBEntities db = new BandStudentDBEntities();
+            var export = (from student in list                         
+                          select new StudentExport
+                          {
+                              StudentFirstName =  student.StudentFirstName,
+                              StudentLastName = student.StudentLastName,
+                              StudentAddress = student.StudentAddress,
+                              StudentCity = student.StudentCity,
+                              StudentState =  student.StudentState,
+                              StudentZipCode = student.StudentZipCode,
+                              StudentPhone = student.StudentPhone,
+                              PerformanceMedium = student.PerformanceMedium,
+                              GraduationYear = student.GraduationYear,
+                              EmailAddress = student.EmailAddress,
+                              ApplicationDate = student.ApplicationDateSubString
+                          }).ToList();
+            return export;
         }
         //private void StudentListConvert(IEnumerable<dynamic> datesList, ref List<Student> studentList)
         //{
