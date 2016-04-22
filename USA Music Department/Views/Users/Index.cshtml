@@ -38,7 +38,8 @@
             @Html.ActionLink("Edit Roles", "Edit", new { id=item.id, name=item.username})|
             @Html.ActionLink("Check Roles", "Details", new { id=item.id, name = item.username}) |
             @Html.ActionLink("Edit User Information", "EditUserInfo", new { id = item.id}) |
-            @Html.ActionLink("Reset User Password", "ResetPassword", "Account", new { id = item.id, username = item.username }, null )
+            @Html.ActionLink("Reset User Password", "ResetPassword", "Account", new { id = item.id, username = item.username }, null ) |
+            @Html.ActionLink("Delete User", "Delete", new { id = item.id, username = item.username, userfirstname = item.UserFirstName, userlastname = item.UserLastName })
             @*@Html.ActionLink("Delete", "Delete", new { id=item.id })*@
         </td>
     </tr>

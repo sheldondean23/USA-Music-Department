@@ -291,5 +291,14 @@ namespace USA_Music_Department.Models.db
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdateStudentData", studentIdParameter, studentFirstNameParameter, studentLastNameParameter, studentAddressParameter, studentCityParameter, studentStateParameter, studentZipCodeParameter, studentPhoneParameter, performanceMediumParameter, graduationYearParameter, emailAddressParameter);
         }
+    
+        public virtual int DeleteUser(string userName)
+        {
+            var userNameParameter = userName != null ?
+                new ObjectParameter("UserName", userName) :
+                new ObjectParameter("UserName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteUser", userNameParameter);
+        }
     }
 }
