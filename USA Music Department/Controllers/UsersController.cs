@@ -174,31 +174,36 @@ namespace USA_Music_Department.Controllers
             return RedirectToAction("Index");
         }
 
-        //// GET: Users/Delete/5
-        //public ActionResult Delete(string id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    C_vGetUsers c_vGetUsers = db.C_vGetUsers.Find(id);
-        //    if (c_vGetUsers == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(c_vGetUsers);
-        //}
+        // GET: Users/Delete/5
+        public ActionResult Delete(string id, string username, string userfirstname, string userlastname)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            C_vGetUsers user = new C_vGetUsers();
+            user.id = id;
+            user.username = username;
+            user.UserFirstName = userfirstname;
+            user.UserLastName = userlastname;
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user);
+        }
 
-        //// POST: Users/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(string id)
-        //{
-        //    C_vGetUsers c_vGetUsers = db.C_vGetUsers.Find(id);
-        //    db.C_vGetUsers.Remove(c_vGetUsers);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
+        // POST: Users/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(C_vGetUsers user)
+        {
+            ApplicationUser appuser = new ApplicationUser();
+            appuser = UserManager.FindByEmail(user.username);
+            db.DeleteUser(user.username);
+            UserManager.Delete(appuser);
+            return RedirectToAction("Index");
+        }
 
         protected override void Dispose(bool disposing)
         {

@@ -148,6 +148,9 @@ warning 6002: The table/view 'BandStudentDB.dbo._vGetUsers' does not have a prim
         <Function Name="DeleteStudentData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id" Type="int" Mode="In" />
         </Function>
+        <Function Name="DeleteUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="GetStudentDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Studentid" Type="int" Mode="In" />
         </Function>
@@ -404,6 +407,9 @@ warning 6002: The table/view 'BandStudentDB.dbo._vGetUsers' does not have a prim
             <Parameter Name="GraduationYear" Mode="In" Type="String" />
             <Parameter Name="EmailAddress" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="DeleteUser">
+            <Parameter Name="UserName" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="InterestAreatoStudent">
           <Key>
@@ -595,6 +601,7 @@ warning 6002: The table/view 'BandStudentDB.dbo._vGetUsers' does not have a prim
           <FunctionImportMapping FunctionImportName="UpdateUserRecord" FunctionName="BandStudentDBModel.Store.UpdateUserRecord" />
           <FunctionImportMapping FunctionImportName="InsertContactRecord" FunctionName="BandStudentDBModel.Store.InsertContactRecord" />
           <FunctionImportMapping FunctionImportName="UpdateStudentData" FunctionName="BandStudentDBModel.Store.UpdateStudentData" />
+          <FunctionImportMapping FunctionImportName="DeleteUser" FunctionName="BandStudentDBModel.Store.DeleteUser" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
