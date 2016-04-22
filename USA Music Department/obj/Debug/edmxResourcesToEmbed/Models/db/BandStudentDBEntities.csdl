@@ -173,6 +173,9 @@
       <Parameter Name="GraduationYear" Mode="In" Type="String" />
       <Parameter Name="EmailAddress" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="DeleteUser">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="InterestAreatoStudent">
     <Key>

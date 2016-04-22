@@ -3,9 +3,8 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2 class="text-center">Details</h2>
+<h2 class="text-center">Student Details</h2>
 <div>
-    <h4>Student</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -69,7 +68,7 @@
             @Html.DisplayFor(model => model.EmailAddress)
         </dd>
         <dt>
-            InterestAreas
+            @Html.Label("Interest Areas")
         </dt>
         <dd>
             BM BM Music Education Vocal

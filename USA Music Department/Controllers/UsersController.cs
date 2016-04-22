@@ -128,7 +128,6 @@ namespace USA_Music_Department.Controllers
             }
             return View(user);
         }
-        [Authorize(Roles ="Admin")]
         // POST: Users/Edit/5
         [Authorize(Roles = "Admin")]
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -175,6 +174,7 @@ namespace USA_Music_Department.Controllers
         }
 
         // GET: Users/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(string id, string username, string userfirstname, string userlastname)
         {
             if (id == null)
@@ -194,6 +194,7 @@ namespace USA_Music_Department.Controllers
         }
 
         // POST: Users/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(C_vGetUsers user)

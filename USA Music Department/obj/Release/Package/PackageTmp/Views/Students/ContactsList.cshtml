@@ -1,22 +1,22 @@
 ﻿@model IEnumerable<USA_Music_Department.Models.db.ContactList>
 
 @{
-    ViewBag.Title = "ContactsList";
+    ViewBag.Title = "Contacts List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 class="text-center">ContactsList</h2>
-@Html.ActionLink("Add Contact", "StudentContact", new { id = ViewBag.Id})
+<h2 class="text-center">Contact List</h2>
+@Html.ActionLink("Add Contact", "StudentContact", new { id = ViewBag.Id }, new { @class = "btn btn-default glyphicon-plus" })
 <table  class="table sortable tablefit" width="100%">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ContactedDate)
+            @Html.Label("Contacted Date")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ContactMedium)
+            @Html.Label("Method of Contact")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EmployeeName)
+            @Html.Label("Employee Name")
         </th>
         <th></th>
     </tr>
@@ -41,3 +41,5 @@
 }
 
 </table>
+
+<div>@Html.ActionLink("Back to List", "Index")</div>

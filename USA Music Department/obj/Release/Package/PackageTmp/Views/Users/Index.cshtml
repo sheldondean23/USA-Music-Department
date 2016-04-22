@@ -6,19 +6,21 @@
 }
 
 <h2 class="text-center">Users</h2>
-
+<div>
+    <p>@Html.ActionLink("Create New User", "Register", "Account", null, new { @class = "btn btn-default glyphicon-plus" }) </p>
+</div>
 <p>
 </p>
 <table  class="table sortable tablefit" width="100%">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.username)
+            @Html.Label("Username")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UserFirstName)
+            @Html.Label("User First Name")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UserLastName)
+            @Html.Label("User Last Name")
         </th>
         <th></th>
     </tr>
@@ -38,8 +40,8 @@
             @Html.ActionLink("Edit Roles", "Edit", new { id=item.id, name=item.username})|
             @Html.ActionLink("Check Roles", "Details", new { id=item.id, name = item.username}) |
             @Html.ActionLink("Edit User Information", "EditUserInfo", new { id = item.id}) |
-            @Html.ActionLink("Reset User Password", "ResetPassword", "Account", new { id = item.id, username = item.username }, null )
-            @*@Html.ActionLink("Delete", "Delete", new { id=item.id })*@
+            @Html.ActionLink("Reset User Password", "ResetPassword", "Account", new { id = item.id, username = item.username }, null ) |
+            @Html.ActionLink("Delete User", "Delete", new { id = item.id, username = item.username, userfirstname = item.UserFirstName, userlastname = item.UserLastName })
         </td>
     </tr>
 }

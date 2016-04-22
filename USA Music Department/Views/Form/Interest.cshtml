@@ -12,7 +12,8 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Student</h4>
+        <h4>Enter your contact information below.</h4>
+        <h5>Fields with a * are required.</h5>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -179,7 +180,7 @@
                     <option value="Cello">Cello</option>
                     <option value="Double Bass">Double Bass</option>
                     <option value="Guitar">Guitar</option>
-                    <option value="Marching">Marching</option>
+                    <option value="Colorguard">Colorguard</option>
                 </select>
                 @Html.ValidationMessageFor(model => model.PerformanceMedium, "", new { @class = "text-danger" })
             </div>
@@ -201,9 +202,9 @@
     </div>
 }
 
-<div>
+@*<div>
     @Html.ActionLink("Back to List", "Index")
-</div>
+</div>*@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
