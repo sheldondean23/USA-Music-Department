@@ -12,7 +12,7 @@ namespace USA_Music_Department.Controllers
         [AllowAnonymous]
         public ActionResult Home()
         {
-            return View();
+            return Redirect("http://www.southalabama.edu/colleges/music/");
         }
         [AllowAnonymous]
         public ActionResult Index()
