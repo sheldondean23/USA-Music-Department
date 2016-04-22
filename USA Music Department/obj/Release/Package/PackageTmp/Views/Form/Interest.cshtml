@@ -137,8 +137,9 @@
                 </div>
                 <div class="flex">
                     @Html.LabelFor(model => model.InterestAreas.Other, htmlAttributes: new { @class = "no-padding" })
-                    
-                    @Html.EditorFor(model => model.InterestAreas.Other, new { htmlAttributes = new { @class = "form-control" } })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.InterestAreas.Other, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
                 </div>
             </div>
         </div>
@@ -157,6 +158,7 @@
                 <select class = "form-control" name="PerformanceMedium">
                     <option value="Voice - Soprano">Voice - Soprano</option>
                     <option value="Voice - Mezzo Soprano">Voice - Mezzo Soprano</option>
+                    <option value="Voice - Alto">Voice - Alto</option>
                     <option value="Voice - Tenor">Voice - Tenor</option>
                     <option value="Voice - Baritone">Voice - Baritone</option>
                     <option value="Voice - Bass">Voice - Bass</option>
@@ -172,7 +174,7 @@
                     <option value="Euphonium">Euphonium</option>
                     <option value="Tuba">Tuba</option>
                     <option value="Percussion">Percussion</option>
-                    <option value="Voilin">Voilin</option>
+                    <option value="Violin">Violin</option>
                     <option value="Viola">Viola</option>
                     <option value="Cello">Cello</option>
                     <option value="Double Bass">Double Bass</option>

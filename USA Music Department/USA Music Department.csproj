@@ -236,6 +236,7 @@
     <Compile Include="Models\db\InterestAreatoStudent.cs">
       <DependentUpon>BandStudentDBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\db\Services\StudentExport.cs" />
     <Compile Include="Models\db\Services\StudentService.cs" />
     <Compile Include="Models\db\Student.cs">
       <DependentUpon>BandStudentDBEntities.tt</DependentUpon>
