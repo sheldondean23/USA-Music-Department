@@ -155,7 +155,33 @@
         <div class="form-group">
             @Html.LabelFor(model => model.PerformanceMedium, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PerformanceMedium, new { htmlAttributes = new { @class = "form-control" } })
+                <select class="form-control" name="PerformanceMedium">
+                    <option value="@Model.PerformanceMedium">@Model.PerformanceMedium - Current</option>
+                    <option value="Voice - Soprano">Voice - Soprano</option>
+                    <option value="Voice - Mezzo Soprano">Voice - Mezzo Soprano</option>
+                    <option value="Voice - Alto">Voice - Alto</option>
+                    <option value="Voice - Tenor">Voice - Tenor</option>
+                    <option value="Voice - Baritone">Voice - Baritone</option>
+                    <option value="Voice - Bass">Voice - Bass</option>
+                    <option value="Piano">Piano</option>
+                    <option value="Flute">Flute</option>
+                    <option value="Oboe">Oboe</option>
+                    <option value="Bassoon">Bassoon</option>
+                    <option value="Clarinet">Clarinet</option>
+                    <option value="Saxophone">Saxophone</option>
+                    <option value="Trumpet">Trumpet</option>
+                    <option value="French Horn">French Horn</option>
+                    <option value="Trombone">Trombone</option>
+                    <option value="Euphonium">Euphonium</option>
+                    <option value="Tuba">Tuba</option>
+                    <option value="Percussion">Percussion</option>
+                    <option value="Violin">Violin</option>
+                    <option value="Viola">Viola</option>
+                    <option value="Cello">Cello</option>
+                    <option value="Double Bass">Double Bass</option>
+                    <option value="Guitar">Guitar</option>
+                    <option value="Colorguard">Colorguard</option>
+                </select>
                 @Html.ValidationMessageFor(model => model.PerformanceMedium, "", new { @class = "text-danger" })
             </div>
         </div>

@@ -75,7 +75,7 @@ namespace USA_Music_Department.Controllers
         }
 
         // GET: Students/Create
-        [Authorize(Roles = "CanEdit")]
+        [Authorize]
         public ActionResult Create()
         {
             return RedirectToAction("interest", "Form");

@@ -55,12 +55,12 @@ namespace USA_Music_Department.Controllers
                 myMessage.From = new MailAddress("banddroiddonotreply@gmail.com", "USA Music Department");
                 myMessage.Subject = "New Student";
                 myMessage.Text = student.StudentFirstName + " " + student.StudentLastName + " has submitted an application as of " + DateTime.Now + ".";
-                
+                var transportWeb = new SendGrid.Web("");
                 transportWeb.DeliverAsync(myMessage);
                 //Email Information
 
-                return RedirectToAction("Index");
-                              
+                return Redirect("http://www.southalabama.edu/colleges/music/");
+
             }
             catch
             {

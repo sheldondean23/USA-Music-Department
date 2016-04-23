@@ -61,7 +61,7 @@ namespace USA_Music_Department.Models.db
                 try {
                     student.EmailAddress = reader.GetString(9);
                 }
-                catch { student.EmailAddress = "No E-Mail";
+                catch { 
                 }
                 student.InterestAreas.BM_Music_Education_Vocal = reader.GetBoolean(10);
                 student.InterestAreas.BM_Music_Education_Instrumental = reader.GetBoolean(11);
