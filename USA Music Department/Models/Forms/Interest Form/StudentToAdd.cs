@@ -47,7 +47,7 @@ namespace USA_Music_Department.Models.Forms.Interest_Form
 
         [Required(ErrorMessage = "Performance Medium Required")]
         [Display(Name = "Performance Medium*")]
-        [RegularExpression("([a-zA-Z ]+)", ErrorMessage = "Performance Medium can only contain letters")]
+        [RegularExpression("([a-zA-Z -]+)", ErrorMessage = "Performance Medium can only contain letters")]
         public string PerformanceMedium { get; set; }
 
         [Required(ErrorMessage = "Grad Year Required")]
