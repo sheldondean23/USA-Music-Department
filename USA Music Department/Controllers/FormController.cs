@@ -55,7 +55,7 @@ namespace USA_Music_Department.Controllers
                 myMessage.From = new MailAddress("banddroiddonotreply@gmail.com", "USA Music Department");
                 myMessage.Subject = "New Student";
                 myMessage.Text = student.StudentFirstName + " " + student.StudentLastName + " has submitted an application as of " + DateTime.Now + ".";
-                var transportWeb = new SendGrid.Web("");
+                var transportWeb = new SendGrid.Web("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");
                 transportWeb.DeliverAsync(myMessage);
                 //Email Information
 
